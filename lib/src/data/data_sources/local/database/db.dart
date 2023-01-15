@@ -4,6 +4,7 @@ import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
+import 'package:shop_list/src/data/models/category.dart';
 
 import '../../../models/list.dart';
 import 'category_table.dart';
@@ -16,11 +17,10 @@ const String _dataBaseName = "shop_list.db";
 
 LazyDatabase _openConnection() => LazyDatabase(
       () async {
-        // put the database file, called db.sqlite here, into the documents folder
-        // for your app.
         final dbFolder = await getApplicationDocumentsDirectory();
         final file = File(p.join(dbFolder.path, _dataBaseName));
 
+        //TODO remove
         // if (!await file.exists()) {
         //   // Extract the pre-populated database file from assets
         //   final blob = await rootBundle.load('assets/my_database.db');
@@ -48,6 +48,25 @@ class ShopListDataBase extends _$ShopListDataBase {
     return transaction(() async {
       await into(categoryItems).insert(companion, mode: InsertMode.replace);
     });
+  }
+
+  Future<void> deleteCategory(int id) async {
+    return transaction(() async {
+      await (delete(categoryItems)..where((tbl) => tbl.id.equals(id))).go();
+    });
+  }
+
+  Future<void> editCategory(CategoryItemsCompanion companion) async {
+    return transaction(() async {
+      await update(categoryItems).replace(companion);
+    });
+  }
+
+  Future<List<CategoryData>> getAllCategories() async {
+    return (await select(categoryItems).get())
+        .map((e) => e.toCompanion(false))
+        .map((e) => e.toItem())
+        .toList();
   }
 
   Future<void> insertList(ListItemsCompanion companion) async {

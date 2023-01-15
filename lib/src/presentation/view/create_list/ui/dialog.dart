@@ -26,7 +26,7 @@ class CreateListDialog extends StatelessWidget {
                     context.read<CreateListBloc>().updateText(text);
                   },
                   decoration: InputDecoration(
-                    hintText: "Имя категории"
+                    hintText: "Имя списка"
                   ),
                 ),
                 const SizedBox(height: 20),

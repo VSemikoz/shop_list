@@ -17,7 +17,12 @@ abstract class RouterEvent with _$RouterEvent {
 
   const factory RouterEvent.favorite() = RouteFavorite;
 
-  const factory RouterEvent.category() = RouteCategory;
+  const factory RouterEvent.categoryList() = RouteCategoryList;
+
+  const factory RouterEvent.editCategory({
+    required EditCategoryTransaction transaction,
+
+  }) = RouteEditCategory;
 
   const factory RouterEvent.bucket() = RouteBucket;
 }

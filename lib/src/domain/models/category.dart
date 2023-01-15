@@ -49,5 +49,14 @@ class CategoryEntry {
     );
   }
 
+  factory CategoryEntry.insert({
+    required String name,
+  }) {
+    return CategoryEntry(
+      id: 0,
+      name: name,
+    );
+  }
+
 //</editor-fold>
 }

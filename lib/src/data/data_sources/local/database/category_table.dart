@@ -23,4 +23,10 @@ extension CategoryDataExtension on CategoryData {
       name: name,
     );
   }
+  CategoryItemsCompanion toUpdateCompanion() {
+    return CategoryItemsCompanion(
+      id: Value(id),
+      name: Value(name),
+    );
+  }
 }

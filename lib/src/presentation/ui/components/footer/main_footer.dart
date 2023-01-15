@@ -35,14 +35,15 @@ class MainFooter extends StatelessWidget {
                     context.read<RouterBloc>().add(RouterEvent.listOfLists());
                   },
                   icon: Icons.apps_rounded,
-
                 ),
                 _Button(
                   onPressed: () {},
                   icon: Icons.star_border,
                 ),
                 _Button(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.read<RouterBloc>().add(RouterEvent.categoryList());
+                  },
                   icon: Icons.list,
                 ),
               ],
