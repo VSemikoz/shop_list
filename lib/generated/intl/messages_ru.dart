@@ -22,6 +22,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "listScreenAppBar": MessageLookupByLibrary.simpleMessage("Списки")
+        "categoryListScreenAppBar":
+            MessageLookupByLibrary.simpleMessage("Категории"),
+        "createListScreenHint":
+            MessageLookupByLibrary.simpleMessage("Имя списка"),
+        "editCategoryHint":
+            MessageLookupByLibrary.simpleMessage("Имя категории"),
+        "listOfListsScreenAppBar":
+            MessageLookupByLibrary.simpleMessage("Списки")
       };
 }

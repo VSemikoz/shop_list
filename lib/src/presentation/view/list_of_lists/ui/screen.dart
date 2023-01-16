@@ -117,7 +117,7 @@ class _AppBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            S.of(context).listScreenAppBar,
+            S.of(context).listOfListsScreenAppBar,
             style: context.textStyle.headlineLarge,
           ),
           MaterialTapWrapper(

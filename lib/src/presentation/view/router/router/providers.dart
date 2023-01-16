@@ -40,7 +40,7 @@ class ScreenProvider {
       );
 
   static RouteInfo categoryList() => RouteInfo(
-        id: CreateListDialog.id,
+        id: CategoryListScreen.id,
         pageType: PageType.dialog,
         builder: (context) => Provider(
           create: (_) => getIt<CategoriesListBloc>(

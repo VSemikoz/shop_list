@@ -1,4 +1,6 @@
 {
-  "listScreenAppBar": "Lists"
-
+  "listOfListsScreenAppBar": "Lists",
+  "createListScreenHint": "List",
+  "categoryListScreenAppBar": "Categories",
+  "editCategoryHint": "Category"
 }

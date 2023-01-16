@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_list/src/presentation/ui/widgets/tappable/common.dart';
 
+import '../../../../../generated/l10n.dart';
 import '../../router/router/providers.dart';
 import '../bloc/category_edit.dart';
 
@@ -25,7 +26,9 @@ class CategoryEditDialog extends StatelessWidget {
                   onChanged: (text) {
                     context.read<CategoryEditBloc>().updateText(text);
                   },
-                  decoration: InputDecoration(hintText: "Имя категории"),
+                  decoration: InputDecoration(
+                    hintText: S.of(context).editCategoryHint,
+                  ),
                 ),
                 _Buttons(),
                 const SizedBox(height: 20),

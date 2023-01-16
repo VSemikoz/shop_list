@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_list/src/common/providers/theme/theme.dart';
 import 'package:shop_list/src/presentation/ui/widgets/tappable/common.dart';
 
+import '../../../../../generated/l10n.dart';
 import '../bloc/create_list.dart';
 
 class CreateListDialog extends StatelessWidget {
@@ -26,7 +27,7 @@ class CreateListDialog extends StatelessWidget {
                     context.read<CreateListBloc>().updateText(text);
                   },
                   decoration: InputDecoration(
-                    hintText: "Имя списка"
+                    hintText: S.of(context).editCategoryHint,
                   ),
                 ),
                 const SizedBox(height: 20),

@@ -1,3 +1,6 @@
 {
-  "listScreenAppBar": "Списки"
+  "listOfListsScreenAppBar": "Списки",
+  "createListScreenHint": "Имя списка",
+  "categoryListScreenAppBar": "Категории",
+  "editCategoryHint": "Имя категории"
 }

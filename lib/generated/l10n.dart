@@ -51,10 +51,40 @@ class S {
   }
 
   /// `Lists`
-  String get listScreenAppBar {
+  String get listOfListsScreenAppBar {
     return Intl.message(
       'Lists',
-      name: 'listScreenAppBar',
+      name: 'listOfListsScreenAppBar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `List`
+  String get createListScreenHint {
+    return Intl.message(
+      'List',
+      name: 'createListScreenHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Categories`
+  String get categoryListScreenAppBar {
+    return Intl.message(
+      'Categories',
+      name: 'categoryListScreenAppBar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Category`
+  String get editCategoryHint {
+    return Intl.message(
+      'Category',
+      name: 'editCategoryHint',
       desc: '',
       args: [],
     );
