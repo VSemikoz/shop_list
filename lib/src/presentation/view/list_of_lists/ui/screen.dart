@@ -18,54 +18,57 @@ class ListOfListsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: context.colorTheme.background.primary,
-      body: BlocBuilder<ListOfListsBloc, ListOfListsState>(
-        builder: (context, state) {
-          return Column(
-            children: [
-              _AppBar(
-                variant: state is ListOfListsSuccess
-                    ? state.variant
-                    : ListViewVariant.row,
-              ),
-              if (state is ListOfListsSuccess)
-                _SuccessScreen(
-                  variant: state.variant,
-                  lists: state.lists,
+    return SafeArea(
+      top: true,
+      child: Scaffold(
+        backgroundColor: context.colorTheme.background.primary,
+        body: BlocBuilder<ListOfListsBloc, ListOfListsState>(
+          builder: (context, state) {
+            return Column(
+              children: [
+                _AppBar(
+                  variant: state is ListOfListsSuccess
+                      ? state.variant
+                      : ListViewVariant.row,
                 ),
-              if (state is ListOfListsLoading)
-                Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Center(
-                        child: AppActivityIndicator(
-                          isDark: true,
-                        ),
-                      ),
-                    ],
+                if (state is ListOfListsSuccess)
+                  _SuccessScreen(
+                    variant: state.variant,
+                    lists: state.lists,
                   ),
-                )
-            ],
-          );
-        },
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          context.read<RouterBloc>().add(
-                RouterEvent.createList(
-                  transaction: CreateListTransaction(
-                    initColor: context.colorThemeRead.picker.list[0],
-                    onSuccess: () => context.read<ListOfListsBloc>().add(
-                          ListOfListsEvent.init(),
+                if (state is ListOfListsLoading)
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Center(
+                          child: AppActivityIndicator(
+                            isDark: true,
+                          ),
                         ),
+                      ],
+                    ),
+                  )
+              ],
+            );
+          },
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            context.read<RouterBloc>().add(
+                  RouterEvent.createList(
+                    transaction: CreateListTransaction(
+                      initColor: context.colorThemeRead.picker.list[0],
+                      onSuccess: () => context.read<ListOfListsBloc>().add(
+                            ListOfListsEvent.init(),
+                          ),
+                    ),
                   ),
-                ),
-              );
-        },
-        backgroundColor: context.colorTheme.primary.light,
-        child: const Icon(Icons.add),
+                );
+          },
+          backgroundColor: context.colorTheme.primary.light,
+          child: const Icon(Icons.add),
+        ),
       ),
     );
   }
@@ -179,7 +182,11 @@ class _ListItemRow extends StatelessWidget {
       child: MaterialTapWrapper(
         radius: Radius.zero,
         onPressed: () {
-          //TODO
+          context.read<RouterBloc>().add(
+                RouterEvent.listDetails(
+                  transaction: ListDetailsTransaction(entry: entry),
+                ),
+              );
         },
         child: Container(
           height: 60,
@@ -220,7 +227,11 @@ class _ListItemBlock extends StatelessWidget {
       child: MaterialTapWrapper(
         radius: Radius.zero,
         onPressed: () {
-          //TODO
+          context.read<RouterBloc>().add(
+                RouterEvent.listDetails(
+                  transaction: ListDetailsTransaction(entry: entry),
+                ),
+              );
         },
         child: Container(
           width: double.infinity,

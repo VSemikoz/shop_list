@@ -22,6 +22,7 @@ mixin _$RouterEvent {
     required TResult Function(int n) popTop,
     required TResult Function() listOfLists,
     required TResult Function(CreateListTransaction transaction) createList,
+    required TResult Function(ListDetailsTransaction transaction) listDetails,
     required TResult Function() favorite,
     required TResult Function() categoryList,
     required TResult Function(EditCategoryTransaction transaction) editCategory,
@@ -34,6 +35,7 @@ mixin _$RouterEvent {
     TResult? Function(int n)? popTop,
     TResult? Function()? listOfLists,
     TResult? Function(CreateListTransaction transaction)? createList,
+    TResult? Function(ListDetailsTransaction transaction)? listDetails,
     TResult? Function()? favorite,
     TResult? Function()? categoryList,
     TResult? Function(EditCategoryTransaction transaction)? editCategory,
@@ -46,6 +48,7 @@ mixin _$RouterEvent {
     TResult Function(int n)? popTop,
     TResult Function()? listOfLists,
     TResult Function(CreateListTransaction transaction)? createList,
+    TResult Function(ListDetailsTransaction transaction)? listDetails,
     TResult Function()? favorite,
     TResult Function()? categoryList,
     TResult Function(EditCategoryTransaction transaction)? editCategory,
@@ -59,6 +62,7 @@ mixin _$RouterEvent {
     required TResult Function(RouteOnPopTop value) popTop,
     required TResult Function(RouteListOfLists value) listOfLists,
     required TResult Function(RouteCreateList value) createList,
+    required TResult Function(RouteListDetails value) listDetails,
     required TResult Function(RouteFavorite value) favorite,
     required TResult Function(RouteCategoryList value) categoryList,
     required TResult Function(RouteEditCategory value) editCategory,
@@ -71,6 +75,7 @@ mixin _$RouterEvent {
     TResult? Function(RouteOnPopTop value)? popTop,
     TResult? Function(RouteListOfLists value)? listOfLists,
     TResult? Function(RouteCreateList value)? createList,
+    TResult? Function(RouteListDetails value)? listDetails,
     TResult? Function(RouteFavorite value)? favorite,
     TResult? Function(RouteCategoryList value)? categoryList,
     TResult? Function(RouteEditCategory value)? editCategory,
@@ -83,6 +88,7 @@ mixin _$RouterEvent {
     TResult Function(RouteOnPopTop value)? popTop,
     TResult Function(RouteListOfLists value)? listOfLists,
     TResult Function(RouteCreateList value)? createList,
+    TResult Function(RouteListDetails value)? listDetails,
     TResult Function(RouteFavorite value)? favorite,
     TResult Function(RouteCategoryList value)? categoryList,
     TResult Function(RouteEditCategory value)? editCategory,
@@ -152,6 +158,7 @@ class _$RouteOnPop implements RouteOnPop {
     required TResult Function(int n) popTop,
     required TResult Function() listOfLists,
     required TResult Function(CreateListTransaction transaction) createList,
+    required TResult Function(ListDetailsTransaction transaction) listDetails,
     required TResult Function() favorite,
     required TResult Function() categoryList,
     required TResult Function(EditCategoryTransaction transaction) editCategory,
@@ -167,6 +174,7 @@ class _$RouteOnPop implements RouteOnPop {
     TResult? Function(int n)? popTop,
     TResult? Function()? listOfLists,
     TResult? Function(CreateListTransaction transaction)? createList,
+    TResult? Function(ListDetailsTransaction transaction)? listDetails,
     TResult? Function()? favorite,
     TResult? Function()? categoryList,
     TResult? Function(EditCategoryTransaction transaction)? editCategory,
@@ -182,6 +190,7 @@ class _$RouteOnPop implements RouteOnPop {
     TResult Function(int n)? popTop,
     TResult Function()? listOfLists,
     TResult Function(CreateListTransaction transaction)? createList,
+    TResult Function(ListDetailsTransaction transaction)? listDetails,
     TResult Function()? favorite,
     TResult Function()? categoryList,
     TResult Function(EditCategoryTransaction transaction)? editCategory,
@@ -201,6 +210,7 @@ class _$RouteOnPop implements RouteOnPop {
     required TResult Function(RouteOnPopTop value) popTop,
     required TResult Function(RouteListOfLists value) listOfLists,
     required TResult Function(RouteCreateList value) createList,
+    required TResult Function(RouteListDetails value) listDetails,
     required TResult Function(RouteFavorite value) favorite,
     required TResult Function(RouteCategoryList value) categoryList,
     required TResult Function(RouteEditCategory value) editCategory,
@@ -216,6 +226,7 @@ class _$RouteOnPop implements RouteOnPop {
     TResult? Function(RouteOnPopTop value)? popTop,
     TResult? Function(RouteListOfLists value)? listOfLists,
     TResult? Function(RouteCreateList value)? createList,
+    TResult? Function(RouteListDetails value)? listDetails,
     TResult? Function(RouteFavorite value)? favorite,
     TResult? Function(RouteCategoryList value)? categoryList,
     TResult? Function(RouteEditCategory value)? editCategory,
@@ -231,6 +242,7 @@ class _$RouteOnPop implements RouteOnPop {
     TResult Function(RouteOnPopTop value)? popTop,
     TResult Function(RouteListOfLists value)? listOfLists,
     TResult Function(RouteCreateList value)? createList,
+    TResult Function(RouteListDetails value)? listDetails,
     TResult Function(RouteFavorite value)? favorite,
     TResult Function(RouteCategoryList value)? categoryList,
     TResult Function(RouteEditCategory value)? editCategory,
@@ -316,6 +328,7 @@ class _$RouteOnPopTop implements RouteOnPopTop {
     required TResult Function(int n) popTop,
     required TResult Function() listOfLists,
     required TResult Function(CreateListTransaction transaction) createList,
+    required TResult Function(ListDetailsTransaction transaction) listDetails,
     required TResult Function() favorite,
     required TResult Function() categoryList,
     required TResult Function(EditCategoryTransaction transaction) editCategory,
@@ -331,6 +344,7 @@ class _$RouteOnPopTop implements RouteOnPopTop {
     TResult? Function(int n)? popTop,
     TResult? Function()? listOfLists,
     TResult? Function(CreateListTransaction transaction)? createList,
+    TResult? Function(ListDetailsTransaction transaction)? listDetails,
     TResult? Function()? favorite,
     TResult? Function()? categoryList,
     TResult? Function(EditCategoryTransaction transaction)? editCategory,
@@ -346,6 +360,7 @@ class _$RouteOnPopTop implements RouteOnPopTop {
     TResult Function(int n)? popTop,
     TResult Function()? listOfLists,
     TResult Function(CreateListTransaction transaction)? createList,
+    TResult Function(ListDetailsTransaction transaction)? listDetails,
     TResult Function()? favorite,
     TResult Function()? categoryList,
     TResult Function(EditCategoryTransaction transaction)? editCategory,
@@ -365,6 +380,7 @@ class _$RouteOnPopTop implements RouteOnPopTop {
     required TResult Function(RouteOnPopTop value) popTop,
     required TResult Function(RouteListOfLists value) listOfLists,
     required TResult Function(RouteCreateList value) createList,
+    required TResult Function(RouteListDetails value) listDetails,
     required TResult Function(RouteFavorite value) favorite,
     required TResult Function(RouteCategoryList value) categoryList,
     required TResult Function(RouteEditCategory value) editCategory,
@@ -380,6 +396,7 @@ class _$RouteOnPopTop implements RouteOnPopTop {
     TResult? Function(RouteOnPopTop value)? popTop,
     TResult? Function(RouteListOfLists value)? listOfLists,
     TResult? Function(RouteCreateList value)? createList,
+    TResult? Function(RouteListDetails value)? listDetails,
     TResult? Function(RouteFavorite value)? favorite,
     TResult? Function(RouteCategoryList value)? categoryList,
     TResult? Function(RouteEditCategory value)? editCategory,
@@ -395,6 +412,7 @@ class _$RouteOnPopTop implements RouteOnPopTop {
     TResult Function(RouteOnPopTop value)? popTop,
     TResult Function(RouteListOfLists value)? listOfLists,
     TResult Function(RouteCreateList value)? createList,
+    TResult Function(RouteListDetails value)? listDetails,
     TResult Function(RouteFavorite value)? favorite,
     TResult Function(RouteCategoryList value)? categoryList,
     TResult Function(RouteEditCategory value)? editCategory,
@@ -459,6 +477,7 @@ class _$RouteListOfLists implements RouteListOfLists {
     required TResult Function(int n) popTop,
     required TResult Function() listOfLists,
     required TResult Function(CreateListTransaction transaction) createList,
+    required TResult Function(ListDetailsTransaction transaction) listDetails,
     required TResult Function() favorite,
     required TResult Function() categoryList,
     required TResult Function(EditCategoryTransaction transaction) editCategory,
@@ -474,6 +493,7 @@ class _$RouteListOfLists implements RouteListOfLists {
     TResult? Function(int n)? popTop,
     TResult? Function()? listOfLists,
     TResult? Function(CreateListTransaction transaction)? createList,
+    TResult? Function(ListDetailsTransaction transaction)? listDetails,
     TResult? Function()? favorite,
     TResult? Function()? categoryList,
     TResult? Function(EditCategoryTransaction transaction)? editCategory,
@@ -489,6 +509,7 @@ class _$RouteListOfLists implements RouteListOfLists {
     TResult Function(int n)? popTop,
     TResult Function()? listOfLists,
     TResult Function(CreateListTransaction transaction)? createList,
+    TResult Function(ListDetailsTransaction transaction)? listDetails,
     TResult Function()? favorite,
     TResult Function()? categoryList,
     TResult Function(EditCategoryTransaction transaction)? editCategory,
@@ -508,6 +529,7 @@ class _$RouteListOfLists implements RouteListOfLists {
     required TResult Function(RouteOnPopTop value) popTop,
     required TResult Function(RouteListOfLists value) listOfLists,
     required TResult Function(RouteCreateList value) createList,
+    required TResult Function(RouteListDetails value) listDetails,
     required TResult Function(RouteFavorite value) favorite,
     required TResult Function(RouteCategoryList value) categoryList,
     required TResult Function(RouteEditCategory value) editCategory,
@@ -523,6 +545,7 @@ class _$RouteListOfLists implements RouteListOfLists {
     TResult? Function(RouteOnPopTop value)? popTop,
     TResult? Function(RouteListOfLists value)? listOfLists,
     TResult? Function(RouteCreateList value)? createList,
+    TResult? Function(RouteListDetails value)? listDetails,
     TResult? Function(RouteFavorite value)? favorite,
     TResult? Function(RouteCategoryList value)? categoryList,
     TResult? Function(RouteEditCategory value)? editCategory,
@@ -538,6 +561,7 @@ class _$RouteListOfLists implements RouteListOfLists {
     TResult Function(RouteOnPopTop value)? popTop,
     TResult Function(RouteListOfLists value)? listOfLists,
     TResult Function(RouteCreateList value)? createList,
+    TResult Function(RouteListDetails value)? listDetails,
     TResult Function(RouteFavorite value)? favorite,
     TResult Function(RouteCategoryList value)? categoryList,
     TResult Function(RouteEditCategory value)? editCategory,
@@ -624,6 +648,7 @@ class _$RouteCreateList implements RouteCreateList {
     required TResult Function(int n) popTop,
     required TResult Function() listOfLists,
     required TResult Function(CreateListTransaction transaction) createList,
+    required TResult Function(ListDetailsTransaction transaction) listDetails,
     required TResult Function() favorite,
     required TResult Function() categoryList,
     required TResult Function(EditCategoryTransaction transaction) editCategory,
@@ -639,6 +664,7 @@ class _$RouteCreateList implements RouteCreateList {
     TResult? Function(int n)? popTop,
     TResult? Function()? listOfLists,
     TResult? Function(CreateListTransaction transaction)? createList,
+    TResult? Function(ListDetailsTransaction transaction)? listDetails,
     TResult? Function()? favorite,
     TResult? Function()? categoryList,
     TResult? Function(EditCategoryTransaction transaction)? editCategory,
@@ -654,6 +680,7 @@ class _$RouteCreateList implements RouteCreateList {
     TResult Function(int n)? popTop,
     TResult Function()? listOfLists,
     TResult Function(CreateListTransaction transaction)? createList,
+    TResult Function(ListDetailsTransaction transaction)? listDetails,
     TResult Function()? favorite,
     TResult Function()? categoryList,
     TResult Function(EditCategoryTransaction transaction)? editCategory,
@@ -673,6 +700,7 @@ class _$RouteCreateList implements RouteCreateList {
     required TResult Function(RouteOnPopTop value) popTop,
     required TResult Function(RouteListOfLists value) listOfLists,
     required TResult Function(RouteCreateList value) createList,
+    required TResult Function(RouteListDetails value) listDetails,
     required TResult Function(RouteFavorite value) favorite,
     required TResult Function(RouteCategoryList value) categoryList,
     required TResult Function(RouteEditCategory value) editCategory,
@@ -688,6 +716,7 @@ class _$RouteCreateList implements RouteCreateList {
     TResult? Function(RouteOnPopTop value)? popTop,
     TResult? Function(RouteListOfLists value)? listOfLists,
     TResult? Function(RouteCreateList value)? createList,
+    TResult? Function(RouteListDetails value)? listDetails,
     TResult? Function(RouteFavorite value)? favorite,
     TResult? Function(RouteCategoryList value)? categoryList,
     TResult? Function(RouteEditCategory value)? editCategory,
@@ -703,6 +732,7 @@ class _$RouteCreateList implements RouteCreateList {
     TResult Function(RouteOnPopTop value)? popTop,
     TResult Function(RouteListOfLists value)? listOfLists,
     TResult Function(RouteCreateList value)? createList,
+    TResult Function(RouteListDetails value)? listDetails,
     TResult Function(RouteFavorite value)? favorite,
     TResult Function(RouteCategoryList value)? categoryList,
     TResult Function(RouteEditCategory value)? editCategory,
@@ -723,6 +753,183 @@ abstract class RouteCreateList implements RouterEvent {
   CreateListTransaction get transaction;
   @JsonKey(ignore: true)
   _$$RouteCreateListCopyWith<_$RouteCreateList> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RouteListDetailsCopyWith<$Res> {
+  factory _$$RouteListDetailsCopyWith(
+          _$RouteListDetails value, $Res Function(_$RouteListDetails) then) =
+      __$$RouteListDetailsCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ListDetailsTransaction transaction});
+}
+
+/// @nodoc
+class __$$RouteListDetailsCopyWithImpl<$Res>
+    extends _$RouterEventCopyWithImpl<$Res, _$RouteListDetails>
+    implements _$$RouteListDetailsCopyWith<$Res> {
+  __$$RouteListDetailsCopyWithImpl(
+      _$RouteListDetails _value, $Res Function(_$RouteListDetails) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? transaction = null,
+  }) {
+    return _then(_$RouteListDetails(
+      transaction: null == transaction
+          ? _value.transaction
+          : transaction // ignore: cast_nullable_to_non_nullable
+              as ListDetailsTransaction,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RouteListDetails implements RouteListDetails {
+  const _$RouteListDetails({required this.transaction});
+
+  @override
+  final ListDetailsTransaction transaction;
+
+  @override
+  String toString() {
+    return 'RouterEvent.listDetails(transaction: $transaction)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RouteListDetails &&
+            (identical(other.transaction, transaction) ||
+                other.transaction == transaction));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, transaction);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RouteListDetailsCopyWith<_$RouteListDetails> get copyWith =>
+      __$$RouteListDetailsCopyWithImpl<_$RouteListDetails>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() pop,
+    required TResult Function(int n) popTop,
+    required TResult Function() listOfLists,
+    required TResult Function(CreateListTransaction transaction) createList,
+    required TResult Function(ListDetailsTransaction transaction) listDetails,
+    required TResult Function() favorite,
+    required TResult Function() categoryList,
+    required TResult Function(EditCategoryTransaction transaction) editCategory,
+    required TResult Function() bucket,
+  }) {
+    return listDetails(transaction);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? pop,
+    TResult? Function(int n)? popTop,
+    TResult? Function()? listOfLists,
+    TResult? Function(CreateListTransaction transaction)? createList,
+    TResult? Function(ListDetailsTransaction transaction)? listDetails,
+    TResult? Function()? favorite,
+    TResult? Function()? categoryList,
+    TResult? Function(EditCategoryTransaction transaction)? editCategory,
+    TResult? Function()? bucket,
+  }) {
+    return listDetails?.call(transaction);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pop,
+    TResult Function(int n)? popTop,
+    TResult Function()? listOfLists,
+    TResult Function(CreateListTransaction transaction)? createList,
+    TResult Function(ListDetailsTransaction transaction)? listDetails,
+    TResult Function()? favorite,
+    TResult Function()? categoryList,
+    TResult Function(EditCategoryTransaction transaction)? editCategory,
+    TResult Function()? bucket,
+    required TResult orElse(),
+  }) {
+    if (listDetails != null) {
+      return listDetails(transaction);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(RouteOnPop value) pop,
+    required TResult Function(RouteOnPopTop value) popTop,
+    required TResult Function(RouteListOfLists value) listOfLists,
+    required TResult Function(RouteCreateList value) createList,
+    required TResult Function(RouteListDetails value) listDetails,
+    required TResult Function(RouteFavorite value) favorite,
+    required TResult Function(RouteCategoryList value) categoryList,
+    required TResult Function(RouteEditCategory value) editCategory,
+    required TResult Function(RouteBucket value) bucket,
+  }) {
+    return listDetails(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(RouteOnPop value)? pop,
+    TResult? Function(RouteOnPopTop value)? popTop,
+    TResult? Function(RouteListOfLists value)? listOfLists,
+    TResult? Function(RouteCreateList value)? createList,
+    TResult? Function(RouteListDetails value)? listDetails,
+    TResult? Function(RouteFavorite value)? favorite,
+    TResult? Function(RouteCategoryList value)? categoryList,
+    TResult? Function(RouteEditCategory value)? editCategory,
+    TResult? Function(RouteBucket value)? bucket,
+  }) {
+    return listDetails?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(RouteOnPop value)? pop,
+    TResult Function(RouteOnPopTop value)? popTop,
+    TResult Function(RouteListOfLists value)? listOfLists,
+    TResult Function(RouteCreateList value)? createList,
+    TResult Function(RouteListDetails value)? listDetails,
+    TResult Function(RouteFavorite value)? favorite,
+    TResult Function(RouteCategoryList value)? categoryList,
+    TResult Function(RouteEditCategory value)? editCategory,
+    TResult Function(RouteBucket value)? bucket,
+    required TResult orElse(),
+  }) {
+    if (listDetails != null) {
+      return listDetails(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RouteListDetails implements RouterEvent {
+  const factory RouteListDetails(
+      {required final ListDetailsTransaction transaction}) = _$RouteListDetails;
+
+  ListDetailsTransaction get transaction;
+  @JsonKey(ignore: true)
+  _$$RouteListDetailsCopyWith<_$RouteListDetails> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -768,6 +975,7 @@ class _$RouteFavorite implements RouteFavorite {
     required TResult Function(int n) popTop,
     required TResult Function() listOfLists,
     required TResult Function(CreateListTransaction transaction) createList,
+    required TResult Function(ListDetailsTransaction transaction) listDetails,
     required TResult Function() favorite,
     required TResult Function() categoryList,
     required TResult Function(EditCategoryTransaction transaction) editCategory,
@@ -783,6 +991,7 @@ class _$RouteFavorite implements RouteFavorite {
     TResult? Function(int n)? popTop,
     TResult? Function()? listOfLists,
     TResult? Function(CreateListTransaction transaction)? createList,
+    TResult? Function(ListDetailsTransaction transaction)? listDetails,
     TResult? Function()? favorite,
     TResult? Function()? categoryList,
     TResult? Function(EditCategoryTransaction transaction)? editCategory,
@@ -798,6 +1007,7 @@ class _$RouteFavorite implements RouteFavorite {
     TResult Function(int n)? popTop,
     TResult Function()? listOfLists,
     TResult Function(CreateListTransaction transaction)? createList,
+    TResult Function(ListDetailsTransaction transaction)? listDetails,
     TResult Function()? favorite,
     TResult Function()? categoryList,
     TResult Function(EditCategoryTransaction transaction)? editCategory,
@@ -817,6 +1027,7 @@ class _$RouteFavorite implements RouteFavorite {
     required TResult Function(RouteOnPopTop value) popTop,
     required TResult Function(RouteListOfLists value) listOfLists,
     required TResult Function(RouteCreateList value) createList,
+    required TResult Function(RouteListDetails value) listDetails,
     required TResult Function(RouteFavorite value) favorite,
     required TResult Function(RouteCategoryList value) categoryList,
     required TResult Function(RouteEditCategory value) editCategory,
@@ -832,6 +1043,7 @@ class _$RouteFavorite implements RouteFavorite {
     TResult? Function(RouteOnPopTop value)? popTop,
     TResult? Function(RouteListOfLists value)? listOfLists,
     TResult? Function(RouteCreateList value)? createList,
+    TResult? Function(RouteListDetails value)? listDetails,
     TResult? Function(RouteFavorite value)? favorite,
     TResult? Function(RouteCategoryList value)? categoryList,
     TResult? Function(RouteEditCategory value)? editCategory,
@@ -847,6 +1059,7 @@ class _$RouteFavorite implements RouteFavorite {
     TResult Function(RouteOnPopTop value)? popTop,
     TResult Function(RouteListOfLists value)? listOfLists,
     TResult Function(RouteCreateList value)? createList,
+    TResult Function(RouteListDetails value)? listDetails,
     TResult Function(RouteFavorite value)? favorite,
     TResult Function(RouteCategoryList value)? categoryList,
     TResult Function(RouteEditCategory value)? editCategory,
@@ -906,6 +1119,7 @@ class _$RouteCategoryList implements RouteCategoryList {
     required TResult Function(int n) popTop,
     required TResult Function() listOfLists,
     required TResult Function(CreateListTransaction transaction) createList,
+    required TResult Function(ListDetailsTransaction transaction) listDetails,
     required TResult Function() favorite,
     required TResult Function() categoryList,
     required TResult Function(EditCategoryTransaction transaction) editCategory,
@@ -921,6 +1135,7 @@ class _$RouteCategoryList implements RouteCategoryList {
     TResult? Function(int n)? popTop,
     TResult? Function()? listOfLists,
     TResult? Function(CreateListTransaction transaction)? createList,
+    TResult? Function(ListDetailsTransaction transaction)? listDetails,
     TResult? Function()? favorite,
     TResult? Function()? categoryList,
     TResult? Function(EditCategoryTransaction transaction)? editCategory,
@@ -936,6 +1151,7 @@ class _$RouteCategoryList implements RouteCategoryList {
     TResult Function(int n)? popTop,
     TResult Function()? listOfLists,
     TResult Function(CreateListTransaction transaction)? createList,
+    TResult Function(ListDetailsTransaction transaction)? listDetails,
     TResult Function()? favorite,
     TResult Function()? categoryList,
     TResult Function(EditCategoryTransaction transaction)? editCategory,
@@ -955,6 +1171,7 @@ class _$RouteCategoryList implements RouteCategoryList {
     required TResult Function(RouteOnPopTop value) popTop,
     required TResult Function(RouteListOfLists value) listOfLists,
     required TResult Function(RouteCreateList value) createList,
+    required TResult Function(RouteListDetails value) listDetails,
     required TResult Function(RouteFavorite value) favorite,
     required TResult Function(RouteCategoryList value) categoryList,
     required TResult Function(RouteEditCategory value) editCategory,
@@ -970,6 +1187,7 @@ class _$RouteCategoryList implements RouteCategoryList {
     TResult? Function(RouteOnPopTop value)? popTop,
     TResult? Function(RouteListOfLists value)? listOfLists,
     TResult? Function(RouteCreateList value)? createList,
+    TResult? Function(RouteListDetails value)? listDetails,
     TResult? Function(RouteFavorite value)? favorite,
     TResult? Function(RouteCategoryList value)? categoryList,
     TResult? Function(RouteEditCategory value)? editCategory,
@@ -985,6 +1203,7 @@ class _$RouteCategoryList implements RouteCategoryList {
     TResult Function(RouteOnPopTop value)? popTop,
     TResult Function(RouteListOfLists value)? listOfLists,
     TResult Function(RouteCreateList value)? createList,
+    TResult Function(RouteListDetails value)? listDetails,
     TResult Function(RouteFavorite value)? favorite,
     TResult Function(RouteCategoryList value)? categoryList,
     TResult Function(RouteEditCategory value)? editCategory,
@@ -1071,6 +1290,7 @@ class _$RouteEditCategory implements RouteEditCategory {
     required TResult Function(int n) popTop,
     required TResult Function() listOfLists,
     required TResult Function(CreateListTransaction transaction) createList,
+    required TResult Function(ListDetailsTransaction transaction) listDetails,
     required TResult Function() favorite,
     required TResult Function() categoryList,
     required TResult Function(EditCategoryTransaction transaction) editCategory,
@@ -1086,6 +1306,7 @@ class _$RouteEditCategory implements RouteEditCategory {
     TResult? Function(int n)? popTop,
     TResult? Function()? listOfLists,
     TResult? Function(CreateListTransaction transaction)? createList,
+    TResult? Function(ListDetailsTransaction transaction)? listDetails,
     TResult? Function()? favorite,
     TResult? Function()? categoryList,
     TResult? Function(EditCategoryTransaction transaction)? editCategory,
@@ -1101,6 +1322,7 @@ class _$RouteEditCategory implements RouteEditCategory {
     TResult Function(int n)? popTop,
     TResult Function()? listOfLists,
     TResult Function(CreateListTransaction transaction)? createList,
+    TResult Function(ListDetailsTransaction transaction)? listDetails,
     TResult Function()? favorite,
     TResult Function()? categoryList,
     TResult Function(EditCategoryTransaction transaction)? editCategory,
@@ -1120,6 +1342,7 @@ class _$RouteEditCategory implements RouteEditCategory {
     required TResult Function(RouteOnPopTop value) popTop,
     required TResult Function(RouteListOfLists value) listOfLists,
     required TResult Function(RouteCreateList value) createList,
+    required TResult Function(RouteListDetails value) listDetails,
     required TResult Function(RouteFavorite value) favorite,
     required TResult Function(RouteCategoryList value) categoryList,
     required TResult Function(RouteEditCategory value) editCategory,
@@ -1135,6 +1358,7 @@ class _$RouteEditCategory implements RouteEditCategory {
     TResult? Function(RouteOnPopTop value)? popTop,
     TResult? Function(RouteListOfLists value)? listOfLists,
     TResult? Function(RouteCreateList value)? createList,
+    TResult? Function(RouteListDetails value)? listDetails,
     TResult? Function(RouteFavorite value)? favorite,
     TResult? Function(RouteCategoryList value)? categoryList,
     TResult? Function(RouteEditCategory value)? editCategory,
@@ -1150,6 +1374,7 @@ class _$RouteEditCategory implements RouteEditCategory {
     TResult Function(RouteOnPopTop value)? popTop,
     TResult Function(RouteListOfLists value)? listOfLists,
     TResult Function(RouteCreateList value)? createList,
+    TResult Function(RouteListDetails value)? listDetails,
     TResult Function(RouteFavorite value)? favorite,
     TResult Function(RouteCategoryList value)? categoryList,
     TResult Function(RouteEditCategory value)? editCategory,
@@ -1216,6 +1441,7 @@ class _$RouteBucket implements RouteBucket {
     required TResult Function(int n) popTop,
     required TResult Function() listOfLists,
     required TResult Function(CreateListTransaction transaction) createList,
+    required TResult Function(ListDetailsTransaction transaction) listDetails,
     required TResult Function() favorite,
     required TResult Function() categoryList,
     required TResult Function(EditCategoryTransaction transaction) editCategory,
@@ -1231,6 +1457,7 @@ class _$RouteBucket implements RouteBucket {
     TResult? Function(int n)? popTop,
     TResult? Function()? listOfLists,
     TResult? Function(CreateListTransaction transaction)? createList,
+    TResult? Function(ListDetailsTransaction transaction)? listDetails,
     TResult? Function()? favorite,
     TResult? Function()? categoryList,
     TResult? Function(EditCategoryTransaction transaction)? editCategory,
@@ -1246,6 +1473,7 @@ class _$RouteBucket implements RouteBucket {
     TResult Function(int n)? popTop,
     TResult Function()? listOfLists,
     TResult Function(CreateListTransaction transaction)? createList,
+    TResult Function(ListDetailsTransaction transaction)? listDetails,
     TResult Function()? favorite,
     TResult Function()? categoryList,
     TResult Function(EditCategoryTransaction transaction)? editCategory,
@@ -1265,6 +1493,7 @@ class _$RouteBucket implements RouteBucket {
     required TResult Function(RouteOnPopTop value) popTop,
     required TResult Function(RouteListOfLists value) listOfLists,
     required TResult Function(RouteCreateList value) createList,
+    required TResult Function(RouteListDetails value) listDetails,
     required TResult Function(RouteFavorite value) favorite,
     required TResult Function(RouteCategoryList value) categoryList,
     required TResult Function(RouteEditCategory value) editCategory,
@@ -1280,6 +1509,7 @@ class _$RouteBucket implements RouteBucket {
     TResult? Function(RouteOnPopTop value)? popTop,
     TResult? Function(RouteListOfLists value)? listOfLists,
     TResult? Function(RouteCreateList value)? createList,
+    TResult? Function(RouteListDetails value)? listDetails,
     TResult? Function(RouteFavorite value)? favorite,
     TResult? Function(RouteCategoryList value)? categoryList,
     TResult? Function(RouteEditCategory value)? editCategory,
@@ -1295,6 +1525,7 @@ class _$RouteBucket implements RouteBucket {
     TResult Function(RouteOnPopTop value)? popTop,
     TResult Function(RouteListOfLists value)? listOfLists,
     TResult Function(RouteCreateList value)? createList,
+    TResult Function(RouteListDetails value)? listDetails,
     TResult Function(RouteFavorite value)? favorite,
     TResult Function(RouteCategoryList value)? categoryList,
     TResult Function(RouteEditCategory value)? editCategory,

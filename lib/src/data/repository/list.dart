@@ -9,6 +9,10 @@ abstract class ListRepositoryBase {
   Future<void> addOneList(ListData data);
 
   Future<List<ListEntry>> getAllLists();
+
+  Future<ListEntry> getById(int id);
+
+  Future<void> editList(ListData list);
 }
 
 @Injectable(as: ListRepositoryBase)
@@ -25,5 +29,15 @@ class ListRepositoryImpl implements ListRepositoryBase {
   @override
   Future<List<ListEntry>> getAllLists() async {
     return (await database.getAllLists()).map((e) => e.toEntry()).toList();
+  }
+
+  @override
+  Future<void> editList(ListData list) {
+    return database.editList(list.toCompanion());
+  }
+
+  @override
+  Future<ListEntry> getById(int id) async {
+    return (await database.getListById(id)).toEntry();
   }
 }

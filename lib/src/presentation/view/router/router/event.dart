@@ -15,6 +15,10 @@ abstract class RouterEvent with _$RouterEvent {
     required CreateListTransaction transaction,
   }) = RouteCreateList;
 
+  const factory RouterEvent.listDetails({
+    required ListDetailsTransaction transaction,
+  }) = RouteListDetails;
+
   const factory RouterEvent.favorite() = RouteFavorite;
 
   const factory RouterEvent.categoryList() = RouteCategoryList;

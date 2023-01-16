@@ -16,6 +16,7 @@ class RouterBloc extends Bloc<RouterEvent, List<RouteInfo>>
     on<RouteOnPopTop>((event, emit) => _onPopTop(event, emit));
     on<RouteListOfLists>(_listOfLists);
     on<RouteCreateList>(_createList);
+    on<RouteListDetails>(_listDetails);
     on<RouteFavorite>(_favorite);
     on<RouteCategoryList>(_categoryList);
     on<RouteEditCategory>(_editCategory);
@@ -52,11 +53,16 @@ class RouterBloc extends Bloc<RouterEvent, List<RouteInfo>>
     emitter(_rebaseRoute(ScreenProvider.listOfLists()));
   }
 
+  _listDetails(RouteListDetails event, Emitter emitter) {
+    emitter(_rebaseRoute(ScreenProvider.listDetails(event.transaction)));
+  }
+
   _favorite(RouteFavorite event, Emitter emitter) {}
 
   _categoryList(RouteCategoryList event, Emitter emitter) {
     emitter(_rebaseRoute(ScreenProvider.categoryList()));
   }
+
   _editCategory(RouteEditCategory event, Emitter emitter) {
     emitter(_rebaseRoute(ScreenProvider.editCategory(event.transaction)));
   }
@@ -75,5 +81,4 @@ class RouterBloc extends Bloc<RouterEvent, List<RouteInfo>>
   List<RouteInfo> _addIntoTop(RouteInfo routeInfo) {
     return [...stack, routeInfo];
   }
-
 }

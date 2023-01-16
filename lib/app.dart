@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:overlay_support/overlay_support.dart';
 import 'package:provider/provider.dart';
@@ -19,30 +20,42 @@ class KubApp extends StatelessWidget {
     return _AppMultiProvider(
       child: OverlaySupport.global(
         child: Builder(
-          builder: (context) => StreamBuilder<Locale>(
+          builder: (context) {
+            _setSystemUIColors(context);
+            return StreamBuilder<Locale>(
               stream:
                   context.read<LocalizationProvider>().localeController.stream,
               builder: (context, snapshot) => MaterialApp(
-                    title: "Kub24",
-                    theme: AppTheme.lightTheme().appThemeData,
-                    debugShowCheckedModeBanner: false,
-                    localizationsDelegates: [
-                      GlobalMaterialLocalizations.delegate,
-                      GlobalCupertinoLocalizations.delegate,
-                      GlobalWidgetsLocalizations.delegate,
-                      S.delegate,
-                    ],
-                    locale: snapshot.data,
-                    supportedLocales: S.delegate.supportedLocales,
-                    home: Router(
-                      routerDelegate: AppRouterDelegate(),
-                      backButtonDispatcher: RootBackButtonDispatcher(),
-                    ),
-                  )),
+                title: "Kub24",
+                theme: AppTheme.lightTheme().appThemeData,
+                debugShowCheckedModeBanner: false,
+                localizationsDelegates: [
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalCupertinoLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                  S.delegate,
+                ],
+                locale: snapshot.data,
+                supportedLocales: S.delegate.supportedLocales,
+                home: Router(
+                  routerDelegate: AppRouterDelegate(),
+                  backButtonDispatcher: RootBackButtonDispatcher(),
+                ),
+              ),
+            );
+          },
         ),
       ),
     );
   }
+
+  _setSystemUIColors(BuildContext context) =>
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          systemNavigationBarColor: context.colorTheme.secondary.light,
+          statusBarColor: context.colorTheme.primary.light,
+        ),
+      );
 }
 
 class _AppMultiProvider extends StatelessWidget {

@@ -4,13 +4,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_list/src/common/injection/injection.dart';
 import 'package:shop_list/src/domain/models/category.dart';
+import 'package:shop_list/src/domain/models/list.dart';
 import 'package:shop_list/src/presentation/view/categorie_list/bloc/categorie_list.dart';
 import 'package:shop_list/src/presentation/view/categorie_list/ui/screen.dart';
 import 'package:shop_list/src/presentation/view/category_edit/bloc/category_edit.dart';
 import 'package:shop_list/src/presentation/view/create_list/bloc/create_list.dart';
 import 'package:shop_list/src/presentation/view/create_list/ui/dialog.dart';
+import 'package:shop_list/src/presentation/view/list_details/bloc/bloc.dart';
+import 'package:shop_list/src/presentation/view/list_details/ui/screen.dart';
 
 import '../../category_edit/screen/dialog.dart';
+import '../../list_details/bloc/event.dart';
 import '../../list_of_lists/list_of_lists.dart';
 import '../delegate.dart';
 import 'bloc.dart';
@@ -62,6 +66,19 @@ class ScreenProvider {
           child: CategoryEditDialog(),
         ),
       );
+
+  static RouteInfo listDetails(ListDetailsTransaction transaction) =>
+      RouteInfo(
+        id: ListDetailsScreen.id,
+        pageType: PageType.dialog,
+        builder: (context) => Provider(
+          create: (_) => getIt<ListDetailsBloc>(
+            param1: transaction,
+            param2: getRouter(context),
+          )..add(ListDetailsEvent.init()),
+          child: ListDetailsScreen(),
+        ),
+      );
 }
 
 class CreateListTransaction {
@@ -88,5 +105,13 @@ class EditCategoryTransaction {
     required this.mode,
     this.categoryEntry,
     required this.onSuccess,
+  });
+}
+
+class ListDetailsTransaction {
+  final ListEntry entry;
+
+  const ListDetailsTransaction({
+    required this.entry,
   });
 }
