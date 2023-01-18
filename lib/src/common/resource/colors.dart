@@ -43,7 +43,7 @@ class AppLightColors {
   static const MainColorPack primary = const MainColorPack(
     light: Color(0xFF83CBEA),
     dark: Color(0xFF40ADDC),
-    main: Color(0xFF1890C5),
+    main: Color(0xFFFFFFFF),
   );
   static const MainColorPack secondary = const MainColorPack(
     light: Color(0xFFC26806),
@@ -92,8 +92,8 @@ class AppLightColors {
     ],
   );
   static const BackgroundColorPack background = const BackgroundColorPack(
-    primary: Color(0xFFFFFFFF),
-    secondary: Color(0x00000000),
+    primary: Color(0xFFDDDDDD),
+    secondary: Color(0xFF000000),
   );
 }
 

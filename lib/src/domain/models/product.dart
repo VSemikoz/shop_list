@@ -142,5 +142,32 @@ class ProductEntry {
     );
   }
 
+  factory ProductEntry.insert({
+    required int listId,
+    required int categoryId,
+    required String name,
+    required String description,
+    required int price,
+    required String priceDescription,
+    required bool isFavorite,
+    required ProductStatus status,
+    required int count,
+    required String countDescription,
+  }) {
+    return ProductEntry(
+      id: 0,
+      listId: listId,
+      categoryId: categoryId,
+      name: name,
+      description: description,
+      price: price,
+      priceDescription: priceDescription,
+      isFavorite: isFavorite,
+      status: status,
+      count: count,
+      countDescription: countDescription,
+    );
+  }
+
 //</editor-fold>
 }

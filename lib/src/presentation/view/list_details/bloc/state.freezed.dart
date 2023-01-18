@@ -19,19 +19,20 @@ mixin _$ListDetailsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<CategoryEntry> categories) success,
+    required TResult Function(ListEntry list, List<ProductEntry> products)
+        success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<CategoryEntry> categories)? success,
+    TResult? Function(ListEntry list, List<ProductEntry> products)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<CategoryEntry> categories)? success,
+    TResult Function(ListEntry list, List<ProductEntry> products)? success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,7 +114,8 @@ class _$ListDetailsLoading implements ListDetailsLoading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<CategoryEntry> categories) success,
+    required TResult Function(ListEntry list, List<ProductEntry> products)
+        success,
   }) {
     return loading();
   }
@@ -122,7 +124,7 @@ class _$ListDetailsLoading implements ListDetailsLoading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<CategoryEntry> categories)? success,
+    TResult? Function(ListEntry list, List<ProductEntry> products)? success,
   }) {
     return loading?.call();
   }
@@ -131,7 +133,7 @@ class _$ListDetailsLoading implements ListDetailsLoading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<CategoryEntry> categories)? success,
+    TResult Function(ListEntry list, List<ProductEntry> products)? success,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -182,7 +184,7 @@ abstract class _$$ListDetailsSuccessCopyWith<$Res> {
           $Res Function(_$ListDetailsSuccess) then) =
       __$$ListDetailsSuccessCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<CategoryEntry> categories});
+  $Res call({ListEntry list, List<ProductEntry> products});
 }
 
 /// @nodoc
@@ -196,13 +198,18 @@ class __$$ListDetailsSuccessCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? categories = null,
+    Object? list = null,
+    Object? products = null,
   }) {
     return _then(_$ListDetailsSuccess(
-      categories: null == categories
-          ? _value._categories
-          : categories // ignore: cast_nullable_to_non_nullable
-              as List<CategoryEntry>,
+      list: null == list
+          ? _value.list
+          : list // ignore: cast_nullable_to_non_nullable
+              as ListEntry,
+      products: null == products
+          ? _value._products
+          : products // ignore: cast_nullable_to_non_nullable
+              as List<ProductEntry>,
     ));
   }
 }
@@ -210,20 +217,23 @@ class __$$ListDetailsSuccessCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ListDetailsSuccess implements ListDetailsSuccess {
-  const _$ListDetailsSuccess({required final List<CategoryEntry> categories})
-      : _categories = categories;
+  const _$ListDetailsSuccess(
+      {required this.list, required final List<ProductEntry> products})
+      : _products = products;
 
-  final List<CategoryEntry> _categories;
   @override
-  List<CategoryEntry> get categories {
-    if (_categories is EqualUnmodifiableListView) return _categories;
+  final ListEntry list;
+  final List<ProductEntry> _products;
+  @override
+  List<ProductEntry> get products {
+    if (_products is EqualUnmodifiableListView) return _products;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_categories);
+    return EqualUnmodifiableListView(_products);
   }
 
   @override
   String toString() {
-    return 'ListDetailsState.success(categories: $categories)';
+    return 'ListDetailsState.success(list: $list, products: $products)';
   }
 
   @override
@@ -231,13 +241,13 @@ class _$ListDetailsSuccess implements ListDetailsSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ListDetailsSuccess &&
-            const DeepCollectionEquality()
-                .equals(other._categories, _categories));
+            (identical(other.list, list) || other.list == list) &&
+            const DeepCollectionEquality().equals(other._products, _products));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_categories));
+      runtimeType, list, const DeepCollectionEquality().hash(_products));
 
   @JsonKey(ignore: true)
   @override
@@ -250,29 +260,30 @@ class _$ListDetailsSuccess implements ListDetailsSuccess {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<CategoryEntry> categories) success,
+    required TResult Function(ListEntry list, List<ProductEntry> products)
+        success,
   }) {
-    return success(categories);
+    return success(list, products);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<CategoryEntry> categories)? success,
+    TResult? Function(ListEntry list, List<ProductEntry> products)? success,
   }) {
-    return success?.call(categories);
+    return success?.call(list, products);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<CategoryEntry> categories)? success,
+    TResult Function(ListEntry list, List<ProductEntry> products)? success,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(categories);
+      return success(list, products);
     }
     return orElse();
   }
@@ -311,9 +322,11 @@ class _$ListDetailsSuccess implements ListDetailsSuccess {
 
 abstract class ListDetailsSuccess implements ListDetailsState {
   const factory ListDetailsSuccess(
-      {required final List<CategoryEntry> categories}) = _$ListDetailsSuccess;
+      {required final ListEntry list,
+      required final List<ProductEntry> products}) = _$ListDetailsSuccess;
 
-  List<CategoryEntry> get categories;
+  ListEntry get list;
+  List<ProductEntry> get products;
   @JsonKey(ignore: true)
   _$$ListDetailsSuccessCopyWith<_$ListDetailsSuccess> get copyWith =>
       throw _privateConstructorUsedError;

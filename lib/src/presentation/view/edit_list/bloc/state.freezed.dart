@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$CreateListState {
+mixin _$EditListState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
@@ -37,36 +37,36 @@ mixin _$CreateListState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CreateListLoading value) loading,
-    required TResult Function(CreateListSuccess value) success,
+    required TResult Function(EditListLoading value) loading,
+    required TResult Function(EditListSuccess value) success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CreateListLoading value)? loading,
-    TResult? Function(CreateListSuccess value)? success,
+    TResult? Function(EditListLoading value)? loading,
+    TResult? Function(EditListSuccess value)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CreateListLoading value)? loading,
-    TResult Function(CreateListSuccess value)? success,
+    TResult Function(EditListLoading value)? loading,
+    TResult Function(EditListSuccess value)? success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CreateListStateCopyWith<$Res> {
-  factory $CreateListStateCopyWith(
-          CreateListState value, $Res Function(CreateListState) then) =
-      _$CreateListStateCopyWithImpl<$Res, CreateListState>;
+abstract class $EditListStateCopyWith<$Res> {
+  factory $EditListStateCopyWith(
+          EditListState value, $Res Function(EditListState) then) =
+      _$EditListStateCopyWithImpl<$Res, EditListState>;
 }
 
 /// @nodoc
-class _$CreateListStateCopyWithImpl<$Res, $Val extends CreateListState>
-    implements $CreateListStateCopyWith<$Res> {
-  _$CreateListStateCopyWithImpl(this._value, this._then);
+class _$EditListStateCopyWithImpl<$Res, $Val extends EditListState>
+    implements $EditListStateCopyWith<$Res> {
+  _$EditListStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -75,35 +75,35 @@ class _$CreateListStateCopyWithImpl<$Res, $Val extends CreateListState>
 }
 
 /// @nodoc
-abstract class _$$CreateListLoadingCopyWith<$Res> {
-  factory _$$CreateListLoadingCopyWith(
-          _$CreateListLoading value, $Res Function(_$CreateListLoading) then) =
-      __$$CreateListLoadingCopyWithImpl<$Res>;
+abstract class _$$EditListLoadingCopyWith<$Res> {
+  factory _$$EditListLoadingCopyWith(
+          _$EditListLoading value, $Res Function(_$EditListLoading) then) =
+      __$$EditListLoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$CreateListLoadingCopyWithImpl<$Res>
-    extends _$CreateListStateCopyWithImpl<$Res, _$CreateListLoading>
-    implements _$$CreateListLoadingCopyWith<$Res> {
-  __$$CreateListLoadingCopyWithImpl(
-      _$CreateListLoading _value, $Res Function(_$CreateListLoading) _then)
+class __$$EditListLoadingCopyWithImpl<$Res>
+    extends _$EditListStateCopyWithImpl<$Res, _$EditListLoading>
+    implements _$$EditListLoadingCopyWith<$Res> {
+  __$$EditListLoadingCopyWithImpl(
+      _$EditListLoading _value, $Res Function(_$EditListLoading) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$CreateListLoading implements CreateListLoading {
-  const _$CreateListLoading();
+class _$EditListLoading implements EditListLoading {
+  const _$EditListLoading();
 
   @override
   String toString() {
-    return 'CreateListState.loading()';
+    return 'EditListState.loading()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$CreateListLoading);
+        (other.runtimeType == runtimeType && other is _$EditListLoading);
   }
 
   @override
@@ -143,8 +143,8 @@ class _$CreateListLoading implements CreateListLoading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CreateListLoading value) loading,
-    required TResult Function(CreateListSuccess value) success,
+    required TResult Function(EditListLoading value) loading,
+    required TResult Function(EditListSuccess value) success,
   }) {
     return loading(this);
   }
@@ -152,8 +152,8 @@ class _$CreateListLoading implements CreateListLoading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CreateListLoading value)? loading,
-    TResult? Function(CreateListSuccess value)? success,
+    TResult? Function(EditListLoading value)? loading,
+    TResult? Function(EditListSuccess value)? success,
   }) {
     return loading?.call(this);
   }
@@ -161,8 +161,8 @@ class _$CreateListLoading implements CreateListLoading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CreateListLoading value)? loading,
-    TResult Function(CreateListSuccess value)? success,
+    TResult Function(EditListLoading value)? loading,
+    TResult Function(EditListSuccess value)? success,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -172,25 +172,25 @@ class _$CreateListLoading implements CreateListLoading {
   }
 }
 
-abstract class CreateListLoading implements CreateListState {
-  const factory CreateListLoading() = _$CreateListLoading;
+abstract class EditListLoading implements EditListState {
+  const factory EditListLoading() = _$EditListLoading;
 }
 
 /// @nodoc
-abstract class _$$CreateListSuccessCopyWith<$Res> {
-  factory _$$CreateListSuccessCopyWith(
-          _$CreateListSuccess value, $Res Function(_$CreateListSuccess) then) =
-      __$$CreateListSuccessCopyWithImpl<$Res>;
+abstract class _$$EditListSuccessCopyWith<$Res> {
+  factory _$$EditListSuccessCopyWith(
+          _$EditListSuccess value, $Res Function(_$EditListSuccess) then) =
+      __$$EditListSuccessCopyWithImpl<$Res>;
   @useResult
   $Res call({String name, Color color});
 }
 
 /// @nodoc
-class __$$CreateListSuccessCopyWithImpl<$Res>
-    extends _$CreateListStateCopyWithImpl<$Res, _$CreateListSuccess>
-    implements _$$CreateListSuccessCopyWith<$Res> {
-  __$$CreateListSuccessCopyWithImpl(
-      _$CreateListSuccess _value, $Res Function(_$CreateListSuccess) _then)
+class __$$EditListSuccessCopyWithImpl<$Res>
+    extends _$EditListStateCopyWithImpl<$Res, _$EditListSuccess>
+    implements _$$EditListSuccessCopyWith<$Res> {
+  __$$EditListSuccessCopyWithImpl(
+      _$EditListSuccess _value, $Res Function(_$EditListSuccess) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -199,7 +199,7 @@ class __$$CreateListSuccessCopyWithImpl<$Res>
     Object? name = null,
     Object? color = null,
   }) {
-    return _then(_$CreateListSuccess(
+    return _then(_$EditListSuccess(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -214,8 +214,8 @@ class __$$CreateListSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CreateListSuccess implements CreateListSuccess {
-  const _$CreateListSuccess({required this.name, required this.color});
+class _$EditListSuccess implements EditListSuccess {
+  const _$EditListSuccess({required this.name, required this.color});
 
   @override
   final String name;
@@ -224,14 +224,14 @@ class _$CreateListSuccess implements CreateListSuccess {
 
   @override
   String toString() {
-    return 'CreateListState.success(name: $name, color: $color)';
+    return 'EditListState.success(name: $name, color: $color)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CreateListSuccess &&
+            other is _$EditListSuccess &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.color, color) || other.color == color));
   }
@@ -242,8 +242,8 @@ class _$CreateListSuccess implements CreateListSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CreateListSuccessCopyWith<_$CreateListSuccess> get copyWith =>
-      __$$CreateListSuccessCopyWithImpl<_$CreateListSuccess>(this, _$identity);
+  _$$EditListSuccessCopyWith<_$EditListSuccess> get copyWith =>
+      __$$EditListSuccessCopyWithImpl<_$EditListSuccess>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -279,8 +279,8 @@ class _$CreateListSuccess implements CreateListSuccess {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CreateListLoading value) loading,
-    required TResult Function(CreateListSuccess value) success,
+    required TResult Function(EditListLoading value) loading,
+    required TResult Function(EditListSuccess value) success,
   }) {
     return success(this);
   }
@@ -288,8 +288,8 @@ class _$CreateListSuccess implements CreateListSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CreateListLoading value)? loading,
-    TResult? Function(CreateListSuccess value)? success,
+    TResult? Function(EditListLoading value)? loading,
+    TResult? Function(EditListSuccess value)? success,
   }) {
     return success?.call(this);
   }
@@ -297,8 +297,8 @@ class _$CreateListSuccess implements CreateListSuccess {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CreateListLoading value)? loading,
-    TResult Function(CreateListSuccess value)? success,
+    TResult Function(EditListLoading value)? loading,
+    TResult Function(EditListSuccess value)? success,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -308,14 +308,14 @@ class _$CreateListSuccess implements CreateListSuccess {
   }
 }
 
-abstract class CreateListSuccess implements CreateListState {
-  const factory CreateListSuccess(
+abstract class EditListSuccess implements EditListState {
+  const factory EditListSuccess(
       {required final String name,
-      required final Color color}) = _$CreateListSuccess;
+      required final Color color}) = _$EditListSuccess;
 
   String get name;
   Color get color;
   @JsonKey(ignore: true)
-  _$$CreateListSuccessCopyWith<_$CreateListSuccess> get copyWith =>
+  _$$EditListSuccessCopyWith<_$EditListSuccess> get copyWith =>
       throw _privateConstructorUsedError;
 }

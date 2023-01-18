@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
-import '../../../../domain/models/category.dart';
+import 'package:shop_list/src/domain/models/list.dart';
+import 'package:shop_list/src/domain/models/product.dart';
 
 part 'state.freezed.dart';
 
@@ -8,6 +8,8 @@ part 'state.freezed.dart';
 abstract class ListDetailsState with _$ListDetailsState {
   const factory ListDetailsState.loading() = ListDetailsLoading;
 
-  const factory ListDetailsState.success(
-      {required List<CategoryEntry> categories}) = ListDetailsSuccess;
+  const factory ListDetailsState.success({
+    required ListEntry list,
+    required List<ProductEntry> products,
+  }) = ListDetailsSuccess;
 }

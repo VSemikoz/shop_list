@@ -6,8 +6,15 @@ part 'event.freezed.dart';
 abstract class ListDetailsEvent with _$ListDetailsEvent {
   const factory ListDetailsEvent.init() = ListDetailsInit;
 
-  const factory ListDetailsEvent.add() = ListDetailsAdd;
+  const factory ListDetailsEvent.addProduct() = ListDetailsAddProduct;
 
-  const factory ListDetailsEvent.edit() =
-  ListDetailsEdit;
+  const factory ListDetailsEvent.deleteProduct() = ListDetailsDeletePrduct;
+
+  const factory ListDetailsEvent.editProduct() = ListDetailsEditProduct;
+
+  const factory ListDetailsEvent.markFavorite() = ListDetailsMarkFavorite;
+
+  const factory ListDetailsEvent.deleteList() = ListDetailsDeleteList;
+
+  const factory ListDetailsEvent.editList() = ListDetailsEditList;
 }

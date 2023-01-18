@@ -4,17 +4,17 @@ import 'package:shop_list/src/common/providers/theme/theme.dart';
 import 'package:shop_list/src/presentation/ui/widgets/tappable/common.dart';
 
 import '../../../../../generated/l10n.dart';
-import '../bloc/create_list.dart';
+import '../bloc/edit_list.dart';
 
-class CreateListDialog extends StatelessWidget {
-  static String id = "create_list";
+class EditListDialog extends StatelessWidget {
+  static String id = "edit_list";
 
-  const CreateListDialog({Key? key}) : super(key: key);
+  const EditListDialog({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      child: BlocBuilder<CreateListBloc, CreateListState>(
+      child: BlocBuilder<EditListBloc, EditListState>(
         builder: (context, state) {
           return Padding(
             padding: const EdgeInsets.all(16.0),
@@ -24,7 +24,7 @@ class CreateListDialog extends StatelessWidget {
                 const SizedBox(height: 20),
                 TextField(
                   onChanged: (text) {
-                    context.read<CreateListBloc>().updateText(text);
+                    context.read<EditListBloc>().updateText(text);
                   },
                   decoration: InputDecoration(
                     hintText: S.of(context).editCategoryHint,
@@ -50,7 +50,7 @@ class _ColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<Color>(
-        stream: context.read<CreateListBloc>().currentColorController,
+        stream: context.read<EditListBloc>().currentColorController,
         builder: (context, snapshot) {
           return Row(
             children: context.colorTheme.picker.list
@@ -83,7 +83,7 @@ class _ColorPickerItem extends StatelessWidget {
       child: MaterialTapWrapper(
         radius: Radius.zero,
         onPressed: () {
-          context.read<CreateListBloc>().updateColor(color);
+          context.read<EditListBloc>().updateColor(color);
         },
         child: Stack(
           children: [
@@ -119,8 +119,8 @@ class _Buttons extends StatelessWidget {
         const SizedBox(width: 20),
         MaterialTapWrapper(
           radius: Radius.zero,
-          onPressed: () => context.read<CreateListBloc>().add(
-                CreateListEvent.add(),
+          onPressed: () => context.read<EditListBloc>().add(
+                EditListEvent.add(),
               ),
           child: Padding(
             padding: const EdgeInsets.all(8.0),

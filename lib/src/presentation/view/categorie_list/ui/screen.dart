@@ -19,6 +19,7 @@ class CategoryListScreen extends StatelessWidget {
         listener: (context, state) {},
         builder: (context, state) {
           return Scaffold(
+            backgroundColor: context.colorTheme.background.primary,
             body: Column(
               children: [
                 _AppBar(),

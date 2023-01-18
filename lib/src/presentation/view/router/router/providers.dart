@@ -8,8 +8,8 @@ import 'package:shop_list/src/domain/models/list.dart';
 import 'package:shop_list/src/presentation/view/categorie_list/bloc/categorie_list.dart';
 import 'package:shop_list/src/presentation/view/categorie_list/ui/screen.dart';
 import 'package:shop_list/src/presentation/view/category_edit/bloc/category_edit.dart';
-import 'package:shop_list/src/presentation/view/create_list/bloc/create_list.dart';
-import 'package:shop_list/src/presentation/view/create_list/ui/dialog.dart';
+import 'package:shop_list/src/presentation/view/edit_list/bloc/edit_list.dart';
+import 'package:shop_list/src/presentation/view/edit_list/ui/dialog.dart';
 import 'package:shop_list/src/presentation/view/list_details/bloc/bloc.dart';
 import 'package:shop_list/src/presentation/view/list_details/ui/screen.dart';
 
@@ -32,14 +32,14 @@ class ScreenProvider {
       );
 
   static RouteInfo createList(CreateListTransaction transaction) => RouteInfo(
-        id: CreateListDialog.id,
+        id: EditListDialog.id,
         pageType: PageType.dialog,
         builder: (context) => Provider(
-          create: (_) => getIt<CreateListBloc>(
+          create: (_) => getIt<EditListBloc>(
             param1: transaction,
             param2: getRouter(context),
-          )..add(CreateListEvent.init()),
-          child: CreateListDialog(),
+          )..add(EditListEvent.init()),
+          child: EditListDialog(),
         ),
       );
 

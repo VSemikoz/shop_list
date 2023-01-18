@@ -19,44 +19,68 @@ mixin _$ListDetailsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() add,
-    required TResult Function() edit,
+    required TResult Function() addProduct,
+    required TResult Function() deleteProduct,
+    required TResult Function() editProduct,
+    required TResult Function() markFavorite,
+    required TResult Function() deleteList,
+    required TResult Function() editList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? add,
-    TResult? Function()? edit,
+    TResult? Function()? addProduct,
+    TResult? Function()? deleteProduct,
+    TResult? Function()? editProduct,
+    TResult? Function()? markFavorite,
+    TResult? Function()? deleteList,
+    TResult? Function()? editList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? add,
-    TResult Function()? edit,
+    TResult Function()? addProduct,
+    TResult Function()? deleteProduct,
+    TResult Function()? editProduct,
+    TResult Function()? markFavorite,
+    TResult Function()? deleteList,
+    TResult Function()? editList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ListDetailsInit value) init,
-    required TResult Function(ListDetailsAdd value) add,
-    required TResult Function(ListDetailsEdit value) edit,
+    required TResult Function(ListDetailsAddProduct value) addProduct,
+    required TResult Function(ListDetailsDeletePrduct value) deleteProduct,
+    required TResult Function(ListDetailsEditProduct value) editProduct,
+    required TResult Function(ListDetailsMarkFavorite value) markFavorite,
+    required TResult Function(ListDetailsDeleteList value) deleteList,
+    required TResult Function(ListDetailsEditList value) editList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ListDetailsInit value)? init,
-    TResult? Function(ListDetailsAdd value)? add,
-    TResult? Function(ListDetailsEdit value)? edit,
+    TResult? Function(ListDetailsAddProduct value)? addProduct,
+    TResult? Function(ListDetailsDeletePrduct value)? deleteProduct,
+    TResult? Function(ListDetailsEditProduct value)? editProduct,
+    TResult? Function(ListDetailsMarkFavorite value)? markFavorite,
+    TResult? Function(ListDetailsDeleteList value)? deleteList,
+    TResult? Function(ListDetailsEditList value)? editList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ListDetailsInit value)? init,
-    TResult Function(ListDetailsAdd value)? add,
-    TResult Function(ListDetailsEdit value)? edit,
+    TResult Function(ListDetailsAddProduct value)? addProduct,
+    TResult Function(ListDetailsDeletePrduct value)? deleteProduct,
+    TResult Function(ListDetailsEditProduct value)? editProduct,
+    TResult Function(ListDetailsMarkFavorite value)? markFavorite,
+    TResult Function(ListDetailsDeleteList value)? deleteList,
+    TResult Function(ListDetailsEditList value)? editList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -119,8 +143,12 @@ class _$ListDetailsInit implements ListDetailsInit {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() add,
-    required TResult Function() edit,
+    required TResult Function() addProduct,
+    required TResult Function() deleteProduct,
+    required TResult Function() editProduct,
+    required TResult Function() markFavorite,
+    required TResult Function() deleteList,
+    required TResult Function() editList,
   }) {
     return init();
   }
@@ -129,8 +157,12 @@ class _$ListDetailsInit implements ListDetailsInit {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? add,
-    TResult? Function()? edit,
+    TResult? Function()? addProduct,
+    TResult? Function()? deleteProduct,
+    TResult? Function()? editProduct,
+    TResult? Function()? markFavorite,
+    TResult? Function()? deleteList,
+    TResult? Function()? editList,
   }) {
     return init?.call();
   }
@@ -139,8 +171,12 @@ class _$ListDetailsInit implements ListDetailsInit {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? add,
-    TResult Function()? edit,
+    TResult Function()? addProduct,
+    TResult Function()? deleteProduct,
+    TResult Function()? editProduct,
+    TResult Function()? markFavorite,
+    TResult Function()? deleteList,
+    TResult Function()? editList,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -153,8 +189,12 @@ class _$ListDetailsInit implements ListDetailsInit {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ListDetailsInit value) init,
-    required TResult Function(ListDetailsAdd value) add,
-    required TResult Function(ListDetailsEdit value) edit,
+    required TResult Function(ListDetailsAddProduct value) addProduct,
+    required TResult Function(ListDetailsDeletePrduct value) deleteProduct,
+    required TResult Function(ListDetailsEditProduct value) editProduct,
+    required TResult Function(ListDetailsMarkFavorite value) markFavorite,
+    required TResult Function(ListDetailsDeleteList value) deleteList,
+    required TResult Function(ListDetailsEditList value) editList,
   }) {
     return init(this);
   }
@@ -163,8 +203,12 @@ class _$ListDetailsInit implements ListDetailsInit {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ListDetailsInit value)? init,
-    TResult? Function(ListDetailsAdd value)? add,
-    TResult? Function(ListDetailsEdit value)? edit,
+    TResult? Function(ListDetailsAddProduct value)? addProduct,
+    TResult? Function(ListDetailsDeletePrduct value)? deleteProduct,
+    TResult? Function(ListDetailsEditProduct value)? editProduct,
+    TResult? Function(ListDetailsMarkFavorite value)? markFavorite,
+    TResult? Function(ListDetailsDeleteList value)? deleteList,
+    TResult? Function(ListDetailsEditList value)? editList,
   }) {
     return init?.call(this);
   }
@@ -173,8 +217,12 @@ class _$ListDetailsInit implements ListDetailsInit {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ListDetailsInit value)? init,
-    TResult Function(ListDetailsAdd value)? add,
-    TResult Function(ListDetailsEdit value)? edit,
+    TResult Function(ListDetailsAddProduct value)? addProduct,
+    TResult Function(ListDetailsDeletePrduct value)? deleteProduct,
+    TResult Function(ListDetailsEditProduct value)? editProduct,
+    TResult Function(ListDetailsMarkFavorite value)? markFavorite,
+    TResult Function(ListDetailsDeleteList value)? deleteList,
+    TResult Function(ListDetailsEditList value)? editList,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -189,35 +237,35 @@ abstract class ListDetailsInit implements ListDetailsEvent {
 }
 
 /// @nodoc
-abstract class _$$ListDetailsAddCopyWith<$Res> {
-  factory _$$ListDetailsAddCopyWith(
-          _$ListDetailsAdd value, $Res Function(_$ListDetailsAdd) then) =
-      __$$ListDetailsAddCopyWithImpl<$Res>;
+abstract class _$$ListDetailsAddProductCopyWith<$Res> {
+  factory _$$ListDetailsAddProductCopyWith(_$ListDetailsAddProduct value,
+          $Res Function(_$ListDetailsAddProduct) then) =
+      __$$ListDetailsAddProductCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ListDetailsAddCopyWithImpl<$Res>
-    extends _$ListDetailsEventCopyWithImpl<$Res, _$ListDetailsAdd>
-    implements _$$ListDetailsAddCopyWith<$Res> {
-  __$$ListDetailsAddCopyWithImpl(
-      _$ListDetailsAdd _value, $Res Function(_$ListDetailsAdd) _then)
+class __$$ListDetailsAddProductCopyWithImpl<$Res>
+    extends _$ListDetailsEventCopyWithImpl<$Res, _$ListDetailsAddProduct>
+    implements _$$ListDetailsAddProductCopyWith<$Res> {
+  __$$ListDetailsAddProductCopyWithImpl(_$ListDetailsAddProduct _value,
+      $Res Function(_$ListDetailsAddProduct) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ListDetailsAdd implements ListDetailsAdd {
-  const _$ListDetailsAdd();
+class _$ListDetailsAddProduct implements ListDetailsAddProduct {
+  const _$ListDetailsAddProduct();
 
   @override
   String toString() {
-    return 'ListDetailsEvent.add()';
+    return 'ListDetailsEvent.addProduct()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ListDetailsAdd);
+        (other.runtimeType == runtimeType && other is _$ListDetailsAddProduct);
   }
 
   @override
@@ -227,32 +275,44 @@ class _$ListDetailsAdd implements ListDetailsAdd {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() add,
-    required TResult Function() edit,
+    required TResult Function() addProduct,
+    required TResult Function() deleteProduct,
+    required TResult Function() editProduct,
+    required TResult Function() markFavorite,
+    required TResult Function() deleteList,
+    required TResult Function() editList,
   }) {
-    return add();
+    return addProduct();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? add,
-    TResult? Function()? edit,
+    TResult? Function()? addProduct,
+    TResult? Function()? deleteProduct,
+    TResult? Function()? editProduct,
+    TResult? Function()? markFavorite,
+    TResult? Function()? deleteList,
+    TResult? Function()? editList,
   }) {
-    return add?.call();
+    return addProduct?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? add,
-    TResult Function()? edit,
+    TResult Function()? addProduct,
+    TResult Function()? deleteProduct,
+    TResult Function()? editProduct,
+    TResult Function()? markFavorite,
+    TResult Function()? deleteList,
+    TResult Function()? editList,
     required TResult orElse(),
   }) {
-    if (add != null) {
-      return add();
+    if (addProduct != null) {
+      return addProduct();
     }
     return orElse();
   }
@@ -261,71 +321,84 @@ class _$ListDetailsAdd implements ListDetailsAdd {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ListDetailsInit value) init,
-    required TResult Function(ListDetailsAdd value) add,
-    required TResult Function(ListDetailsEdit value) edit,
+    required TResult Function(ListDetailsAddProduct value) addProduct,
+    required TResult Function(ListDetailsDeletePrduct value) deleteProduct,
+    required TResult Function(ListDetailsEditProduct value) editProduct,
+    required TResult Function(ListDetailsMarkFavorite value) markFavorite,
+    required TResult Function(ListDetailsDeleteList value) deleteList,
+    required TResult Function(ListDetailsEditList value) editList,
   }) {
-    return add(this);
+    return addProduct(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ListDetailsInit value)? init,
-    TResult? Function(ListDetailsAdd value)? add,
-    TResult? Function(ListDetailsEdit value)? edit,
+    TResult? Function(ListDetailsAddProduct value)? addProduct,
+    TResult? Function(ListDetailsDeletePrduct value)? deleteProduct,
+    TResult? Function(ListDetailsEditProduct value)? editProduct,
+    TResult? Function(ListDetailsMarkFavorite value)? markFavorite,
+    TResult? Function(ListDetailsDeleteList value)? deleteList,
+    TResult? Function(ListDetailsEditList value)? editList,
   }) {
-    return add?.call(this);
+    return addProduct?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ListDetailsInit value)? init,
-    TResult Function(ListDetailsAdd value)? add,
-    TResult Function(ListDetailsEdit value)? edit,
+    TResult Function(ListDetailsAddProduct value)? addProduct,
+    TResult Function(ListDetailsDeletePrduct value)? deleteProduct,
+    TResult Function(ListDetailsEditProduct value)? editProduct,
+    TResult Function(ListDetailsMarkFavorite value)? markFavorite,
+    TResult Function(ListDetailsDeleteList value)? deleteList,
+    TResult Function(ListDetailsEditList value)? editList,
     required TResult orElse(),
   }) {
-    if (add != null) {
-      return add(this);
+    if (addProduct != null) {
+      return addProduct(this);
     }
     return orElse();
   }
 }
 
-abstract class ListDetailsAdd implements ListDetailsEvent {
-  const factory ListDetailsAdd() = _$ListDetailsAdd;
+abstract class ListDetailsAddProduct implements ListDetailsEvent {
+  const factory ListDetailsAddProduct() = _$ListDetailsAddProduct;
 }
 
 /// @nodoc
-abstract class _$$ListDetailsEditCopyWith<$Res> {
-  factory _$$ListDetailsEditCopyWith(
-          _$ListDetailsEdit value, $Res Function(_$ListDetailsEdit) then) =
-      __$$ListDetailsEditCopyWithImpl<$Res>;
+abstract class _$$ListDetailsDeletePrductCopyWith<$Res> {
+  factory _$$ListDetailsDeletePrductCopyWith(_$ListDetailsDeletePrduct value,
+          $Res Function(_$ListDetailsDeletePrduct) then) =
+      __$$ListDetailsDeletePrductCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ListDetailsEditCopyWithImpl<$Res>
-    extends _$ListDetailsEventCopyWithImpl<$Res, _$ListDetailsEdit>
-    implements _$$ListDetailsEditCopyWith<$Res> {
-  __$$ListDetailsEditCopyWithImpl(
-      _$ListDetailsEdit _value, $Res Function(_$ListDetailsEdit) _then)
+class __$$ListDetailsDeletePrductCopyWithImpl<$Res>
+    extends _$ListDetailsEventCopyWithImpl<$Res, _$ListDetailsDeletePrduct>
+    implements _$$ListDetailsDeletePrductCopyWith<$Res> {
+  __$$ListDetailsDeletePrductCopyWithImpl(_$ListDetailsDeletePrduct _value,
+      $Res Function(_$ListDetailsDeletePrduct) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ListDetailsEdit implements ListDetailsEdit {
-  const _$ListDetailsEdit();
+class _$ListDetailsDeletePrduct implements ListDetailsDeletePrduct {
+  const _$ListDetailsDeletePrduct();
 
   @override
   String toString() {
-    return 'ListDetailsEvent.edit()';
+    return 'ListDetailsEvent.deleteProduct()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ListDetailsEdit);
+        (other.runtimeType == runtimeType &&
+            other is _$ListDetailsDeletePrduct);
   }
 
   @override
@@ -335,32 +408,44 @@ class _$ListDetailsEdit implements ListDetailsEdit {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() add,
-    required TResult Function() edit,
+    required TResult Function() addProduct,
+    required TResult Function() deleteProduct,
+    required TResult Function() editProduct,
+    required TResult Function() markFavorite,
+    required TResult Function() deleteList,
+    required TResult Function() editList,
   }) {
-    return edit();
+    return deleteProduct();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? add,
-    TResult? Function()? edit,
+    TResult? Function()? addProduct,
+    TResult? Function()? deleteProduct,
+    TResult? Function()? editProduct,
+    TResult? Function()? markFavorite,
+    TResult? Function()? deleteList,
+    TResult? Function()? editList,
   }) {
-    return edit?.call();
+    return deleteProduct?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? add,
-    TResult Function()? edit,
+    TResult Function()? addProduct,
+    TResult Function()? deleteProduct,
+    TResult Function()? editProduct,
+    TResult Function()? markFavorite,
+    TResult Function()? deleteList,
+    TResult Function()? editList,
     required TResult orElse(),
   }) {
-    if (edit != null) {
-      return edit();
+    if (deleteProduct != null) {
+      return deleteProduct();
     }
     return orElse();
   }
@@ -369,37 +454,578 @@ class _$ListDetailsEdit implements ListDetailsEdit {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ListDetailsInit value) init,
-    required TResult Function(ListDetailsAdd value) add,
-    required TResult Function(ListDetailsEdit value) edit,
+    required TResult Function(ListDetailsAddProduct value) addProduct,
+    required TResult Function(ListDetailsDeletePrduct value) deleteProduct,
+    required TResult Function(ListDetailsEditProduct value) editProduct,
+    required TResult Function(ListDetailsMarkFavorite value) markFavorite,
+    required TResult Function(ListDetailsDeleteList value) deleteList,
+    required TResult Function(ListDetailsEditList value) editList,
   }) {
-    return edit(this);
+    return deleteProduct(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ListDetailsInit value)? init,
-    TResult? Function(ListDetailsAdd value)? add,
-    TResult? Function(ListDetailsEdit value)? edit,
+    TResult? Function(ListDetailsAddProduct value)? addProduct,
+    TResult? Function(ListDetailsDeletePrduct value)? deleteProduct,
+    TResult? Function(ListDetailsEditProduct value)? editProduct,
+    TResult? Function(ListDetailsMarkFavorite value)? markFavorite,
+    TResult? Function(ListDetailsDeleteList value)? deleteList,
+    TResult? Function(ListDetailsEditList value)? editList,
   }) {
-    return edit?.call(this);
+    return deleteProduct?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ListDetailsInit value)? init,
-    TResult Function(ListDetailsAdd value)? add,
-    TResult Function(ListDetailsEdit value)? edit,
+    TResult Function(ListDetailsAddProduct value)? addProduct,
+    TResult Function(ListDetailsDeletePrduct value)? deleteProduct,
+    TResult Function(ListDetailsEditProduct value)? editProduct,
+    TResult Function(ListDetailsMarkFavorite value)? markFavorite,
+    TResult Function(ListDetailsDeleteList value)? deleteList,
+    TResult Function(ListDetailsEditList value)? editList,
     required TResult orElse(),
   }) {
-    if (edit != null) {
-      return edit(this);
+    if (deleteProduct != null) {
+      return deleteProduct(this);
     }
     return orElse();
   }
 }
 
-abstract class ListDetailsEdit implements ListDetailsEvent {
-  const factory ListDetailsEdit() = _$ListDetailsEdit;
+abstract class ListDetailsDeletePrduct implements ListDetailsEvent {
+  const factory ListDetailsDeletePrduct() = _$ListDetailsDeletePrduct;
+}
+
+/// @nodoc
+abstract class _$$ListDetailsEditProductCopyWith<$Res> {
+  factory _$$ListDetailsEditProductCopyWith(_$ListDetailsEditProduct value,
+          $Res Function(_$ListDetailsEditProduct) then) =
+      __$$ListDetailsEditProductCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ListDetailsEditProductCopyWithImpl<$Res>
+    extends _$ListDetailsEventCopyWithImpl<$Res, _$ListDetailsEditProduct>
+    implements _$$ListDetailsEditProductCopyWith<$Res> {
+  __$$ListDetailsEditProductCopyWithImpl(_$ListDetailsEditProduct _value,
+      $Res Function(_$ListDetailsEditProduct) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ListDetailsEditProduct implements ListDetailsEditProduct {
+  const _$ListDetailsEditProduct();
+
+  @override
+  String toString() {
+    return 'ListDetailsEvent.editProduct()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ListDetailsEditProduct);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() addProduct,
+    required TResult Function() deleteProduct,
+    required TResult Function() editProduct,
+    required TResult Function() markFavorite,
+    required TResult Function() deleteList,
+    required TResult Function() editList,
+  }) {
+    return editProduct();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? addProduct,
+    TResult? Function()? deleteProduct,
+    TResult? Function()? editProduct,
+    TResult? Function()? markFavorite,
+    TResult? Function()? deleteList,
+    TResult? Function()? editList,
+  }) {
+    return editProduct?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? addProduct,
+    TResult Function()? deleteProduct,
+    TResult Function()? editProduct,
+    TResult Function()? markFavorite,
+    TResult Function()? deleteList,
+    TResult Function()? editList,
+    required TResult orElse(),
+  }) {
+    if (editProduct != null) {
+      return editProduct();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ListDetailsInit value) init,
+    required TResult Function(ListDetailsAddProduct value) addProduct,
+    required TResult Function(ListDetailsDeletePrduct value) deleteProduct,
+    required TResult Function(ListDetailsEditProduct value) editProduct,
+    required TResult Function(ListDetailsMarkFavorite value) markFavorite,
+    required TResult Function(ListDetailsDeleteList value) deleteList,
+    required TResult Function(ListDetailsEditList value) editList,
+  }) {
+    return editProduct(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ListDetailsInit value)? init,
+    TResult? Function(ListDetailsAddProduct value)? addProduct,
+    TResult? Function(ListDetailsDeletePrduct value)? deleteProduct,
+    TResult? Function(ListDetailsEditProduct value)? editProduct,
+    TResult? Function(ListDetailsMarkFavorite value)? markFavorite,
+    TResult? Function(ListDetailsDeleteList value)? deleteList,
+    TResult? Function(ListDetailsEditList value)? editList,
+  }) {
+    return editProduct?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ListDetailsInit value)? init,
+    TResult Function(ListDetailsAddProduct value)? addProduct,
+    TResult Function(ListDetailsDeletePrduct value)? deleteProduct,
+    TResult Function(ListDetailsEditProduct value)? editProduct,
+    TResult Function(ListDetailsMarkFavorite value)? markFavorite,
+    TResult Function(ListDetailsDeleteList value)? deleteList,
+    TResult Function(ListDetailsEditList value)? editList,
+    required TResult orElse(),
+  }) {
+    if (editProduct != null) {
+      return editProduct(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ListDetailsEditProduct implements ListDetailsEvent {
+  const factory ListDetailsEditProduct() = _$ListDetailsEditProduct;
+}
+
+/// @nodoc
+abstract class _$$ListDetailsMarkFavoriteCopyWith<$Res> {
+  factory _$$ListDetailsMarkFavoriteCopyWith(_$ListDetailsMarkFavorite value,
+          $Res Function(_$ListDetailsMarkFavorite) then) =
+      __$$ListDetailsMarkFavoriteCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ListDetailsMarkFavoriteCopyWithImpl<$Res>
+    extends _$ListDetailsEventCopyWithImpl<$Res, _$ListDetailsMarkFavorite>
+    implements _$$ListDetailsMarkFavoriteCopyWith<$Res> {
+  __$$ListDetailsMarkFavoriteCopyWithImpl(_$ListDetailsMarkFavorite _value,
+      $Res Function(_$ListDetailsMarkFavorite) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ListDetailsMarkFavorite implements ListDetailsMarkFavorite {
+  const _$ListDetailsMarkFavorite();
+
+  @override
+  String toString() {
+    return 'ListDetailsEvent.markFavorite()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ListDetailsMarkFavorite);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() addProduct,
+    required TResult Function() deleteProduct,
+    required TResult Function() editProduct,
+    required TResult Function() markFavorite,
+    required TResult Function() deleteList,
+    required TResult Function() editList,
+  }) {
+    return markFavorite();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? addProduct,
+    TResult? Function()? deleteProduct,
+    TResult? Function()? editProduct,
+    TResult? Function()? markFavorite,
+    TResult? Function()? deleteList,
+    TResult? Function()? editList,
+  }) {
+    return markFavorite?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? addProduct,
+    TResult Function()? deleteProduct,
+    TResult Function()? editProduct,
+    TResult Function()? markFavorite,
+    TResult Function()? deleteList,
+    TResult Function()? editList,
+    required TResult orElse(),
+  }) {
+    if (markFavorite != null) {
+      return markFavorite();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ListDetailsInit value) init,
+    required TResult Function(ListDetailsAddProduct value) addProduct,
+    required TResult Function(ListDetailsDeletePrduct value) deleteProduct,
+    required TResult Function(ListDetailsEditProduct value) editProduct,
+    required TResult Function(ListDetailsMarkFavorite value) markFavorite,
+    required TResult Function(ListDetailsDeleteList value) deleteList,
+    required TResult Function(ListDetailsEditList value) editList,
+  }) {
+    return markFavorite(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ListDetailsInit value)? init,
+    TResult? Function(ListDetailsAddProduct value)? addProduct,
+    TResult? Function(ListDetailsDeletePrduct value)? deleteProduct,
+    TResult? Function(ListDetailsEditProduct value)? editProduct,
+    TResult? Function(ListDetailsMarkFavorite value)? markFavorite,
+    TResult? Function(ListDetailsDeleteList value)? deleteList,
+    TResult? Function(ListDetailsEditList value)? editList,
+  }) {
+    return markFavorite?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ListDetailsInit value)? init,
+    TResult Function(ListDetailsAddProduct value)? addProduct,
+    TResult Function(ListDetailsDeletePrduct value)? deleteProduct,
+    TResult Function(ListDetailsEditProduct value)? editProduct,
+    TResult Function(ListDetailsMarkFavorite value)? markFavorite,
+    TResult Function(ListDetailsDeleteList value)? deleteList,
+    TResult Function(ListDetailsEditList value)? editList,
+    required TResult orElse(),
+  }) {
+    if (markFavorite != null) {
+      return markFavorite(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ListDetailsMarkFavorite implements ListDetailsEvent {
+  const factory ListDetailsMarkFavorite() = _$ListDetailsMarkFavorite;
+}
+
+/// @nodoc
+abstract class _$$ListDetailsDeleteListCopyWith<$Res> {
+  factory _$$ListDetailsDeleteListCopyWith(_$ListDetailsDeleteList value,
+          $Res Function(_$ListDetailsDeleteList) then) =
+      __$$ListDetailsDeleteListCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ListDetailsDeleteListCopyWithImpl<$Res>
+    extends _$ListDetailsEventCopyWithImpl<$Res, _$ListDetailsDeleteList>
+    implements _$$ListDetailsDeleteListCopyWith<$Res> {
+  __$$ListDetailsDeleteListCopyWithImpl(_$ListDetailsDeleteList _value,
+      $Res Function(_$ListDetailsDeleteList) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ListDetailsDeleteList implements ListDetailsDeleteList {
+  const _$ListDetailsDeleteList();
+
+  @override
+  String toString() {
+    return 'ListDetailsEvent.deleteList()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ListDetailsDeleteList);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() addProduct,
+    required TResult Function() deleteProduct,
+    required TResult Function() editProduct,
+    required TResult Function() markFavorite,
+    required TResult Function() deleteList,
+    required TResult Function() editList,
+  }) {
+    return deleteList();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? addProduct,
+    TResult? Function()? deleteProduct,
+    TResult? Function()? editProduct,
+    TResult? Function()? markFavorite,
+    TResult? Function()? deleteList,
+    TResult? Function()? editList,
+  }) {
+    return deleteList?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? addProduct,
+    TResult Function()? deleteProduct,
+    TResult Function()? editProduct,
+    TResult Function()? markFavorite,
+    TResult Function()? deleteList,
+    TResult Function()? editList,
+    required TResult orElse(),
+  }) {
+    if (deleteList != null) {
+      return deleteList();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ListDetailsInit value) init,
+    required TResult Function(ListDetailsAddProduct value) addProduct,
+    required TResult Function(ListDetailsDeletePrduct value) deleteProduct,
+    required TResult Function(ListDetailsEditProduct value) editProduct,
+    required TResult Function(ListDetailsMarkFavorite value) markFavorite,
+    required TResult Function(ListDetailsDeleteList value) deleteList,
+    required TResult Function(ListDetailsEditList value) editList,
+  }) {
+    return deleteList(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ListDetailsInit value)? init,
+    TResult? Function(ListDetailsAddProduct value)? addProduct,
+    TResult? Function(ListDetailsDeletePrduct value)? deleteProduct,
+    TResult? Function(ListDetailsEditProduct value)? editProduct,
+    TResult? Function(ListDetailsMarkFavorite value)? markFavorite,
+    TResult? Function(ListDetailsDeleteList value)? deleteList,
+    TResult? Function(ListDetailsEditList value)? editList,
+  }) {
+    return deleteList?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ListDetailsInit value)? init,
+    TResult Function(ListDetailsAddProduct value)? addProduct,
+    TResult Function(ListDetailsDeletePrduct value)? deleteProduct,
+    TResult Function(ListDetailsEditProduct value)? editProduct,
+    TResult Function(ListDetailsMarkFavorite value)? markFavorite,
+    TResult Function(ListDetailsDeleteList value)? deleteList,
+    TResult Function(ListDetailsEditList value)? editList,
+    required TResult orElse(),
+  }) {
+    if (deleteList != null) {
+      return deleteList(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ListDetailsDeleteList implements ListDetailsEvent {
+  const factory ListDetailsDeleteList() = _$ListDetailsDeleteList;
+}
+
+/// @nodoc
+abstract class _$$ListDetailsEditListCopyWith<$Res> {
+  factory _$$ListDetailsEditListCopyWith(_$ListDetailsEditList value,
+          $Res Function(_$ListDetailsEditList) then) =
+      __$$ListDetailsEditListCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ListDetailsEditListCopyWithImpl<$Res>
+    extends _$ListDetailsEventCopyWithImpl<$Res, _$ListDetailsEditList>
+    implements _$$ListDetailsEditListCopyWith<$Res> {
+  __$$ListDetailsEditListCopyWithImpl(
+      _$ListDetailsEditList _value, $Res Function(_$ListDetailsEditList) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ListDetailsEditList implements ListDetailsEditList {
+  const _$ListDetailsEditList();
+
+  @override
+  String toString() {
+    return 'ListDetailsEvent.editList()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ListDetailsEditList);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() addProduct,
+    required TResult Function() deleteProduct,
+    required TResult Function() editProduct,
+    required TResult Function() markFavorite,
+    required TResult Function() deleteList,
+    required TResult Function() editList,
+  }) {
+    return editList();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? addProduct,
+    TResult? Function()? deleteProduct,
+    TResult? Function()? editProduct,
+    TResult? Function()? markFavorite,
+    TResult? Function()? deleteList,
+    TResult? Function()? editList,
+  }) {
+    return editList?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? addProduct,
+    TResult Function()? deleteProduct,
+    TResult Function()? editProduct,
+    TResult Function()? markFavorite,
+    TResult Function()? deleteList,
+    TResult Function()? editList,
+    required TResult orElse(),
+  }) {
+    if (editList != null) {
+      return editList();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ListDetailsInit value) init,
+    required TResult Function(ListDetailsAddProduct value) addProduct,
+    required TResult Function(ListDetailsDeletePrduct value) deleteProduct,
+    required TResult Function(ListDetailsEditProduct value) editProduct,
+    required TResult Function(ListDetailsMarkFavorite value) markFavorite,
+    required TResult Function(ListDetailsDeleteList value) deleteList,
+    required TResult Function(ListDetailsEditList value) editList,
+  }) {
+    return editList(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ListDetailsInit value)? init,
+    TResult? Function(ListDetailsAddProduct value)? addProduct,
+    TResult? Function(ListDetailsDeletePrduct value)? deleteProduct,
+    TResult? Function(ListDetailsEditProduct value)? editProduct,
+    TResult? Function(ListDetailsMarkFavorite value)? markFavorite,
+    TResult? Function(ListDetailsDeleteList value)? deleteList,
+    TResult? Function(ListDetailsEditList value)? editList,
+  }) {
+    return editList?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ListDetailsInit value)? init,
+    TResult Function(ListDetailsAddProduct value)? addProduct,
+    TResult Function(ListDetailsDeletePrduct value)? deleteProduct,
+    TResult Function(ListDetailsEditProduct value)? editProduct,
+    TResult Function(ListDetailsMarkFavorite value)? markFavorite,
+    TResult Function(ListDetailsDeleteList value)? deleteList,
+    TResult Function(ListDetailsEditList value)? editList,
+    required TResult orElse(),
+  }) {
+    if (editList != null) {
+      return editList(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ListDetailsEditList implements ListDetailsEvent {
+  const factory ListDetailsEditList() = _$ListDetailsEditList;
 }

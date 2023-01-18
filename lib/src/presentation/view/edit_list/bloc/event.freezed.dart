@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$CreateListEvent {
+mixin _$EditListEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
@@ -37,36 +37,36 @@ mixin _$CreateListEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CreateListInit value) init,
-    required TResult Function(CreateListAdd value) add,
+    required TResult Function(EditListInit value) init,
+    required TResult Function(EditListAdd value) add,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CreateListInit value)? init,
-    TResult? Function(CreateListAdd value)? add,
+    TResult? Function(EditListInit value)? init,
+    TResult? Function(EditListAdd value)? add,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CreateListInit value)? init,
-    TResult Function(CreateListAdd value)? add,
+    TResult Function(EditListInit value)? init,
+    TResult Function(EditListAdd value)? add,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CreateListEventCopyWith<$Res> {
-  factory $CreateListEventCopyWith(
-          CreateListEvent value, $Res Function(CreateListEvent) then) =
-      _$CreateListEventCopyWithImpl<$Res, CreateListEvent>;
+abstract class $EditListEventCopyWith<$Res> {
+  factory $EditListEventCopyWith(
+          EditListEvent value, $Res Function(EditListEvent) then) =
+      _$EditListEventCopyWithImpl<$Res, EditListEvent>;
 }
 
 /// @nodoc
-class _$CreateListEventCopyWithImpl<$Res, $Val extends CreateListEvent>
-    implements $CreateListEventCopyWith<$Res> {
-  _$CreateListEventCopyWithImpl(this._value, this._then);
+class _$EditListEventCopyWithImpl<$Res, $Val extends EditListEvent>
+    implements $EditListEventCopyWith<$Res> {
+  _$EditListEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -75,35 +75,35 @@ class _$CreateListEventCopyWithImpl<$Res, $Val extends CreateListEvent>
 }
 
 /// @nodoc
-abstract class _$$CreateListInitCopyWith<$Res> {
-  factory _$$CreateListInitCopyWith(
-          _$CreateListInit value, $Res Function(_$CreateListInit) then) =
-      __$$CreateListInitCopyWithImpl<$Res>;
+abstract class _$$EditListInitCopyWith<$Res> {
+  factory _$$EditListInitCopyWith(
+          _$EditListInit value, $Res Function(_$EditListInit) then) =
+      __$$EditListInitCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$CreateListInitCopyWithImpl<$Res>
-    extends _$CreateListEventCopyWithImpl<$Res, _$CreateListInit>
-    implements _$$CreateListInitCopyWith<$Res> {
-  __$$CreateListInitCopyWithImpl(
-      _$CreateListInit _value, $Res Function(_$CreateListInit) _then)
+class __$$EditListInitCopyWithImpl<$Res>
+    extends _$EditListEventCopyWithImpl<$Res, _$EditListInit>
+    implements _$$EditListInitCopyWith<$Res> {
+  __$$EditListInitCopyWithImpl(
+      _$EditListInit _value, $Res Function(_$EditListInit) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$CreateListInit implements CreateListInit {
-  const _$CreateListInit();
+class _$EditListInit implements EditListInit {
+  const _$EditListInit();
 
   @override
   String toString() {
-    return 'CreateListEvent.init()';
+    return 'EditListEvent.init()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$CreateListInit);
+        (other.runtimeType == runtimeType && other is _$EditListInit);
   }
 
   @override
@@ -143,8 +143,8 @@ class _$CreateListInit implements CreateListInit {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CreateListInit value) init,
-    required TResult Function(CreateListAdd value) add,
+    required TResult Function(EditListInit value) init,
+    required TResult Function(EditListAdd value) add,
   }) {
     return init(this);
   }
@@ -152,8 +152,8 @@ class _$CreateListInit implements CreateListInit {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CreateListInit value)? init,
-    TResult? Function(CreateListAdd value)? add,
+    TResult? Function(EditListInit value)? init,
+    TResult? Function(EditListAdd value)? add,
   }) {
     return init?.call(this);
   }
@@ -161,8 +161,8 @@ class _$CreateListInit implements CreateListInit {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CreateListInit value)? init,
-    TResult Function(CreateListAdd value)? add,
+    TResult Function(EditListInit value)? init,
+    TResult Function(EditListAdd value)? add,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -172,40 +172,40 @@ class _$CreateListInit implements CreateListInit {
   }
 }
 
-abstract class CreateListInit implements CreateListEvent {
-  const factory CreateListInit() = _$CreateListInit;
+abstract class EditListInit implements EditListEvent {
+  const factory EditListInit() = _$EditListInit;
 }
 
 /// @nodoc
-abstract class _$$CreateListAddCopyWith<$Res> {
-  factory _$$CreateListAddCopyWith(
-          _$CreateListAdd value, $Res Function(_$CreateListAdd) then) =
-      __$$CreateListAddCopyWithImpl<$Res>;
+abstract class _$$EditListAddCopyWith<$Res> {
+  factory _$$EditListAddCopyWith(
+          _$EditListAdd value, $Res Function(_$EditListAdd) then) =
+      __$$EditListAddCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$CreateListAddCopyWithImpl<$Res>
-    extends _$CreateListEventCopyWithImpl<$Res, _$CreateListAdd>
-    implements _$$CreateListAddCopyWith<$Res> {
-  __$$CreateListAddCopyWithImpl(
-      _$CreateListAdd _value, $Res Function(_$CreateListAdd) _then)
+class __$$EditListAddCopyWithImpl<$Res>
+    extends _$EditListEventCopyWithImpl<$Res, _$EditListAdd>
+    implements _$$EditListAddCopyWith<$Res> {
+  __$$EditListAddCopyWithImpl(
+      _$EditListAdd _value, $Res Function(_$EditListAdd) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$CreateListAdd implements CreateListAdd {
-  const _$CreateListAdd();
+class _$EditListAdd implements EditListAdd {
+  const _$EditListAdd();
 
   @override
   String toString() {
-    return 'CreateListEvent.add()';
+    return 'EditListEvent.add()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$CreateListAdd);
+        (other.runtimeType == runtimeType && other is _$EditListAdd);
   }
 
   @override
@@ -245,8 +245,8 @@ class _$CreateListAdd implements CreateListAdd {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CreateListInit value) init,
-    required TResult Function(CreateListAdd value) add,
+    required TResult Function(EditListInit value) init,
+    required TResult Function(EditListAdd value) add,
   }) {
     return add(this);
   }
@@ -254,8 +254,8 @@ class _$CreateListAdd implements CreateListAdd {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CreateListInit value)? init,
-    TResult? Function(CreateListAdd value)? add,
+    TResult? Function(EditListInit value)? init,
+    TResult? Function(EditListAdd value)? add,
   }) {
     return add?.call(this);
   }
@@ -263,8 +263,8 @@ class _$CreateListAdd implements CreateListAdd {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CreateListInit value)? init,
-    TResult Function(CreateListAdd value)? add,
+    TResult Function(EditListInit value)? init,
+    TResult Function(EditListAdd value)? add,
     required TResult orElse(),
   }) {
     if (add != null) {
@@ -274,6 +274,6 @@ class _$CreateListAdd implements CreateListAdd {
   }
 }
 
-abstract class CreateListAdd implements CreateListEvent {
-  const factory CreateListAdd() = _$CreateListAdd;
+abstract class EditListAdd implements EditListEvent {
+  const factory EditListAdd() = _$EditListAdd;
 }
