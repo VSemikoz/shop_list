@@ -8,7 +8,7 @@ enum ProductStatus {
 class ProductEntry {
   final int id;
   final int listId;
-  final int categoryId;
+  final int? categoryId;
   final String name;
   final String description;
   final int price;
@@ -23,7 +23,7 @@ class ProductEntry {
   const ProductEntry({
     required this.id,
     required this.listId,
-    required this.categoryId,
+    this.categoryId,
     required this.name,
     required this.description,
     required this.price,

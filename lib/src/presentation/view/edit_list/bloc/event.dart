@@ -7,4 +7,8 @@ abstract class EditListEvent with _$EditListEvent {
   const factory EditListEvent.init() = EditListInit;
 
   const factory EditListEvent.add() = EditListAdd;
+
+  const factory EditListEvent.edit() = EditListEdit;
+
+  const factory EditListEvent.delete() = EditListDelete;
 }

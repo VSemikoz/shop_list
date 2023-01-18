@@ -70,7 +70,7 @@ extension GetItInjectableX on _i1.GetIt {
         categoryRepository: gh<_i9.CategoryRepositoryBase>()));
     gh.factory<_i14.CreateListUseCaseBase>(() =>
         _i14.CreateListUseCase(listRepository: gh<_i10.ListRepositoryBase>()));
-    gh.factoryParam<_i15.EditListBloc, _i16.CreateListTransaction,
+    gh.factoryParam<_i15.EditListBloc, _i16.EditListTransaction,
         _i5.RouterEventSink>((
       transaction,
       router,

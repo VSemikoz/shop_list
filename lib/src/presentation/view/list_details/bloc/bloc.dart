@@ -22,7 +22,7 @@ class ListDetailsBloc extends Bloc<ListDetailsEvent, ListDetailsState> {
     on<ListDetailsEditProduct>(_editProduct);
     on<ListDetailsDeletePrduct>(_deleteProduct);
     on<ListDetailsMarkFavorite>(_markFavorite);
-    on<ListDetailsEditList>(_editList);
+    on<ListDetailsOnEditListSuccess>(_onEditListSuccess);
     on<ListDetailsDeleteList>(_deleteList);
   }
 
@@ -75,7 +75,19 @@ class ListDetailsBloc extends Bloc<ListDetailsEvent, ListDetailsState> {
 
   _markFavorite(ListDetailsMarkFavorite event, Emitter emitter) {}
 
-  _editList(ListDetailsEditList event, Emitter emitter) {}
+  _onEditListSuccess(
+    ListDetailsOnEditListSuccess event,
+    Emitter emitter,
+  ) async {
+    final products = await useCase.getProductsByList(list.id);
+    currentProducts.clear();
+    currentProducts.addAll(products);
+    list = await useCase.getList(list.id);
+    emitter(ListDetailsState.success(
+      list: list,
+      products: [...currentProducts],
+    ));
+  }
 
   _deleteList(ListDetailsDeleteList event, Emitter emitter) {}
 }

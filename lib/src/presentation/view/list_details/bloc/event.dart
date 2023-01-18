@@ -16,5 +16,6 @@ abstract class ListDetailsEvent with _$ListDetailsEvent {
 
   const factory ListDetailsEvent.deleteList() = ListDetailsDeleteList;
 
-  const factory ListDetailsEvent.editList() = ListDetailsEditList;
+  const factory ListDetailsEvent.onEditListSuccess() =
+      ListDetailsOnEditListSuccess;
 }

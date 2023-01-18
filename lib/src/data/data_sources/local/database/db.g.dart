@@ -400,8 +400,8 @@ class $ProductItemsTable extends ProductItems
       const VerificationMeta('categoryId');
   @override
   late final GeneratedColumn<int> categoryId = GeneratedColumn<int>(
-      'category_id', aliasedName, false,
-      type: DriftSqlType.int, requiredDuringInsert: true);
+      'category_id', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
   static const VerificationMeta _nameMeta = const VerificationMeta('name');
   @override
   late final GeneratedColumn<String> name = GeneratedColumn<String>(
@@ -489,8 +489,6 @@ class $ProductItemsTable extends ProductItems
           _categoryIdMeta,
           categoryId.isAcceptableOrUnknown(
               data['category_id']!, _categoryIdMeta));
-    } else if (isInserting) {
-      context.missing(_categoryIdMeta);
     }
     if (data.containsKey('name')) {
       context.handle(
@@ -562,7 +560,7 @@ class $ProductItemsTable extends ProductItems
       listId: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}list_id'])!,
       categoryId: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}category_id'])!,
+          .read(DriftSqlType.int, data['${effectivePrefix}category_id']),
       name: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}name'])!,
       description: attachedDatabase.typeMapping
@@ -591,7 +589,7 @@ class $ProductItemsTable extends ProductItems
 class ProductItem extends DataClass implements Insertable<ProductItem> {
   final int id;
   final int listId;
-  final int categoryId;
+  final int? categoryId;
   final String name;
   final String description;
   final int price;
@@ -603,7 +601,7 @@ class ProductItem extends DataClass implements Insertable<ProductItem> {
   const ProductItem(
       {required this.id,
       required this.listId,
-      required this.categoryId,
+      this.categoryId,
       required this.name,
       required this.description,
       required this.price,
@@ -617,7 +615,9 @@ class ProductItem extends DataClass implements Insertable<ProductItem> {
     final map = <String, Expression>{};
     map['id'] = Variable<int>(id);
     map['list_id'] = Variable<int>(listId);
-    map['category_id'] = Variable<int>(categoryId);
+    if (!nullToAbsent || categoryId != null) {
+      map['category_id'] = Variable<int>(categoryId);
+    }
     map['name'] = Variable<String>(name);
     map['description'] = Variable<String>(description);
     map['price'] = Variable<int>(price);
@@ -633,7 +633,9 @@ class ProductItem extends DataClass implements Insertable<ProductItem> {
     return ProductItemsCompanion(
       id: Value(id),
       listId: Value(listId),
-      categoryId: Value(categoryId),
+      categoryId: categoryId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(categoryId),
       name: Value(name),
       description: Value(description),
       price: Value(price),
@@ -651,7 +653,7 @@ class ProductItem extends DataClass implements Insertable<ProductItem> {
     return ProductItem(
       id: serializer.fromJson<int>(json['id']),
       listId: serializer.fromJson<int>(json['listId']),
-      categoryId: serializer.fromJson<int>(json['categoryId']),
+      categoryId: serializer.fromJson<int?>(json['categoryId']),
       name: serializer.fromJson<String>(json['name']),
       description: serializer.fromJson<String>(json['description']),
       price: serializer.fromJson<int>(json['price']),
@@ -668,7 +670,7 @@ class ProductItem extends DataClass implements Insertable<ProductItem> {
     return <String, dynamic>{
       'id': serializer.toJson<int>(id),
       'listId': serializer.toJson<int>(listId),
-      'categoryId': serializer.toJson<int>(categoryId),
+      'categoryId': serializer.toJson<int?>(categoryId),
       'name': serializer.toJson<String>(name),
       'description': serializer.toJson<String>(description),
       'price': serializer.toJson<int>(price),
@@ -683,7 +685,7 @@ class ProductItem extends DataClass implements Insertable<ProductItem> {
   ProductItem copyWith(
           {int? id,
           int? listId,
-          int? categoryId,
+          Value<int?> categoryId = const Value.absent(),
           String? name,
           String? description,
           int? price,
@@ -695,7 +697,7 @@ class ProductItem extends DataClass implements Insertable<ProductItem> {
       ProductItem(
         id: id ?? this.id,
         listId: listId ?? this.listId,
-        categoryId: categoryId ?? this.categoryId,
+        categoryId: categoryId.present ? categoryId.value : this.categoryId,
         name: name ?? this.name,
         description: description ?? this.description,
         price: price ?? this.price,
@@ -746,7 +748,7 @@ class ProductItem extends DataClass implements Insertable<ProductItem> {
 class ProductItemsCompanion extends UpdateCompanion<ProductItem> {
   final Value<int> id;
   final Value<int> listId;
-  final Value<int> categoryId;
+  final Value<int?> categoryId;
   final Value<String> name;
   final Value<String> description;
   final Value<int> price;
@@ -771,7 +773,7 @@ class ProductItemsCompanion extends UpdateCompanion<ProductItem> {
   ProductItemsCompanion.insert({
     this.id = const Value.absent(),
     required int listId,
-    required int categoryId,
+    this.categoryId = const Value.absent(),
     required String name,
     required String description,
     required int price,
@@ -781,7 +783,6 @@ class ProductItemsCompanion extends UpdateCompanion<ProductItem> {
     required int count,
     required String countDescription,
   })  : listId = Value(listId),
-        categoryId = Value(categoryId),
         name = Value(name),
         description = Value(description),
         price = Value(price),
@@ -821,7 +822,7 @@ class ProductItemsCompanion extends UpdateCompanion<ProductItem> {
   ProductItemsCompanion copyWith(
       {Value<int>? id,
       Value<int>? listId,
-      Value<int>? categoryId,
+      Value<int?>? categoryId,
       Value<String>? name,
       Value<String>? description,
       Value<int>? price,

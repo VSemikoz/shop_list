@@ -20,18 +20,24 @@ mixin _$EditListEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() add,
+    required TResult Function() edit,
+    required TResult Function() delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? add,
+    TResult? Function()? edit,
+    TResult? Function()? delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? add,
+    TResult Function()? edit,
+    TResult Function()? delete,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +45,24 @@ mixin _$EditListEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(EditListInit value) init,
     required TResult Function(EditListAdd value) add,
+    required TResult Function(EditListEdit value) edit,
+    required TResult Function(EditListDelete value) delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(EditListInit value)? init,
     TResult? Function(EditListAdd value)? add,
+    TResult? Function(EditListEdit value)? edit,
+    TResult? Function(EditListDelete value)? delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(EditListInit value)? init,
     TResult Function(EditListAdd value)? add,
+    TResult Function(EditListEdit value)? edit,
+    TResult Function(EditListDelete value)? delete,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -114,6 +126,8 @@ class _$EditListInit implements EditListInit {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() add,
+    required TResult Function() edit,
+    required TResult Function() delete,
   }) {
     return init();
   }
@@ -123,6 +137,8 @@ class _$EditListInit implements EditListInit {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? add,
+    TResult? Function()? edit,
+    TResult? Function()? delete,
   }) {
     return init?.call();
   }
@@ -132,6 +148,8 @@ class _$EditListInit implements EditListInit {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? add,
+    TResult Function()? edit,
+    TResult Function()? delete,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -145,6 +163,8 @@ class _$EditListInit implements EditListInit {
   TResult map<TResult extends Object?>({
     required TResult Function(EditListInit value) init,
     required TResult Function(EditListAdd value) add,
+    required TResult Function(EditListEdit value) edit,
+    required TResult Function(EditListDelete value) delete,
   }) {
     return init(this);
   }
@@ -154,6 +174,8 @@ class _$EditListInit implements EditListInit {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(EditListInit value)? init,
     TResult? Function(EditListAdd value)? add,
+    TResult? Function(EditListEdit value)? edit,
+    TResult? Function(EditListDelete value)? delete,
   }) {
     return init?.call(this);
   }
@@ -163,6 +185,8 @@ class _$EditListInit implements EditListInit {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(EditListInit value)? init,
     TResult Function(EditListAdd value)? add,
+    TResult Function(EditListEdit value)? edit,
+    TResult Function(EditListDelete value)? delete,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -216,6 +240,8 @@ class _$EditListAdd implements EditListAdd {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() add,
+    required TResult Function() edit,
+    required TResult Function() delete,
   }) {
     return add();
   }
@@ -225,6 +251,8 @@ class _$EditListAdd implements EditListAdd {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? add,
+    TResult? Function()? edit,
+    TResult? Function()? delete,
   }) {
     return add?.call();
   }
@@ -234,6 +262,8 @@ class _$EditListAdd implements EditListAdd {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? add,
+    TResult Function()? edit,
+    TResult Function()? delete,
     required TResult orElse(),
   }) {
     if (add != null) {
@@ -247,6 +277,8 @@ class _$EditListAdd implements EditListAdd {
   TResult map<TResult extends Object?>({
     required TResult Function(EditListInit value) init,
     required TResult Function(EditListAdd value) add,
+    required TResult Function(EditListEdit value) edit,
+    required TResult Function(EditListDelete value) delete,
   }) {
     return add(this);
   }
@@ -256,6 +288,8 @@ class _$EditListAdd implements EditListAdd {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(EditListInit value)? init,
     TResult? Function(EditListAdd value)? add,
+    TResult? Function(EditListEdit value)? edit,
+    TResult? Function(EditListDelete value)? delete,
   }) {
     return add?.call(this);
   }
@@ -265,6 +299,8 @@ class _$EditListAdd implements EditListAdd {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(EditListInit value)? init,
     TResult Function(EditListAdd value)? add,
+    TResult Function(EditListEdit value)? edit,
+    TResult Function(EditListDelete value)? delete,
     required TResult orElse(),
   }) {
     if (add != null) {
@@ -276,4 +312,232 @@ class _$EditListAdd implements EditListAdd {
 
 abstract class EditListAdd implements EditListEvent {
   const factory EditListAdd() = _$EditListAdd;
+}
+
+/// @nodoc
+abstract class _$$EditListEditCopyWith<$Res> {
+  factory _$$EditListEditCopyWith(
+          _$EditListEdit value, $Res Function(_$EditListEdit) then) =
+      __$$EditListEditCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$EditListEditCopyWithImpl<$Res>
+    extends _$EditListEventCopyWithImpl<$Res, _$EditListEdit>
+    implements _$$EditListEditCopyWith<$Res> {
+  __$$EditListEditCopyWithImpl(
+      _$EditListEdit _value, $Res Function(_$EditListEdit) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$EditListEdit implements EditListEdit {
+  const _$EditListEdit();
+
+  @override
+  String toString() {
+    return 'EditListEvent.edit()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$EditListEdit);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() add,
+    required TResult Function() edit,
+    required TResult Function() delete,
+  }) {
+    return edit();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? add,
+    TResult? Function()? edit,
+    TResult? Function()? delete,
+  }) {
+    return edit?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? add,
+    TResult Function()? edit,
+    TResult Function()? delete,
+    required TResult orElse(),
+  }) {
+    if (edit != null) {
+      return edit();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(EditListInit value) init,
+    required TResult Function(EditListAdd value) add,
+    required TResult Function(EditListEdit value) edit,
+    required TResult Function(EditListDelete value) delete,
+  }) {
+    return edit(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(EditListInit value)? init,
+    TResult? Function(EditListAdd value)? add,
+    TResult? Function(EditListEdit value)? edit,
+    TResult? Function(EditListDelete value)? delete,
+  }) {
+    return edit?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(EditListInit value)? init,
+    TResult Function(EditListAdd value)? add,
+    TResult Function(EditListEdit value)? edit,
+    TResult Function(EditListDelete value)? delete,
+    required TResult orElse(),
+  }) {
+    if (edit != null) {
+      return edit(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class EditListEdit implements EditListEvent {
+  const factory EditListEdit() = _$EditListEdit;
+}
+
+/// @nodoc
+abstract class _$$EditListDeleteCopyWith<$Res> {
+  factory _$$EditListDeleteCopyWith(
+          _$EditListDelete value, $Res Function(_$EditListDelete) then) =
+      __$$EditListDeleteCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$EditListDeleteCopyWithImpl<$Res>
+    extends _$EditListEventCopyWithImpl<$Res, _$EditListDelete>
+    implements _$$EditListDeleteCopyWith<$Res> {
+  __$$EditListDeleteCopyWithImpl(
+      _$EditListDelete _value, $Res Function(_$EditListDelete) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$EditListDelete implements EditListDelete {
+  const _$EditListDelete();
+
+  @override
+  String toString() {
+    return 'EditListEvent.delete()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$EditListDelete);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() add,
+    required TResult Function() edit,
+    required TResult Function() delete,
+  }) {
+    return delete();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? add,
+    TResult? Function()? edit,
+    TResult? Function()? delete,
+  }) {
+    return delete?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? add,
+    TResult Function()? edit,
+    TResult Function()? delete,
+    required TResult orElse(),
+  }) {
+    if (delete != null) {
+      return delete();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(EditListInit value) init,
+    required TResult Function(EditListAdd value) add,
+    required TResult Function(EditListEdit value) edit,
+    required TResult Function(EditListDelete value) delete,
+  }) {
+    return delete(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(EditListInit value)? init,
+    TResult? Function(EditListAdd value)? add,
+    TResult? Function(EditListEdit value)? edit,
+    TResult? Function(EditListDelete value)? delete,
+  }) {
+    return delete?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(EditListInit value)? init,
+    TResult Function(EditListAdd value)? add,
+    TResult Function(EditListEdit value)? edit,
+    TResult Function(EditListDelete value)? delete,
+    required TResult orElse(),
+  }) {
+    if (delete != null) {
+      return delete(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class EditListDelete implements EditListEvent {
+  const factory EditListDelete() = _$EditListDelete;
 }

@@ -56,12 +56,13 @@ class ListOfListsScreen extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             context.read<RouterBloc>().add(
-                  RouterEvent.createList(
-                    transaction: CreateListTransaction(
+                  RouterEvent.editList(
+                    transaction: EditListTransaction(
                       initColor: context.colorThemeRead.picker.list[0],
                       onSuccess: () => context.read<ListOfListsBloc>().add(
                             ListOfListsEvent.init(),
                           ),
+                      mode: ListEditMode.create,
                     ),
                   ),
                 );

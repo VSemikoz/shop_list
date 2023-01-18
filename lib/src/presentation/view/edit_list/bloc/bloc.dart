@@ -18,15 +18,23 @@ class EditListBloc extends Bloc<EditListEvent, EditListState> {
     @factoryParam required this.router,
     required this.useCase,
   }) : super(EditListState.loading()) {
-    _currentColor = transaction.initColor;
+    mode = transaction.mode;
+    initial = transaction.initial;
+    _currentColor = initial?.color ?? transaction.initColor;
+    _currentText = initial?.name ?? "";
+    _currentText = initial?.name ?? "";
     currentColorController = BehaviorSubject.seeded(_currentColor);
     on<EditListInit>(_init);
     on<EditListAdd>(_add);
+    on<EditListEdit>(_edit);
+    on<EditListDelete>(_delete);
   }
 
   RouterEventSink router;
-  final CreateListTransaction transaction;
+  final EditListTransaction transaction;
   final CreateListUseCaseBase useCase;
+  late ListEditMode mode;
+  ListEntry? initial;
 
   late Color _currentColor;
   String _currentText = "";
@@ -42,6 +50,25 @@ class EditListBloc extends Bloc<EditListEvent, EditListState> {
     await useCase.createList(entry);
     transaction.onSuccess();
     router.add(RouterEvent.pop());
+  }
+
+  _edit(EditListEdit event, Emitter emitter) async {
+    print(mode);
+    print(initial);
+    if (mode == ListEditMode.edit && initial != null) {
+      final edit = initial!.copyWith(name: _currentText, color: _currentColor);
+      await useCase.editList(edit);
+      transaction.onSuccess();
+      router.add(RouterEvent.pop());
+    }
+  }
+
+  _delete(EditListDelete event, Emitter emitter) async {
+    if (mode == ListEditMode.edit && initial != null) {
+      await useCase.deleteList(initial!.id);
+      transaction.onSuccess();
+      router.add(RouterEvent.pop());
+    }
   }
 
   updateText(String text) {

@@ -13,6 +13,8 @@ abstract class ListRepositoryBase {
   Future<ListEntry> getById(int id);
 
   Future<void> editList(ListData list);
+
+  Future<void> deleteList(int id);
 }
 
 @Injectable(as: ListRepositoryBase)
@@ -33,11 +35,16 @@ class ListRepositoryImpl implements ListRepositoryBase {
 
   @override
   Future<void> editList(ListData list) {
-    return database.editList(list.toCompanion());
+    return database.editList(list.toUpdateCompanion());
   }
 
   @override
   Future<ListEntry> getById(int id) async {
     return (await database.getListById(id)).toEntry();
+  }
+
+  @override
+  Future<void> deleteList(int id) async{
+    await database.deleteList(id);
   }
 }

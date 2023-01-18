@@ -54,6 +54,16 @@ class ShopListDataBase extends _$ShopListDataBase {
 
   Future<void> deleteCategory(int id) async {
     return transaction(() async {
+      final products = await (select(productItems)
+            ..where((tbl) => tbl.categoryId.equals(id)))
+          .get();
+      final ids = products.map((e) => e.id);
+
+      await (update(productItems)..where((t) => t.id.isIn(ids))).write(
+        ProductItemsCompanion(
+          categoryId: Value.absent(),
+        ),
+      );
       await (delete(categoryItems)..where((tbl) => tbl.id.equals(id))).go();
     });
   }
@@ -63,6 +73,11 @@ class ShopListDataBase extends _$ShopListDataBase {
       await update(categoryItems).replace(companion);
     });
   }
+
+  // Future<void> editCategories(List<CategoryItemsCompanion> companions) async {
+  //   return transaction(() async {
+  //   });
+  // }
 
   Future<List<CategoryData>> getAllCategories() async {
     return (await select(categoryItems).get())
@@ -85,6 +100,7 @@ class ShopListDataBase extends _$ShopListDataBase {
 
   Future<void> deleteList(int id) async {
     return transaction(() async {
+      await (delete(productItems)..where((tbl) => tbl.listId.equals(id))).go();
       await (delete(listItems)..where((tbl) => tbl.id.equals(id))).go();
     });
   }

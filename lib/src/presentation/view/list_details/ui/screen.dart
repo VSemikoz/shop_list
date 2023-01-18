@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_list/src/common/providers/theme/theme.dart';
+import 'package:shop_list/src/presentation/view/router/router/bloc.dart';
 
 import '../../../../domain/models/list.dart';
 import '../../../../domain/models/product.dart';
 import '../../../ui/widgets/tappable/common.dart';
+import '../../router/router/event.dart';
+import '../../router/router/providers.dart';
 import '../bloc/list_details.dart';
 
 class ListDetailsScreen extends StatelessWidget {
@@ -12,13 +15,28 @@ class ListDetailsScreen extends StatelessWidget {
 
   const ListDetailsScreen({Key? key}) : super(key: key);
 
+  _edit(BuildContext context) {
+    context.read<RouterBloc>().add(
+          RouterEvent.editList(
+            transaction: EditListTransaction(
+              initial: context.read<ListDetailsBloc>().list,
+              initColor: context.colorThemeRead.picker.list[0],
+              mode: ListEditMode.edit,
+              onSuccess: () {
+                context.read<ListDetailsBloc>().add(ListDetailsEvent.onEditListSuccess());
+              },
+            ),
+          ),
+        );
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ListDetailsBloc, ListDetailsState>(
       listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
-          backgroundColor: context.colorTheme.background.primary,
+          backgroundColor: context.colorThemeRead.background.primary,
           floatingActionButton: FloatingActionButton(
             child: Icon(Icons.add),
             onPressed: () {
@@ -33,21 +51,9 @@ class ListDetailsScreen extends StatelessWidget {
                 SliverAppBar(
                   actions: [
                     IconButton(
-                      onPressed: () {
-                        context.read<ListDetailsBloc>().add(
-                              ListDetailsEvent.editList(),
-                            );
-                      },
+                      onPressed: () => _edit(context),
                       icon: Icon(Icons.edit),
                     ),
-                    IconButton(
-                      onPressed: () {
-                        context.read<ListDetailsBloc>().add(
-                              ListDetailsEvent.deleteList(),
-                            );
-                      },
-                      icon: Icon(Icons.delete),
-                    )
                   ],
                   backgroundColor: state.list.color,
                   floating: true,
@@ -267,7 +273,6 @@ class _ProductItemBottom extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 10),
-
       ],
     );
   }

@@ -7,6 +7,8 @@ import 'package:shop_list/src/domain/models/list.dart';
 import 'package:shop_list/src/domain/models/product.dart';
 
 abstract class ListDetailsUseCaseBase {
+  Future<ListEntry> getList(int id);
+
   Future<ListEntry> editList(ListEntry entry);
 
   Future<void> addProduct(ProductEntry entry);
@@ -51,6 +53,11 @@ class ListDetailsUseCase implements ListDetailsUseCaseBase {
   Future<ListEntry> editList(ListEntry entry) async {
     await listRepository.editList(entry.toData());
     return listRepository.getById(entry.id);
+  }
+
+  @override
+  Future<ListEntry> getList(int id) async {
+    return listRepository.getById(id);
   }
 
   @override

@@ -31,7 +31,7 @@ class ScreenProvider {
         ),
       );
 
-  static RouteInfo createList(CreateListTransaction transaction) => RouteInfo(
+  static RouteInfo editList(EditListTransaction transaction) => RouteInfo(
         id: EditListDialog.id,
         pageType: PageType.dialog,
         builder: (context) => Provider(
@@ -81,12 +81,20 @@ class ScreenProvider {
       );
 }
 
-class CreateListTransaction {
+enum ListEditMode {
+  create,
+  edit,
+}
+class EditListTransaction {
   final Color initColor;
+  final ListEditMode mode;
+  final ListEntry? initial;
   final Function() onSuccess;
 
-  const CreateListTransaction({
+  const EditListTransaction({
     required this.initColor,
+    required this.mode,
+    this.initial,
     required this.onSuccess,
   });
 }

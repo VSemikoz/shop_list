@@ -4,6 +4,7 @@ import 'package:shop_list/src/common/providers/theme/theme.dart';
 import 'package:shop_list/src/presentation/ui/widgets/tappable/common.dart';
 
 import '../../../../../generated/l10n.dart';
+import '../../router/router/providers.dart';
 import '../bloc/edit_list.dart';
 
 class EditListDialog extends StatelessWidget {
@@ -50,19 +51,20 @@ class _ColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<Color>(
-        stream: context.read<EditListBloc>().currentColorController,
-        builder: (context, snapshot) {
-          return Row(
-            children: context.colorTheme.picker.list
-                .map(
-                  (e) => _ColorPickerItem(
-                    color: e,
-                    pickedColor: snapshot.data,
-                  ),
-                )
-                .toList(),
-          );
-        },);
+      stream: context.read<EditListBloc>().currentColorController,
+      builder: (context, snapshot) {
+        return Row(
+          children: context.colorTheme.picker.list
+              .map(
+                (e) => _ColorPickerItem(
+                  color: e,
+                  pickedColor: snapshot.data,
+                ),
+              )
+              .toList(),
+        );
+      },
+    );
   }
 }
 
@@ -105,6 +107,21 @@ class _Buttons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mode = context.read<EditListBloc>().mode;
+    switch (mode) {
+      case ListEditMode.create:
+        return _AddButtons();
+      case ListEditMode.edit:
+        return _EditButtons();
+    }
+  }
+}
+
+class _AddButtons extends StatelessWidget {
+  const _AddButtons({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
@@ -125,6 +142,49 @@ class _Buttons extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text("Добавить"),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _EditButtons extends StatelessWidget {
+  const _EditButtons({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        MaterialTapWrapper(
+          radius: Radius.zero,
+          onPressed: () => Navigator.pop(context),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text("Отменить"),
+          ),
+        ),
+        const SizedBox(width: 20),
+        MaterialTapWrapper(
+          radius: Radius.zero,
+          onPressed: () => context.read<EditListBloc>().add(
+                EditListEvent.edit(),
+              ),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text("Изменить"),
+          ),
+        ),
+        const SizedBox(width: 20),
+        MaterialTapWrapper(
+          radius: Radius.zero,
+          onPressed: () => context.read<EditListBloc>().add(
+                EditListEvent.delete(),
+              ),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text("Удалить"),
           ),
         ),
       ],

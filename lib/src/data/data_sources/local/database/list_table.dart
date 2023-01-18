@@ -27,4 +27,12 @@ extension ListDataExtension on ListData {
       color: color,
     );
   }
+
+  ListItemsCompanion toUpdateCompanion() {
+    return ListItemsCompanion(
+      id: Value(id),
+      name: Value(name),
+      color: Value(color),
+    );
+  }
 }

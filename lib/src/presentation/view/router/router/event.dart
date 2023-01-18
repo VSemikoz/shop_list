@@ -11,9 +11,9 @@ abstract class RouterEvent with _$RouterEvent {
 
   const factory RouterEvent.listOfLists() = RouteListOfLists;
 
-  const factory RouterEvent.createList({
-    required CreateListTransaction transaction,
-  }) = RouteCreateList;
+  const factory RouterEvent.editList({
+    required EditListTransaction transaction,
+  }) = RouteEditList;
 
   const factory RouterEvent.listDetails({
     required ListDetailsTransaction transaction,

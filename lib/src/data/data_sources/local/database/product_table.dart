@@ -7,7 +7,7 @@ class ProductItems extends Table {
 
   IntColumn get listId => integer()();
 
-  IntColumn get categoryId => integer()();
+  IntColumn get categoryId => integer().nullable()();
 
   TextColumn get name => text()();
 
@@ -48,7 +48,7 @@ extension ProductDataExtension on ProductData {
   ProductItemsCompanion toCompanion() {
     return ProductItemsCompanion.insert(
       listId: listId,
-      categoryId: categoryId,
+      categoryId: Value(categoryId),
       name: name,
       description: description,
       price: price,
