@@ -14,7 +14,8 @@ abstract class ListDetailsEvent with _$ListDetailsEvent {
 
   const factory ListDetailsEvent.markFavorite() = ListDetailsMarkFavorite;
 
-  const factory ListDetailsEvent.deleteList() = ListDetailsDeleteList;
+  const factory ListDetailsEvent.onDeleteListSuccess() =
+      ListDetailsOnDeleteListSuccess;
 
   const factory ListDetailsEvent.onEditListSuccess() =
       ListDetailsOnEditListSuccess;

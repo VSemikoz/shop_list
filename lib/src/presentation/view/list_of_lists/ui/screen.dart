@@ -59,10 +59,12 @@ class ListOfListsScreen extends StatelessWidget {
                   RouterEvent.editList(
                     transaction: EditListTransaction(
                       initColor: context.colorThemeRead.picker.list[0],
-                      onSuccess: () => context.read<ListOfListsBloc>().add(
+                      onAddSuccess: () => context.read<ListOfListsBloc>().add(
                             ListOfListsEvent.init(),
                           ),
                       mode: ListEditMode.create,
+                      onEditSuccess: () {},
+                      onDeleteSuccess: () {},
                     ),
                   ),
                 );

@@ -48,7 +48,7 @@ class EditListBloc extends Bloc<EditListEvent, EditListState> {
   _add(EditListAdd event, Emitter emitter) async {
     final entry = ListEntry.insert(name: _currentText, color: _currentColor);
     await useCase.createList(entry);
-    transaction.onSuccess();
+    transaction.onAddSuccess();
     router.add(RouterEvent.pop());
   }
 
@@ -58,7 +58,7 @@ class EditListBloc extends Bloc<EditListEvent, EditListState> {
     if (mode == ListEditMode.edit && initial != null) {
       final edit = initial!.copyWith(name: _currentText, color: _currentColor);
       await useCase.editList(edit);
-      transaction.onSuccess();
+      transaction.onEditSuccess();
       router.add(RouterEvent.pop());
     }
   }
@@ -66,7 +66,7 @@ class EditListBloc extends Bloc<EditListEvent, EditListState> {
   _delete(EditListDelete event, Emitter emitter) async {
     if (mode == ListEditMode.edit && initial != null) {
       await useCase.deleteList(initial!.id);
-      transaction.onSuccess();
+      transaction.onDeleteSuccess();
       router.add(RouterEvent.pop());
     }
   }

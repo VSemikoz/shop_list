@@ -22,9 +22,17 @@ class ListDetailsScreen extends StatelessWidget {
               initial: context.read<ListDetailsBloc>().list,
               initColor: context.colorThemeRead.picker.list[0],
               mode: ListEditMode.edit,
-              onSuccess: () {
-                context.read<ListDetailsBloc>().add(ListDetailsEvent.onEditListSuccess());
+              onEditSuccess: () {
+                context.read<ListDetailsBloc>().add(
+                      ListDetailsEvent.onEditListSuccess(),
+                    );
               },
+              onDeleteSuccess: () {
+                context.read<ListDetailsBloc>().add(
+                      ListDetailsEvent.onDeleteListSuccess(),
+                    );
+              },
+              onAddSuccess: () {},
             ),
           ),
         );

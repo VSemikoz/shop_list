@@ -6,6 +6,7 @@ import 'package:shop_list/src/presentation/view/router/router/bloc.dart';
 import 'package:shop_list/src/presentation/view/router/router/providers.dart';
 
 import '../../../../domain/models/product.dart';
+import '../../router/router/event.dart';
 import 'list_details.dart';
 
 @Injectable()
@@ -23,7 +24,7 @@ class ListDetailsBloc extends Bloc<ListDetailsEvent, ListDetailsState> {
     on<ListDetailsDeletePrduct>(_deleteProduct);
     on<ListDetailsMarkFavorite>(_markFavorite);
     on<ListDetailsOnEditListSuccess>(_onEditListSuccess);
-    on<ListDetailsDeleteList>(_deleteList);
+    on<ListDetailsOnDeleteListSuccess>(_onDeleteListSuccess);
   }
 
   final ListDetailsUseCaseBase useCase;
@@ -89,5 +90,7 @@ class ListDetailsBloc extends Bloc<ListDetailsEvent, ListDetailsState> {
     ));
   }
 
-  _deleteList(ListDetailsDeleteList event, Emitter emitter) {}
+  _onDeleteListSuccess(ListDetailsOnDeleteListSuccess event, Emitter emitter) {
+    router.add(RouterEvent.pop());
+  }
 }

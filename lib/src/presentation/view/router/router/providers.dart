@@ -89,13 +89,17 @@ class EditListTransaction {
   final Color initColor;
   final ListEditMode mode;
   final ListEntry? initial;
-  final Function() onSuccess;
+  final Function() onAddSuccess;
+  final Function() onEditSuccess;
+  final Function() onDeleteSuccess;
 
   const EditListTransaction({
     required this.initColor,
     required this.mode,
     this.initial,
-    required this.onSuccess,
+    required this.onAddSuccess,
+    required this.onEditSuccess,
+    required this.onDeleteSuccess,
   });
 }
 

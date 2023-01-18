@@ -23,7 +23,7 @@ mixin _$ListDetailsEvent {
     required TResult Function() deleteProduct,
     required TResult Function() editProduct,
     required TResult Function() markFavorite,
-    required TResult Function() deleteList,
+    required TResult Function() onDeleteListSuccess,
     required TResult Function() onEditListSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -34,7 +34,7 @@ mixin _$ListDetailsEvent {
     TResult? Function()? deleteProduct,
     TResult? Function()? editProduct,
     TResult? Function()? markFavorite,
-    TResult? Function()? deleteList,
+    TResult? Function()? onDeleteListSuccess,
     TResult? Function()? onEditListSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -45,7 +45,7 @@ mixin _$ListDetailsEvent {
     TResult Function()? deleteProduct,
     TResult Function()? editProduct,
     TResult Function()? markFavorite,
-    TResult Function()? deleteList,
+    TResult Function()? onDeleteListSuccess,
     TResult Function()? onEditListSuccess,
     required TResult orElse(),
   }) =>
@@ -57,7 +57,8 @@ mixin _$ListDetailsEvent {
     required TResult Function(ListDetailsDeletePrduct value) deleteProduct,
     required TResult Function(ListDetailsEditProduct value) editProduct,
     required TResult Function(ListDetailsMarkFavorite value) markFavorite,
-    required TResult Function(ListDetailsDeleteList value) deleteList,
+    required TResult Function(ListDetailsOnDeleteListSuccess value)
+        onDeleteListSuccess,
     required TResult Function(ListDetailsOnEditListSuccess value)
         onEditListSuccess,
   }) =>
@@ -69,7 +70,8 @@ mixin _$ListDetailsEvent {
     TResult? Function(ListDetailsDeletePrduct value)? deleteProduct,
     TResult? Function(ListDetailsEditProduct value)? editProduct,
     TResult? Function(ListDetailsMarkFavorite value)? markFavorite,
-    TResult? Function(ListDetailsDeleteList value)? deleteList,
+    TResult? Function(ListDetailsOnDeleteListSuccess value)?
+        onDeleteListSuccess,
     TResult? Function(ListDetailsOnEditListSuccess value)? onEditListSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -80,7 +82,7 @@ mixin _$ListDetailsEvent {
     TResult Function(ListDetailsDeletePrduct value)? deleteProduct,
     TResult Function(ListDetailsEditProduct value)? editProduct,
     TResult Function(ListDetailsMarkFavorite value)? markFavorite,
-    TResult Function(ListDetailsDeleteList value)? deleteList,
+    TResult Function(ListDetailsOnDeleteListSuccess value)? onDeleteListSuccess,
     TResult Function(ListDetailsOnEditListSuccess value)? onEditListSuccess,
     required TResult orElse(),
   }) =>
@@ -148,7 +150,7 @@ class _$ListDetailsInit implements ListDetailsInit {
     required TResult Function() deleteProduct,
     required TResult Function() editProduct,
     required TResult Function() markFavorite,
-    required TResult Function() deleteList,
+    required TResult Function() onDeleteListSuccess,
     required TResult Function() onEditListSuccess,
   }) {
     return init();
@@ -162,7 +164,7 @@ class _$ListDetailsInit implements ListDetailsInit {
     TResult? Function()? deleteProduct,
     TResult? Function()? editProduct,
     TResult? Function()? markFavorite,
-    TResult? Function()? deleteList,
+    TResult? Function()? onDeleteListSuccess,
     TResult? Function()? onEditListSuccess,
   }) {
     return init?.call();
@@ -176,7 +178,7 @@ class _$ListDetailsInit implements ListDetailsInit {
     TResult Function()? deleteProduct,
     TResult Function()? editProduct,
     TResult Function()? markFavorite,
-    TResult Function()? deleteList,
+    TResult Function()? onDeleteListSuccess,
     TResult Function()? onEditListSuccess,
     required TResult orElse(),
   }) {
@@ -194,7 +196,8 @@ class _$ListDetailsInit implements ListDetailsInit {
     required TResult Function(ListDetailsDeletePrduct value) deleteProduct,
     required TResult Function(ListDetailsEditProduct value) editProduct,
     required TResult Function(ListDetailsMarkFavorite value) markFavorite,
-    required TResult Function(ListDetailsDeleteList value) deleteList,
+    required TResult Function(ListDetailsOnDeleteListSuccess value)
+        onDeleteListSuccess,
     required TResult Function(ListDetailsOnEditListSuccess value)
         onEditListSuccess,
   }) {
@@ -209,7 +212,8 @@ class _$ListDetailsInit implements ListDetailsInit {
     TResult? Function(ListDetailsDeletePrduct value)? deleteProduct,
     TResult? Function(ListDetailsEditProduct value)? editProduct,
     TResult? Function(ListDetailsMarkFavorite value)? markFavorite,
-    TResult? Function(ListDetailsDeleteList value)? deleteList,
+    TResult? Function(ListDetailsOnDeleteListSuccess value)?
+        onDeleteListSuccess,
     TResult? Function(ListDetailsOnEditListSuccess value)? onEditListSuccess,
   }) {
     return init?.call(this);
@@ -223,7 +227,7 @@ class _$ListDetailsInit implements ListDetailsInit {
     TResult Function(ListDetailsDeletePrduct value)? deleteProduct,
     TResult Function(ListDetailsEditProduct value)? editProduct,
     TResult Function(ListDetailsMarkFavorite value)? markFavorite,
-    TResult Function(ListDetailsDeleteList value)? deleteList,
+    TResult Function(ListDetailsOnDeleteListSuccess value)? onDeleteListSuccess,
     TResult Function(ListDetailsOnEditListSuccess value)? onEditListSuccess,
     required TResult orElse(),
   }) {
@@ -281,7 +285,7 @@ class _$ListDetailsAddProduct implements ListDetailsAddProduct {
     required TResult Function() deleteProduct,
     required TResult Function() editProduct,
     required TResult Function() markFavorite,
-    required TResult Function() deleteList,
+    required TResult Function() onDeleteListSuccess,
     required TResult Function() onEditListSuccess,
   }) {
     return addProduct();
@@ -295,7 +299,7 @@ class _$ListDetailsAddProduct implements ListDetailsAddProduct {
     TResult? Function()? deleteProduct,
     TResult? Function()? editProduct,
     TResult? Function()? markFavorite,
-    TResult? Function()? deleteList,
+    TResult? Function()? onDeleteListSuccess,
     TResult? Function()? onEditListSuccess,
   }) {
     return addProduct?.call();
@@ -309,7 +313,7 @@ class _$ListDetailsAddProduct implements ListDetailsAddProduct {
     TResult Function()? deleteProduct,
     TResult Function()? editProduct,
     TResult Function()? markFavorite,
-    TResult Function()? deleteList,
+    TResult Function()? onDeleteListSuccess,
     TResult Function()? onEditListSuccess,
     required TResult orElse(),
   }) {
@@ -327,7 +331,8 @@ class _$ListDetailsAddProduct implements ListDetailsAddProduct {
     required TResult Function(ListDetailsDeletePrduct value) deleteProduct,
     required TResult Function(ListDetailsEditProduct value) editProduct,
     required TResult Function(ListDetailsMarkFavorite value) markFavorite,
-    required TResult Function(ListDetailsDeleteList value) deleteList,
+    required TResult Function(ListDetailsOnDeleteListSuccess value)
+        onDeleteListSuccess,
     required TResult Function(ListDetailsOnEditListSuccess value)
         onEditListSuccess,
   }) {
@@ -342,7 +347,8 @@ class _$ListDetailsAddProduct implements ListDetailsAddProduct {
     TResult? Function(ListDetailsDeletePrduct value)? deleteProduct,
     TResult? Function(ListDetailsEditProduct value)? editProduct,
     TResult? Function(ListDetailsMarkFavorite value)? markFavorite,
-    TResult? Function(ListDetailsDeleteList value)? deleteList,
+    TResult? Function(ListDetailsOnDeleteListSuccess value)?
+        onDeleteListSuccess,
     TResult? Function(ListDetailsOnEditListSuccess value)? onEditListSuccess,
   }) {
     return addProduct?.call(this);
@@ -356,7 +362,7 @@ class _$ListDetailsAddProduct implements ListDetailsAddProduct {
     TResult Function(ListDetailsDeletePrduct value)? deleteProduct,
     TResult Function(ListDetailsEditProduct value)? editProduct,
     TResult Function(ListDetailsMarkFavorite value)? markFavorite,
-    TResult Function(ListDetailsDeleteList value)? deleteList,
+    TResult Function(ListDetailsOnDeleteListSuccess value)? onDeleteListSuccess,
     TResult Function(ListDetailsOnEditListSuccess value)? onEditListSuccess,
     required TResult orElse(),
   }) {
@@ -415,7 +421,7 @@ class _$ListDetailsDeletePrduct implements ListDetailsDeletePrduct {
     required TResult Function() deleteProduct,
     required TResult Function() editProduct,
     required TResult Function() markFavorite,
-    required TResult Function() deleteList,
+    required TResult Function() onDeleteListSuccess,
     required TResult Function() onEditListSuccess,
   }) {
     return deleteProduct();
@@ -429,7 +435,7 @@ class _$ListDetailsDeletePrduct implements ListDetailsDeletePrduct {
     TResult? Function()? deleteProduct,
     TResult? Function()? editProduct,
     TResult? Function()? markFavorite,
-    TResult? Function()? deleteList,
+    TResult? Function()? onDeleteListSuccess,
     TResult? Function()? onEditListSuccess,
   }) {
     return deleteProduct?.call();
@@ -443,7 +449,7 @@ class _$ListDetailsDeletePrduct implements ListDetailsDeletePrduct {
     TResult Function()? deleteProduct,
     TResult Function()? editProduct,
     TResult Function()? markFavorite,
-    TResult Function()? deleteList,
+    TResult Function()? onDeleteListSuccess,
     TResult Function()? onEditListSuccess,
     required TResult orElse(),
   }) {
@@ -461,7 +467,8 @@ class _$ListDetailsDeletePrduct implements ListDetailsDeletePrduct {
     required TResult Function(ListDetailsDeletePrduct value) deleteProduct,
     required TResult Function(ListDetailsEditProduct value) editProduct,
     required TResult Function(ListDetailsMarkFavorite value) markFavorite,
-    required TResult Function(ListDetailsDeleteList value) deleteList,
+    required TResult Function(ListDetailsOnDeleteListSuccess value)
+        onDeleteListSuccess,
     required TResult Function(ListDetailsOnEditListSuccess value)
         onEditListSuccess,
   }) {
@@ -476,7 +483,8 @@ class _$ListDetailsDeletePrduct implements ListDetailsDeletePrduct {
     TResult? Function(ListDetailsDeletePrduct value)? deleteProduct,
     TResult? Function(ListDetailsEditProduct value)? editProduct,
     TResult? Function(ListDetailsMarkFavorite value)? markFavorite,
-    TResult? Function(ListDetailsDeleteList value)? deleteList,
+    TResult? Function(ListDetailsOnDeleteListSuccess value)?
+        onDeleteListSuccess,
     TResult? Function(ListDetailsOnEditListSuccess value)? onEditListSuccess,
   }) {
     return deleteProduct?.call(this);
@@ -490,7 +498,7 @@ class _$ListDetailsDeletePrduct implements ListDetailsDeletePrduct {
     TResult Function(ListDetailsDeletePrduct value)? deleteProduct,
     TResult Function(ListDetailsEditProduct value)? editProduct,
     TResult Function(ListDetailsMarkFavorite value)? markFavorite,
-    TResult Function(ListDetailsDeleteList value)? deleteList,
+    TResult Function(ListDetailsOnDeleteListSuccess value)? onDeleteListSuccess,
     TResult Function(ListDetailsOnEditListSuccess value)? onEditListSuccess,
     required TResult orElse(),
   }) {
@@ -548,7 +556,7 @@ class _$ListDetailsEditProduct implements ListDetailsEditProduct {
     required TResult Function() deleteProduct,
     required TResult Function() editProduct,
     required TResult Function() markFavorite,
-    required TResult Function() deleteList,
+    required TResult Function() onDeleteListSuccess,
     required TResult Function() onEditListSuccess,
   }) {
     return editProduct();
@@ -562,7 +570,7 @@ class _$ListDetailsEditProduct implements ListDetailsEditProduct {
     TResult? Function()? deleteProduct,
     TResult? Function()? editProduct,
     TResult? Function()? markFavorite,
-    TResult? Function()? deleteList,
+    TResult? Function()? onDeleteListSuccess,
     TResult? Function()? onEditListSuccess,
   }) {
     return editProduct?.call();
@@ -576,7 +584,7 @@ class _$ListDetailsEditProduct implements ListDetailsEditProduct {
     TResult Function()? deleteProduct,
     TResult Function()? editProduct,
     TResult Function()? markFavorite,
-    TResult Function()? deleteList,
+    TResult Function()? onDeleteListSuccess,
     TResult Function()? onEditListSuccess,
     required TResult orElse(),
   }) {
@@ -594,7 +602,8 @@ class _$ListDetailsEditProduct implements ListDetailsEditProduct {
     required TResult Function(ListDetailsDeletePrduct value) deleteProduct,
     required TResult Function(ListDetailsEditProduct value) editProduct,
     required TResult Function(ListDetailsMarkFavorite value) markFavorite,
-    required TResult Function(ListDetailsDeleteList value) deleteList,
+    required TResult Function(ListDetailsOnDeleteListSuccess value)
+        onDeleteListSuccess,
     required TResult Function(ListDetailsOnEditListSuccess value)
         onEditListSuccess,
   }) {
@@ -609,7 +618,8 @@ class _$ListDetailsEditProduct implements ListDetailsEditProduct {
     TResult? Function(ListDetailsDeletePrduct value)? deleteProduct,
     TResult? Function(ListDetailsEditProduct value)? editProduct,
     TResult? Function(ListDetailsMarkFavorite value)? markFavorite,
-    TResult? Function(ListDetailsDeleteList value)? deleteList,
+    TResult? Function(ListDetailsOnDeleteListSuccess value)?
+        onDeleteListSuccess,
     TResult? Function(ListDetailsOnEditListSuccess value)? onEditListSuccess,
   }) {
     return editProduct?.call(this);
@@ -623,7 +633,7 @@ class _$ListDetailsEditProduct implements ListDetailsEditProduct {
     TResult Function(ListDetailsDeletePrduct value)? deleteProduct,
     TResult Function(ListDetailsEditProduct value)? editProduct,
     TResult Function(ListDetailsMarkFavorite value)? markFavorite,
-    TResult Function(ListDetailsDeleteList value)? deleteList,
+    TResult Function(ListDetailsOnDeleteListSuccess value)? onDeleteListSuccess,
     TResult Function(ListDetailsOnEditListSuccess value)? onEditListSuccess,
     required TResult orElse(),
   }) {
@@ -682,7 +692,7 @@ class _$ListDetailsMarkFavorite implements ListDetailsMarkFavorite {
     required TResult Function() deleteProduct,
     required TResult Function() editProduct,
     required TResult Function() markFavorite,
-    required TResult Function() deleteList,
+    required TResult Function() onDeleteListSuccess,
     required TResult Function() onEditListSuccess,
   }) {
     return markFavorite();
@@ -696,7 +706,7 @@ class _$ListDetailsMarkFavorite implements ListDetailsMarkFavorite {
     TResult? Function()? deleteProduct,
     TResult? Function()? editProduct,
     TResult? Function()? markFavorite,
-    TResult? Function()? deleteList,
+    TResult? Function()? onDeleteListSuccess,
     TResult? Function()? onEditListSuccess,
   }) {
     return markFavorite?.call();
@@ -710,7 +720,7 @@ class _$ListDetailsMarkFavorite implements ListDetailsMarkFavorite {
     TResult Function()? deleteProduct,
     TResult Function()? editProduct,
     TResult Function()? markFavorite,
-    TResult Function()? deleteList,
+    TResult Function()? onDeleteListSuccess,
     TResult Function()? onEditListSuccess,
     required TResult orElse(),
   }) {
@@ -728,7 +738,8 @@ class _$ListDetailsMarkFavorite implements ListDetailsMarkFavorite {
     required TResult Function(ListDetailsDeletePrduct value) deleteProduct,
     required TResult Function(ListDetailsEditProduct value) editProduct,
     required TResult Function(ListDetailsMarkFavorite value) markFavorite,
-    required TResult Function(ListDetailsDeleteList value) deleteList,
+    required TResult Function(ListDetailsOnDeleteListSuccess value)
+        onDeleteListSuccess,
     required TResult Function(ListDetailsOnEditListSuccess value)
         onEditListSuccess,
   }) {
@@ -743,7 +754,8 @@ class _$ListDetailsMarkFavorite implements ListDetailsMarkFavorite {
     TResult? Function(ListDetailsDeletePrduct value)? deleteProduct,
     TResult? Function(ListDetailsEditProduct value)? editProduct,
     TResult? Function(ListDetailsMarkFavorite value)? markFavorite,
-    TResult? Function(ListDetailsDeleteList value)? deleteList,
+    TResult? Function(ListDetailsOnDeleteListSuccess value)?
+        onDeleteListSuccess,
     TResult? Function(ListDetailsOnEditListSuccess value)? onEditListSuccess,
   }) {
     return markFavorite?.call(this);
@@ -757,7 +769,7 @@ class _$ListDetailsMarkFavorite implements ListDetailsMarkFavorite {
     TResult Function(ListDetailsDeletePrduct value)? deleteProduct,
     TResult Function(ListDetailsEditProduct value)? editProduct,
     TResult Function(ListDetailsMarkFavorite value)? markFavorite,
-    TResult Function(ListDetailsDeleteList value)? deleteList,
+    TResult Function(ListDetailsOnDeleteListSuccess value)? onDeleteListSuccess,
     TResult Function(ListDetailsOnEditListSuccess value)? onEditListSuccess,
     required TResult orElse(),
   }) {
@@ -773,35 +785,40 @@ abstract class ListDetailsMarkFavorite implements ListDetailsEvent {
 }
 
 /// @nodoc
-abstract class _$$ListDetailsDeleteListCopyWith<$Res> {
-  factory _$$ListDetailsDeleteListCopyWith(_$ListDetailsDeleteList value,
-          $Res Function(_$ListDetailsDeleteList) then) =
-      __$$ListDetailsDeleteListCopyWithImpl<$Res>;
+abstract class _$$ListDetailsOnDeleteListSuccessCopyWith<$Res> {
+  factory _$$ListDetailsOnDeleteListSuccessCopyWith(
+          _$ListDetailsOnDeleteListSuccess value,
+          $Res Function(_$ListDetailsOnDeleteListSuccess) then) =
+      __$$ListDetailsOnDeleteListSuccessCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ListDetailsDeleteListCopyWithImpl<$Res>
-    extends _$ListDetailsEventCopyWithImpl<$Res, _$ListDetailsDeleteList>
-    implements _$$ListDetailsDeleteListCopyWith<$Res> {
-  __$$ListDetailsDeleteListCopyWithImpl(_$ListDetailsDeleteList _value,
-      $Res Function(_$ListDetailsDeleteList) _then)
+class __$$ListDetailsOnDeleteListSuccessCopyWithImpl<$Res>
+    extends _$ListDetailsEventCopyWithImpl<$Res,
+        _$ListDetailsOnDeleteListSuccess>
+    implements _$$ListDetailsOnDeleteListSuccessCopyWith<$Res> {
+  __$$ListDetailsOnDeleteListSuccessCopyWithImpl(
+      _$ListDetailsOnDeleteListSuccess _value,
+      $Res Function(_$ListDetailsOnDeleteListSuccess) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ListDetailsDeleteList implements ListDetailsDeleteList {
-  const _$ListDetailsDeleteList();
+class _$ListDetailsOnDeleteListSuccess
+    implements ListDetailsOnDeleteListSuccess {
+  const _$ListDetailsOnDeleteListSuccess();
 
   @override
   String toString() {
-    return 'ListDetailsEvent.deleteList()';
+    return 'ListDetailsEvent.onDeleteListSuccess()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ListDetailsDeleteList);
+        (other.runtimeType == runtimeType &&
+            other is _$ListDetailsOnDeleteListSuccess);
   }
 
   @override
@@ -815,10 +832,10 @@ class _$ListDetailsDeleteList implements ListDetailsDeleteList {
     required TResult Function() deleteProduct,
     required TResult Function() editProduct,
     required TResult Function() markFavorite,
-    required TResult Function() deleteList,
+    required TResult Function() onDeleteListSuccess,
     required TResult Function() onEditListSuccess,
   }) {
-    return deleteList();
+    return onDeleteListSuccess();
   }
 
   @override
@@ -829,10 +846,10 @@ class _$ListDetailsDeleteList implements ListDetailsDeleteList {
     TResult? Function()? deleteProduct,
     TResult? Function()? editProduct,
     TResult? Function()? markFavorite,
-    TResult? Function()? deleteList,
+    TResult? Function()? onDeleteListSuccess,
     TResult? Function()? onEditListSuccess,
   }) {
-    return deleteList?.call();
+    return onDeleteListSuccess?.call();
   }
 
   @override
@@ -843,12 +860,12 @@ class _$ListDetailsDeleteList implements ListDetailsDeleteList {
     TResult Function()? deleteProduct,
     TResult Function()? editProduct,
     TResult Function()? markFavorite,
-    TResult Function()? deleteList,
+    TResult Function()? onDeleteListSuccess,
     TResult Function()? onEditListSuccess,
     required TResult orElse(),
   }) {
-    if (deleteList != null) {
-      return deleteList();
+    if (onDeleteListSuccess != null) {
+      return onDeleteListSuccess();
     }
     return orElse();
   }
@@ -861,11 +878,12 @@ class _$ListDetailsDeleteList implements ListDetailsDeleteList {
     required TResult Function(ListDetailsDeletePrduct value) deleteProduct,
     required TResult Function(ListDetailsEditProduct value) editProduct,
     required TResult Function(ListDetailsMarkFavorite value) markFavorite,
-    required TResult Function(ListDetailsDeleteList value) deleteList,
+    required TResult Function(ListDetailsOnDeleteListSuccess value)
+        onDeleteListSuccess,
     required TResult Function(ListDetailsOnEditListSuccess value)
         onEditListSuccess,
   }) {
-    return deleteList(this);
+    return onDeleteListSuccess(this);
   }
 
   @override
@@ -876,10 +894,11 @@ class _$ListDetailsDeleteList implements ListDetailsDeleteList {
     TResult? Function(ListDetailsDeletePrduct value)? deleteProduct,
     TResult? Function(ListDetailsEditProduct value)? editProduct,
     TResult? Function(ListDetailsMarkFavorite value)? markFavorite,
-    TResult? Function(ListDetailsDeleteList value)? deleteList,
+    TResult? Function(ListDetailsOnDeleteListSuccess value)?
+        onDeleteListSuccess,
     TResult? Function(ListDetailsOnEditListSuccess value)? onEditListSuccess,
   }) {
-    return deleteList?.call(this);
+    return onDeleteListSuccess?.call(this);
   }
 
   @override
@@ -890,19 +909,20 @@ class _$ListDetailsDeleteList implements ListDetailsDeleteList {
     TResult Function(ListDetailsDeletePrduct value)? deleteProduct,
     TResult Function(ListDetailsEditProduct value)? editProduct,
     TResult Function(ListDetailsMarkFavorite value)? markFavorite,
-    TResult Function(ListDetailsDeleteList value)? deleteList,
+    TResult Function(ListDetailsOnDeleteListSuccess value)? onDeleteListSuccess,
     TResult Function(ListDetailsOnEditListSuccess value)? onEditListSuccess,
     required TResult orElse(),
   }) {
-    if (deleteList != null) {
-      return deleteList(this);
+    if (onDeleteListSuccess != null) {
+      return onDeleteListSuccess(this);
     }
     return orElse();
   }
 }
 
-abstract class ListDetailsDeleteList implements ListDetailsEvent {
-  const factory ListDetailsDeleteList() = _$ListDetailsDeleteList;
+abstract class ListDetailsOnDeleteListSuccess implements ListDetailsEvent {
+  const factory ListDetailsOnDeleteListSuccess() =
+      _$ListDetailsOnDeleteListSuccess;
 }
 
 /// @nodoc
@@ -951,7 +971,7 @@ class _$ListDetailsOnEditListSuccess implements ListDetailsOnEditListSuccess {
     required TResult Function() deleteProduct,
     required TResult Function() editProduct,
     required TResult Function() markFavorite,
-    required TResult Function() deleteList,
+    required TResult Function() onDeleteListSuccess,
     required TResult Function() onEditListSuccess,
   }) {
     return onEditListSuccess();
@@ -965,7 +985,7 @@ class _$ListDetailsOnEditListSuccess implements ListDetailsOnEditListSuccess {
     TResult? Function()? deleteProduct,
     TResult? Function()? editProduct,
     TResult? Function()? markFavorite,
-    TResult? Function()? deleteList,
+    TResult? Function()? onDeleteListSuccess,
     TResult? Function()? onEditListSuccess,
   }) {
     return onEditListSuccess?.call();
@@ -979,7 +999,7 @@ class _$ListDetailsOnEditListSuccess implements ListDetailsOnEditListSuccess {
     TResult Function()? deleteProduct,
     TResult Function()? editProduct,
     TResult Function()? markFavorite,
-    TResult Function()? deleteList,
+    TResult Function()? onDeleteListSuccess,
     TResult Function()? onEditListSuccess,
     required TResult orElse(),
   }) {
@@ -997,7 +1017,8 @@ class _$ListDetailsOnEditListSuccess implements ListDetailsOnEditListSuccess {
     required TResult Function(ListDetailsDeletePrduct value) deleteProduct,
     required TResult Function(ListDetailsEditProduct value) editProduct,
     required TResult Function(ListDetailsMarkFavorite value) markFavorite,
-    required TResult Function(ListDetailsDeleteList value) deleteList,
+    required TResult Function(ListDetailsOnDeleteListSuccess value)
+        onDeleteListSuccess,
     required TResult Function(ListDetailsOnEditListSuccess value)
         onEditListSuccess,
   }) {
@@ -1012,7 +1033,8 @@ class _$ListDetailsOnEditListSuccess implements ListDetailsOnEditListSuccess {
     TResult? Function(ListDetailsDeletePrduct value)? deleteProduct,
     TResult? Function(ListDetailsEditProduct value)? editProduct,
     TResult? Function(ListDetailsMarkFavorite value)? markFavorite,
-    TResult? Function(ListDetailsDeleteList value)? deleteList,
+    TResult? Function(ListDetailsOnDeleteListSuccess value)?
+        onDeleteListSuccess,
     TResult? Function(ListDetailsOnEditListSuccess value)? onEditListSuccess,
   }) {
     return onEditListSuccess?.call(this);
@@ -1026,7 +1048,7 @@ class _$ListDetailsOnEditListSuccess implements ListDetailsOnEditListSuccess {
     TResult Function(ListDetailsDeletePrduct value)? deleteProduct,
     TResult Function(ListDetailsEditProduct value)? editProduct,
     TResult Function(ListDetailsMarkFavorite value)? markFavorite,
-    TResult Function(ListDetailsDeleteList value)? deleteList,
+    TResult Function(ListDetailsOnDeleteListSuccess value)? onDeleteListSuccess,
     TResult Function(ListDetailsOnEditListSuccess value)? onEditListSuccess,
     required TResult orElse(),
   }) {
