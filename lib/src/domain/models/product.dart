@@ -144,7 +144,7 @@ class ProductEntry {
 
   factory ProductEntry.insert({
     required int listId,
-    required int categoryId,
+    int? categoryId,
     required String name,
     required String description,
     required int price,

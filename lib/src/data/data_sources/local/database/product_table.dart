@@ -59,4 +59,20 @@ extension ProductDataExtension on ProductData {
       countDescription: countDescription,
     );
   }
+
+  ProductItemsCompanion toUpdateCompanion() {
+    return ProductItemsCompanion(
+      id: Value(id),
+      listId: Value(listId),
+      categoryId: Value(categoryId),
+      name: Value(name),
+      description: Value(description),
+      price: Value(price),
+      priceDescription: Value(priceDescription),
+      isFavorite: Value(isFavorite),
+      status: Value(status),
+      count: Value(count),
+      countDescription: Value(countDescription),
+    );
+  }
 }

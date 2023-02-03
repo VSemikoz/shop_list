@@ -37,7 +37,7 @@ class ProductRepository implements ProductRepositoryBase {
 
   @override
   Future<void> editProduct(ProductData data) async {
-    await dataBase.editProduct(data.toCompanion());
+    await dataBase.editProduct(data.toUpdateCompanion());
   }
 
   @override

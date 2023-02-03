@@ -21,6 +21,7 @@ class RouterBloc extends Bloc<RouterEvent, List<RouteInfo>>
     on<RouteCategoryList>(_categoryList);
     on<RouteEditCategory>(_editCategory);
     on<RouteBucket>(_bucket);
+    on<RouteEditProduct>(_editProduct);
   }
 
   List<RouteInfo> get stack => state;
@@ -67,7 +68,13 @@ class RouterBloc extends Bloc<RouterEvent, List<RouteInfo>>
     emitter(_rebaseRoute(ScreenProvider.editCategory(event.transaction)));
   }
 
-  _bucket(RouteBucket event, Emitter emitter) {}
+  _bucket(RouteBucket event, Emitter emitter) {
+    //TODO
+  }
+
+  _editProduct(RouteEditProduct event, Emitter emitter) {
+    emitter(_rebaseRoute(ScreenProvider.editProduct(event.transaction)));
+  }
 
   // If [routeInfo] present in stack - remove it, add to top with [_addToTop]
   // else add to top

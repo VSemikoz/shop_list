@@ -47,11 +47,9 @@ class ListDetailsScreen extends StatelessWidget {
           backgroundColor: context.colorThemeRead.background.primary,
           floatingActionButton: FloatingActionButton(
             child: Icon(Icons.add),
-            onPressed: () {
-              context
-                  .read<ListDetailsBloc>()
-                  .add(ListDetailsEvent.addProduct());
-            },
+            onPressed: () => context.read<ListDetailsBloc>().add(
+                  ListDetailsEvent.addProduct(),
+                ),
           ),
           body: CustomScrollView(
             slivers: [
@@ -243,7 +241,7 @@ class _ProductItemBottom extends StatelessWidget {
               child: MaterialTapWrapper(
                 onPressed: () {
                   context.read<ListDetailsBloc>().add(
-                        ListDetailsEvent.deleteProduct(),
+                        ListDetailsEvent.deleteProduct(productEntry: product),
                       );
                 },
                 child: Icon(
@@ -267,11 +265,9 @@ class _ProductItemBottom extends StatelessWidget {
             ),
             Expanded(
               child: MaterialTapWrapper(
-                onPressed: () {
-                  context
-                      .read<ListDetailsBloc>()
-                      .add(ListDetailsEvent.editProduct());
-                },
+                onPressed: () => context.read<ListDetailsBloc>().add(
+                      ListDetailsEvent.editProduct(productEntry: product),
+                    ),
                 child: Icon(
                   Icons.edit,
                   color: context.colorTheme.textDark.secondary,

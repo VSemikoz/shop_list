@@ -25,8 +25,11 @@ abstract class RouterEvent with _$RouterEvent {
 
   const factory RouterEvent.editCategory({
     required EditCategoryTransaction transaction,
-
   }) = RouteEditCategory;
 
   const factory RouterEvent.bucket() = RouteBucket;
+
+  const factory RouterEvent.editProduct({
+    required EditProductTransaction transaction,
+  }) = RouteEditProduct;
 }

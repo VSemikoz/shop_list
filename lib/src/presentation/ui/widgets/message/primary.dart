@@ -34,6 +34,8 @@ class MessageUtils {
 
   static networkError() => _showNotification(widget: _NetworkMessage());
 
+  static validateFailed() => _showNotification(widget: _ValidateFailed());
+
   static undefined() => _showNotification(widget: _UndefinedMessage());
 }
 
@@ -101,6 +103,20 @@ class _NetworkMessage extends StatelessWidget {
   Widget build(BuildContext context) {
     return _Message(
       message: 'Network Error',//TODO
+      type: MessageType.cancel,
+    );
+  }
+}
+
+class _ValidateFailed extends StatelessWidget {
+  const _ValidateFailed({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return _Message(
+      message: 'Validate fail',//TODO
       type: MessageType.cancel,
     );
   }

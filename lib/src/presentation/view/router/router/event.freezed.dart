@@ -27,6 +27,7 @@ mixin _$RouterEvent {
     required TResult Function() categoryList,
     required TResult Function(EditCategoryTransaction transaction) editCategory,
     required TResult Function() bucket,
+    required TResult Function(EditProductTransaction transaction) editProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,6 +41,7 @@ mixin _$RouterEvent {
     TResult? Function()? categoryList,
     TResult? Function(EditCategoryTransaction transaction)? editCategory,
     TResult? Function()? bucket,
+    TResult? Function(EditProductTransaction transaction)? editProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -53,6 +55,7 @@ mixin _$RouterEvent {
     TResult Function()? categoryList,
     TResult Function(EditCategoryTransaction transaction)? editCategory,
     TResult Function()? bucket,
+    TResult Function(EditProductTransaction transaction)? editProduct,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -67,6 +70,7 @@ mixin _$RouterEvent {
     required TResult Function(RouteCategoryList value) categoryList,
     required TResult Function(RouteEditCategory value) editCategory,
     required TResult Function(RouteBucket value) bucket,
+    required TResult Function(RouteEditProduct value) editProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -80,6 +84,7 @@ mixin _$RouterEvent {
     TResult? Function(RouteCategoryList value)? categoryList,
     TResult? Function(RouteEditCategory value)? editCategory,
     TResult? Function(RouteBucket value)? bucket,
+    TResult? Function(RouteEditProduct value)? editProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -93,6 +98,7 @@ mixin _$RouterEvent {
     TResult Function(RouteCategoryList value)? categoryList,
     TResult Function(RouteEditCategory value)? editCategory,
     TResult Function(RouteBucket value)? bucket,
+    TResult Function(RouteEditProduct value)? editProduct,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -163,6 +169,7 @@ class _$RouteOnPop implements RouteOnPop {
     required TResult Function() categoryList,
     required TResult Function(EditCategoryTransaction transaction) editCategory,
     required TResult Function() bucket,
+    required TResult Function(EditProductTransaction transaction) editProduct,
   }) {
     return pop();
   }
@@ -179,6 +186,7 @@ class _$RouteOnPop implements RouteOnPop {
     TResult? Function()? categoryList,
     TResult? Function(EditCategoryTransaction transaction)? editCategory,
     TResult? Function()? bucket,
+    TResult? Function(EditProductTransaction transaction)? editProduct,
   }) {
     return pop?.call();
   }
@@ -195,6 +203,7 @@ class _$RouteOnPop implements RouteOnPop {
     TResult Function()? categoryList,
     TResult Function(EditCategoryTransaction transaction)? editCategory,
     TResult Function()? bucket,
+    TResult Function(EditProductTransaction transaction)? editProduct,
     required TResult orElse(),
   }) {
     if (pop != null) {
@@ -215,6 +224,7 @@ class _$RouteOnPop implements RouteOnPop {
     required TResult Function(RouteCategoryList value) categoryList,
     required TResult Function(RouteEditCategory value) editCategory,
     required TResult Function(RouteBucket value) bucket,
+    required TResult Function(RouteEditProduct value) editProduct,
   }) {
     return pop(this);
   }
@@ -231,6 +241,7 @@ class _$RouteOnPop implements RouteOnPop {
     TResult? Function(RouteCategoryList value)? categoryList,
     TResult? Function(RouteEditCategory value)? editCategory,
     TResult? Function(RouteBucket value)? bucket,
+    TResult? Function(RouteEditProduct value)? editProduct,
   }) {
     return pop?.call(this);
   }
@@ -247,6 +258,7 @@ class _$RouteOnPop implements RouteOnPop {
     TResult Function(RouteCategoryList value)? categoryList,
     TResult Function(RouteEditCategory value)? editCategory,
     TResult Function(RouteBucket value)? bucket,
+    TResult Function(RouteEditProduct value)? editProduct,
     required TResult orElse(),
   }) {
     if (pop != null) {
@@ -333,6 +345,7 @@ class _$RouteOnPopTop implements RouteOnPopTop {
     required TResult Function() categoryList,
     required TResult Function(EditCategoryTransaction transaction) editCategory,
     required TResult Function() bucket,
+    required TResult Function(EditProductTransaction transaction) editProduct,
   }) {
     return popTop(n);
   }
@@ -349,6 +362,7 @@ class _$RouteOnPopTop implements RouteOnPopTop {
     TResult? Function()? categoryList,
     TResult? Function(EditCategoryTransaction transaction)? editCategory,
     TResult? Function()? bucket,
+    TResult? Function(EditProductTransaction transaction)? editProduct,
   }) {
     return popTop?.call(n);
   }
@@ -365,6 +379,7 @@ class _$RouteOnPopTop implements RouteOnPopTop {
     TResult Function()? categoryList,
     TResult Function(EditCategoryTransaction transaction)? editCategory,
     TResult Function()? bucket,
+    TResult Function(EditProductTransaction transaction)? editProduct,
     required TResult orElse(),
   }) {
     if (popTop != null) {
@@ -385,6 +400,7 @@ class _$RouteOnPopTop implements RouteOnPopTop {
     required TResult Function(RouteCategoryList value) categoryList,
     required TResult Function(RouteEditCategory value) editCategory,
     required TResult Function(RouteBucket value) bucket,
+    required TResult Function(RouteEditProduct value) editProduct,
   }) {
     return popTop(this);
   }
@@ -401,6 +417,7 @@ class _$RouteOnPopTop implements RouteOnPopTop {
     TResult? Function(RouteCategoryList value)? categoryList,
     TResult? Function(RouteEditCategory value)? editCategory,
     TResult? Function(RouteBucket value)? bucket,
+    TResult? Function(RouteEditProduct value)? editProduct,
   }) {
     return popTop?.call(this);
   }
@@ -417,6 +434,7 @@ class _$RouteOnPopTop implements RouteOnPopTop {
     TResult Function(RouteCategoryList value)? categoryList,
     TResult Function(RouteEditCategory value)? editCategory,
     TResult Function(RouteBucket value)? bucket,
+    TResult Function(RouteEditProduct value)? editProduct,
     required TResult orElse(),
   }) {
     if (popTop != null) {
@@ -482,6 +500,7 @@ class _$RouteListOfLists implements RouteListOfLists {
     required TResult Function() categoryList,
     required TResult Function(EditCategoryTransaction transaction) editCategory,
     required TResult Function() bucket,
+    required TResult Function(EditProductTransaction transaction) editProduct,
   }) {
     return listOfLists();
   }
@@ -498,6 +517,7 @@ class _$RouteListOfLists implements RouteListOfLists {
     TResult? Function()? categoryList,
     TResult? Function(EditCategoryTransaction transaction)? editCategory,
     TResult? Function()? bucket,
+    TResult? Function(EditProductTransaction transaction)? editProduct,
   }) {
     return listOfLists?.call();
   }
@@ -514,6 +534,7 @@ class _$RouteListOfLists implements RouteListOfLists {
     TResult Function()? categoryList,
     TResult Function(EditCategoryTransaction transaction)? editCategory,
     TResult Function()? bucket,
+    TResult Function(EditProductTransaction transaction)? editProduct,
     required TResult orElse(),
   }) {
     if (listOfLists != null) {
@@ -534,6 +555,7 @@ class _$RouteListOfLists implements RouteListOfLists {
     required TResult Function(RouteCategoryList value) categoryList,
     required TResult Function(RouteEditCategory value) editCategory,
     required TResult Function(RouteBucket value) bucket,
+    required TResult Function(RouteEditProduct value) editProduct,
   }) {
     return listOfLists(this);
   }
@@ -550,6 +572,7 @@ class _$RouteListOfLists implements RouteListOfLists {
     TResult? Function(RouteCategoryList value)? categoryList,
     TResult? Function(RouteEditCategory value)? editCategory,
     TResult? Function(RouteBucket value)? bucket,
+    TResult? Function(RouteEditProduct value)? editProduct,
   }) {
     return listOfLists?.call(this);
   }
@@ -566,6 +589,7 @@ class _$RouteListOfLists implements RouteListOfLists {
     TResult Function(RouteCategoryList value)? categoryList,
     TResult Function(RouteEditCategory value)? editCategory,
     TResult Function(RouteBucket value)? bucket,
+    TResult Function(RouteEditProduct value)? editProduct,
     required TResult orElse(),
   }) {
     if (listOfLists != null) {
@@ -653,6 +677,7 @@ class _$RouteEditList implements RouteEditList {
     required TResult Function() categoryList,
     required TResult Function(EditCategoryTransaction transaction) editCategory,
     required TResult Function() bucket,
+    required TResult Function(EditProductTransaction transaction) editProduct,
   }) {
     return editList(transaction);
   }
@@ -669,6 +694,7 @@ class _$RouteEditList implements RouteEditList {
     TResult? Function()? categoryList,
     TResult? Function(EditCategoryTransaction transaction)? editCategory,
     TResult? Function()? bucket,
+    TResult? Function(EditProductTransaction transaction)? editProduct,
   }) {
     return editList?.call(transaction);
   }
@@ -685,6 +711,7 @@ class _$RouteEditList implements RouteEditList {
     TResult Function()? categoryList,
     TResult Function(EditCategoryTransaction transaction)? editCategory,
     TResult Function()? bucket,
+    TResult Function(EditProductTransaction transaction)? editProduct,
     required TResult orElse(),
   }) {
     if (editList != null) {
@@ -705,6 +732,7 @@ class _$RouteEditList implements RouteEditList {
     required TResult Function(RouteCategoryList value) categoryList,
     required TResult Function(RouteEditCategory value) editCategory,
     required TResult Function(RouteBucket value) bucket,
+    required TResult Function(RouteEditProduct value) editProduct,
   }) {
     return editList(this);
   }
@@ -721,6 +749,7 @@ class _$RouteEditList implements RouteEditList {
     TResult? Function(RouteCategoryList value)? categoryList,
     TResult? Function(RouteEditCategory value)? editCategory,
     TResult? Function(RouteBucket value)? bucket,
+    TResult? Function(RouteEditProduct value)? editProduct,
   }) {
     return editList?.call(this);
   }
@@ -737,6 +766,7 @@ class _$RouteEditList implements RouteEditList {
     TResult Function(RouteCategoryList value)? categoryList,
     TResult Function(RouteEditCategory value)? editCategory,
     TResult Function(RouteBucket value)? bucket,
+    TResult Function(RouteEditProduct value)? editProduct,
     required TResult orElse(),
   }) {
     if (editList != null) {
@@ -830,6 +860,7 @@ class _$RouteListDetails implements RouteListDetails {
     required TResult Function() categoryList,
     required TResult Function(EditCategoryTransaction transaction) editCategory,
     required TResult Function() bucket,
+    required TResult Function(EditProductTransaction transaction) editProduct,
   }) {
     return listDetails(transaction);
   }
@@ -846,6 +877,7 @@ class _$RouteListDetails implements RouteListDetails {
     TResult? Function()? categoryList,
     TResult? Function(EditCategoryTransaction transaction)? editCategory,
     TResult? Function()? bucket,
+    TResult? Function(EditProductTransaction transaction)? editProduct,
   }) {
     return listDetails?.call(transaction);
   }
@@ -862,6 +894,7 @@ class _$RouteListDetails implements RouteListDetails {
     TResult Function()? categoryList,
     TResult Function(EditCategoryTransaction transaction)? editCategory,
     TResult Function()? bucket,
+    TResult Function(EditProductTransaction transaction)? editProduct,
     required TResult orElse(),
   }) {
     if (listDetails != null) {
@@ -882,6 +915,7 @@ class _$RouteListDetails implements RouteListDetails {
     required TResult Function(RouteCategoryList value) categoryList,
     required TResult Function(RouteEditCategory value) editCategory,
     required TResult Function(RouteBucket value) bucket,
+    required TResult Function(RouteEditProduct value) editProduct,
   }) {
     return listDetails(this);
   }
@@ -898,6 +932,7 @@ class _$RouteListDetails implements RouteListDetails {
     TResult? Function(RouteCategoryList value)? categoryList,
     TResult? Function(RouteEditCategory value)? editCategory,
     TResult? Function(RouteBucket value)? bucket,
+    TResult? Function(RouteEditProduct value)? editProduct,
   }) {
     return listDetails?.call(this);
   }
@@ -914,6 +949,7 @@ class _$RouteListDetails implements RouteListDetails {
     TResult Function(RouteCategoryList value)? categoryList,
     TResult Function(RouteEditCategory value)? editCategory,
     TResult Function(RouteBucket value)? bucket,
+    TResult Function(RouteEditProduct value)? editProduct,
     required TResult orElse(),
   }) {
     if (listDetails != null) {
@@ -980,6 +1016,7 @@ class _$RouteFavorite implements RouteFavorite {
     required TResult Function() categoryList,
     required TResult Function(EditCategoryTransaction transaction) editCategory,
     required TResult Function() bucket,
+    required TResult Function(EditProductTransaction transaction) editProduct,
   }) {
     return favorite();
   }
@@ -996,6 +1033,7 @@ class _$RouteFavorite implements RouteFavorite {
     TResult? Function()? categoryList,
     TResult? Function(EditCategoryTransaction transaction)? editCategory,
     TResult? Function()? bucket,
+    TResult? Function(EditProductTransaction transaction)? editProduct,
   }) {
     return favorite?.call();
   }
@@ -1012,6 +1050,7 @@ class _$RouteFavorite implements RouteFavorite {
     TResult Function()? categoryList,
     TResult Function(EditCategoryTransaction transaction)? editCategory,
     TResult Function()? bucket,
+    TResult Function(EditProductTransaction transaction)? editProduct,
     required TResult orElse(),
   }) {
     if (favorite != null) {
@@ -1032,6 +1071,7 @@ class _$RouteFavorite implements RouteFavorite {
     required TResult Function(RouteCategoryList value) categoryList,
     required TResult Function(RouteEditCategory value) editCategory,
     required TResult Function(RouteBucket value) bucket,
+    required TResult Function(RouteEditProduct value) editProduct,
   }) {
     return favorite(this);
   }
@@ -1048,6 +1088,7 @@ class _$RouteFavorite implements RouteFavorite {
     TResult? Function(RouteCategoryList value)? categoryList,
     TResult? Function(RouteEditCategory value)? editCategory,
     TResult? Function(RouteBucket value)? bucket,
+    TResult? Function(RouteEditProduct value)? editProduct,
   }) {
     return favorite?.call(this);
   }
@@ -1064,6 +1105,7 @@ class _$RouteFavorite implements RouteFavorite {
     TResult Function(RouteCategoryList value)? categoryList,
     TResult Function(RouteEditCategory value)? editCategory,
     TResult Function(RouteBucket value)? bucket,
+    TResult Function(RouteEditProduct value)? editProduct,
     required TResult orElse(),
   }) {
     if (favorite != null) {
@@ -1124,6 +1166,7 @@ class _$RouteCategoryList implements RouteCategoryList {
     required TResult Function() categoryList,
     required TResult Function(EditCategoryTransaction transaction) editCategory,
     required TResult Function() bucket,
+    required TResult Function(EditProductTransaction transaction) editProduct,
   }) {
     return categoryList();
   }
@@ -1140,6 +1183,7 @@ class _$RouteCategoryList implements RouteCategoryList {
     TResult? Function()? categoryList,
     TResult? Function(EditCategoryTransaction transaction)? editCategory,
     TResult? Function()? bucket,
+    TResult? Function(EditProductTransaction transaction)? editProduct,
   }) {
     return categoryList?.call();
   }
@@ -1156,6 +1200,7 @@ class _$RouteCategoryList implements RouteCategoryList {
     TResult Function()? categoryList,
     TResult Function(EditCategoryTransaction transaction)? editCategory,
     TResult Function()? bucket,
+    TResult Function(EditProductTransaction transaction)? editProduct,
     required TResult orElse(),
   }) {
     if (categoryList != null) {
@@ -1176,6 +1221,7 @@ class _$RouteCategoryList implements RouteCategoryList {
     required TResult Function(RouteCategoryList value) categoryList,
     required TResult Function(RouteEditCategory value) editCategory,
     required TResult Function(RouteBucket value) bucket,
+    required TResult Function(RouteEditProduct value) editProduct,
   }) {
     return categoryList(this);
   }
@@ -1192,6 +1238,7 @@ class _$RouteCategoryList implements RouteCategoryList {
     TResult? Function(RouteCategoryList value)? categoryList,
     TResult? Function(RouteEditCategory value)? editCategory,
     TResult? Function(RouteBucket value)? bucket,
+    TResult? Function(RouteEditProduct value)? editProduct,
   }) {
     return categoryList?.call(this);
   }
@@ -1208,6 +1255,7 @@ class _$RouteCategoryList implements RouteCategoryList {
     TResult Function(RouteCategoryList value)? categoryList,
     TResult Function(RouteEditCategory value)? editCategory,
     TResult Function(RouteBucket value)? bucket,
+    TResult Function(RouteEditProduct value)? editProduct,
     required TResult orElse(),
   }) {
     if (categoryList != null) {
@@ -1295,6 +1343,7 @@ class _$RouteEditCategory implements RouteEditCategory {
     required TResult Function() categoryList,
     required TResult Function(EditCategoryTransaction transaction) editCategory,
     required TResult Function() bucket,
+    required TResult Function(EditProductTransaction transaction) editProduct,
   }) {
     return editCategory(transaction);
   }
@@ -1311,6 +1360,7 @@ class _$RouteEditCategory implements RouteEditCategory {
     TResult? Function()? categoryList,
     TResult? Function(EditCategoryTransaction transaction)? editCategory,
     TResult? Function()? bucket,
+    TResult? Function(EditProductTransaction transaction)? editProduct,
   }) {
     return editCategory?.call(transaction);
   }
@@ -1327,6 +1377,7 @@ class _$RouteEditCategory implements RouteEditCategory {
     TResult Function()? categoryList,
     TResult Function(EditCategoryTransaction transaction)? editCategory,
     TResult Function()? bucket,
+    TResult Function(EditProductTransaction transaction)? editProduct,
     required TResult orElse(),
   }) {
     if (editCategory != null) {
@@ -1347,6 +1398,7 @@ class _$RouteEditCategory implements RouteEditCategory {
     required TResult Function(RouteCategoryList value) categoryList,
     required TResult Function(RouteEditCategory value) editCategory,
     required TResult Function(RouteBucket value) bucket,
+    required TResult Function(RouteEditProduct value) editProduct,
   }) {
     return editCategory(this);
   }
@@ -1363,6 +1415,7 @@ class _$RouteEditCategory implements RouteEditCategory {
     TResult? Function(RouteCategoryList value)? categoryList,
     TResult? Function(RouteEditCategory value)? editCategory,
     TResult? Function(RouteBucket value)? bucket,
+    TResult? Function(RouteEditProduct value)? editProduct,
   }) {
     return editCategory?.call(this);
   }
@@ -1379,6 +1432,7 @@ class _$RouteEditCategory implements RouteEditCategory {
     TResult Function(RouteCategoryList value)? categoryList,
     TResult Function(RouteEditCategory value)? editCategory,
     TResult Function(RouteBucket value)? bucket,
+    TResult Function(RouteEditProduct value)? editProduct,
     required TResult orElse(),
   }) {
     if (editCategory != null) {
@@ -1446,6 +1500,7 @@ class _$RouteBucket implements RouteBucket {
     required TResult Function() categoryList,
     required TResult Function(EditCategoryTransaction transaction) editCategory,
     required TResult Function() bucket,
+    required TResult Function(EditProductTransaction transaction) editProduct,
   }) {
     return bucket();
   }
@@ -1462,6 +1517,7 @@ class _$RouteBucket implements RouteBucket {
     TResult? Function()? categoryList,
     TResult? Function(EditCategoryTransaction transaction)? editCategory,
     TResult? Function()? bucket,
+    TResult? Function(EditProductTransaction transaction)? editProduct,
   }) {
     return bucket?.call();
   }
@@ -1478,6 +1534,7 @@ class _$RouteBucket implements RouteBucket {
     TResult Function()? categoryList,
     TResult Function(EditCategoryTransaction transaction)? editCategory,
     TResult Function()? bucket,
+    TResult Function(EditProductTransaction transaction)? editProduct,
     required TResult orElse(),
   }) {
     if (bucket != null) {
@@ -1498,6 +1555,7 @@ class _$RouteBucket implements RouteBucket {
     required TResult Function(RouteCategoryList value) categoryList,
     required TResult Function(RouteEditCategory value) editCategory,
     required TResult Function(RouteBucket value) bucket,
+    required TResult Function(RouteEditProduct value) editProduct,
   }) {
     return bucket(this);
   }
@@ -1514,6 +1572,7 @@ class _$RouteBucket implements RouteBucket {
     TResult? Function(RouteCategoryList value)? categoryList,
     TResult? Function(RouteEditCategory value)? editCategory,
     TResult? Function(RouteBucket value)? bucket,
+    TResult? Function(RouteEditProduct value)? editProduct,
   }) {
     return bucket?.call(this);
   }
@@ -1530,6 +1589,7 @@ class _$RouteBucket implements RouteBucket {
     TResult Function(RouteCategoryList value)? categoryList,
     TResult Function(RouteEditCategory value)? editCategory,
     TResult Function(RouteBucket value)? bucket,
+    TResult Function(RouteEditProduct value)? editProduct,
     required TResult orElse(),
   }) {
     if (bucket != null) {
@@ -1541,4 +1601,187 @@ class _$RouteBucket implements RouteBucket {
 
 abstract class RouteBucket implements RouterEvent {
   const factory RouteBucket() = _$RouteBucket;
+}
+
+/// @nodoc
+abstract class _$$RouteEditProductCopyWith<$Res> {
+  factory _$$RouteEditProductCopyWith(
+          _$RouteEditProduct value, $Res Function(_$RouteEditProduct) then) =
+      __$$RouteEditProductCopyWithImpl<$Res>;
+  @useResult
+  $Res call({EditProductTransaction transaction});
+}
+
+/// @nodoc
+class __$$RouteEditProductCopyWithImpl<$Res>
+    extends _$RouterEventCopyWithImpl<$Res, _$RouteEditProduct>
+    implements _$$RouteEditProductCopyWith<$Res> {
+  __$$RouteEditProductCopyWithImpl(
+      _$RouteEditProduct _value, $Res Function(_$RouteEditProduct) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? transaction = null,
+  }) {
+    return _then(_$RouteEditProduct(
+      transaction: null == transaction
+          ? _value.transaction
+          : transaction // ignore: cast_nullable_to_non_nullable
+              as EditProductTransaction,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RouteEditProduct implements RouteEditProduct {
+  const _$RouteEditProduct({required this.transaction});
+
+  @override
+  final EditProductTransaction transaction;
+
+  @override
+  String toString() {
+    return 'RouterEvent.editProduct(transaction: $transaction)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RouteEditProduct &&
+            (identical(other.transaction, transaction) ||
+                other.transaction == transaction));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, transaction);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RouteEditProductCopyWith<_$RouteEditProduct> get copyWith =>
+      __$$RouteEditProductCopyWithImpl<_$RouteEditProduct>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() pop,
+    required TResult Function(int n) popTop,
+    required TResult Function() listOfLists,
+    required TResult Function(EditListTransaction transaction) editList,
+    required TResult Function(ListDetailsTransaction transaction) listDetails,
+    required TResult Function() favorite,
+    required TResult Function() categoryList,
+    required TResult Function(EditCategoryTransaction transaction) editCategory,
+    required TResult Function() bucket,
+    required TResult Function(EditProductTransaction transaction) editProduct,
+  }) {
+    return editProduct(transaction);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? pop,
+    TResult? Function(int n)? popTop,
+    TResult? Function()? listOfLists,
+    TResult? Function(EditListTransaction transaction)? editList,
+    TResult? Function(ListDetailsTransaction transaction)? listDetails,
+    TResult? Function()? favorite,
+    TResult? Function()? categoryList,
+    TResult? Function(EditCategoryTransaction transaction)? editCategory,
+    TResult? Function()? bucket,
+    TResult? Function(EditProductTransaction transaction)? editProduct,
+  }) {
+    return editProduct?.call(transaction);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pop,
+    TResult Function(int n)? popTop,
+    TResult Function()? listOfLists,
+    TResult Function(EditListTransaction transaction)? editList,
+    TResult Function(ListDetailsTransaction transaction)? listDetails,
+    TResult Function()? favorite,
+    TResult Function()? categoryList,
+    TResult Function(EditCategoryTransaction transaction)? editCategory,
+    TResult Function()? bucket,
+    TResult Function(EditProductTransaction transaction)? editProduct,
+    required TResult orElse(),
+  }) {
+    if (editProduct != null) {
+      return editProduct(transaction);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(RouteOnPop value) pop,
+    required TResult Function(RouteOnPopTop value) popTop,
+    required TResult Function(RouteListOfLists value) listOfLists,
+    required TResult Function(RouteEditList value) editList,
+    required TResult Function(RouteListDetails value) listDetails,
+    required TResult Function(RouteFavorite value) favorite,
+    required TResult Function(RouteCategoryList value) categoryList,
+    required TResult Function(RouteEditCategory value) editCategory,
+    required TResult Function(RouteBucket value) bucket,
+    required TResult Function(RouteEditProduct value) editProduct,
+  }) {
+    return editProduct(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(RouteOnPop value)? pop,
+    TResult? Function(RouteOnPopTop value)? popTop,
+    TResult? Function(RouteListOfLists value)? listOfLists,
+    TResult? Function(RouteEditList value)? editList,
+    TResult? Function(RouteListDetails value)? listDetails,
+    TResult? Function(RouteFavorite value)? favorite,
+    TResult? Function(RouteCategoryList value)? categoryList,
+    TResult? Function(RouteEditCategory value)? editCategory,
+    TResult? Function(RouteBucket value)? bucket,
+    TResult? Function(RouteEditProduct value)? editProduct,
+  }) {
+    return editProduct?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(RouteOnPop value)? pop,
+    TResult Function(RouteOnPopTop value)? popTop,
+    TResult Function(RouteListOfLists value)? listOfLists,
+    TResult Function(RouteEditList value)? editList,
+    TResult Function(RouteListDetails value)? listDetails,
+    TResult Function(RouteFavorite value)? favorite,
+    TResult Function(RouteCategoryList value)? categoryList,
+    TResult Function(RouteEditCategory value)? editCategory,
+    TResult Function(RouteBucket value)? bucket,
+    TResult Function(RouteEditProduct value)? editProduct,
+    required TResult orElse(),
+  }) {
+    if (editProduct != null) {
+      return editProduct(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RouteEditProduct implements RouterEvent {
+  const factory RouteEditProduct(
+      {required final EditProductTransaction transaction}) = _$RouteEditProduct;
+
+  EditProductTransaction get transaction;
+  @JsonKey(ignore: true)
+  _$$RouteEditProductCopyWith<_$RouteEditProduct> get copyWith =>
+      throw _privateConstructorUsedError;
 }

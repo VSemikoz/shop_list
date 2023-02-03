@@ -5,15 +5,18 @@ import 'package:provider/provider.dart';
 import 'package:shop_list/src/common/injection/injection.dart';
 import 'package:shop_list/src/domain/models/category.dart';
 import 'package:shop_list/src/domain/models/list.dart';
+import 'package:shop_list/src/domain/models/product.dart';
 import 'package:shop_list/src/presentation/view/categorie_list/bloc/categorie_list.dart';
 import 'package:shop_list/src/presentation/view/categorie_list/ui/screen.dart';
 import 'package:shop_list/src/presentation/view/category_edit/bloc/category_edit.dart';
 import 'package:shop_list/src/presentation/view/edit_list/bloc/edit_list.dart';
 import 'package:shop_list/src/presentation/view/edit_list/ui/dialog.dart';
+import 'package:shop_list/src/presentation/view/edit_product/screen/edit_product.dart';
 import 'package:shop_list/src/presentation/view/list_details/bloc/bloc.dart';
 import 'package:shop_list/src/presentation/view/list_details/ui/screen.dart';
 
 import '../../category_edit/screen/dialog.dart';
+import '../../edit_product/bloc/edit_product.dart';
 import '../../list_details/bloc/event.dart';
 import '../../list_of_lists/list_of_lists.dart';
 import '../delegate.dart';
@@ -67,8 +70,7 @@ class ScreenProvider {
         ),
       );
 
-  static RouteInfo listDetails(ListDetailsTransaction transaction) =>
-      RouteInfo(
+  static RouteInfo listDetails(ListDetailsTransaction transaction) => RouteInfo(
         id: ListDetailsScreen.id,
         pageType: PageType.dialog,
         builder: (context) => Provider(
@@ -79,12 +81,25 @@ class ScreenProvider {
           child: ListDetailsScreen(),
         ),
       );
+
+  static RouteInfo editProduct(EditProductTransaction transaction) => RouteInfo(
+        id: EditProductDialog.id,
+        pageType: PageType.dialog,
+        builder: (context) => Provider(
+          create: (_) => getIt<EditProductBloc>(
+            param1: transaction,
+            param2: getRouter(context),
+          )..add(EditProductEvent.init()),
+          child: EditProductDialog(),
+        ),
+      );
 }
 
 enum ListEditMode {
   create,
   edit,
 }
+
 class EditListTransaction {
   final Color initColor;
   final ListEditMode mode;
@@ -125,5 +140,28 @@ class ListDetailsTransaction {
 
   const ListDetailsTransaction({
     required this.entry,
+  });
+}
+
+enum EditProductMode {
+  add,
+  edit,
+}
+
+class EditProductTransaction {
+  final ProductEntry? entry;
+  final EditProductMode mode;
+  final ListEntry listEntry;
+  final Function()? onAddSuccess;
+  final Function()? onDeleteSuccess;
+  final Function()? onEditSuccess;
+
+  const EditProductTransaction({
+    this.entry,
+    this.onAddSuccess,
+    this.onDeleteSuccess,
+    this.onEditSuccess,
+    required this.listEntry,
+    required this.mode,
   });
 }

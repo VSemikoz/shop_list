@@ -20,8 +20,8 @@ mixin _$ListDetailsEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() addProduct,
-    required TResult Function() deleteProduct,
-    required TResult Function() editProduct,
+    required TResult Function(ProductEntry productEntry) deleteProduct,
+    required TResult Function(ProductEntry productEntry) editProduct,
     required TResult Function() markFavorite,
     required TResult Function() onDeleteListSuccess,
     required TResult Function() onEditListSuccess,
@@ -31,8 +31,8 @@ mixin _$ListDetailsEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? addProduct,
-    TResult? Function()? deleteProduct,
-    TResult? Function()? editProduct,
+    TResult? Function(ProductEntry productEntry)? deleteProduct,
+    TResult? Function(ProductEntry productEntry)? editProduct,
     TResult? Function()? markFavorite,
     TResult? Function()? onDeleteListSuccess,
     TResult? Function()? onEditListSuccess,
@@ -42,8 +42,8 @@ mixin _$ListDetailsEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? addProduct,
-    TResult Function()? deleteProduct,
-    TResult Function()? editProduct,
+    TResult Function(ProductEntry productEntry)? deleteProduct,
+    TResult Function(ProductEntry productEntry)? editProduct,
     TResult Function()? markFavorite,
     TResult Function()? onDeleteListSuccess,
     TResult Function()? onEditListSuccess,
@@ -54,7 +54,7 @@ mixin _$ListDetailsEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(ListDetailsInit value) init,
     required TResult Function(ListDetailsAddProduct value) addProduct,
-    required TResult Function(ListDetailsDeletePrduct value) deleteProduct,
+    required TResult Function(ListDetailsDeleteProduct value) deleteProduct,
     required TResult Function(ListDetailsEditProduct value) editProduct,
     required TResult Function(ListDetailsMarkFavorite value) markFavorite,
     required TResult Function(ListDetailsOnDeleteListSuccess value)
@@ -67,7 +67,7 @@ mixin _$ListDetailsEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ListDetailsInit value)? init,
     TResult? Function(ListDetailsAddProduct value)? addProduct,
-    TResult? Function(ListDetailsDeletePrduct value)? deleteProduct,
+    TResult? Function(ListDetailsDeleteProduct value)? deleteProduct,
     TResult? Function(ListDetailsEditProduct value)? editProduct,
     TResult? Function(ListDetailsMarkFavorite value)? markFavorite,
     TResult? Function(ListDetailsOnDeleteListSuccess value)?
@@ -79,7 +79,7 @@ mixin _$ListDetailsEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ListDetailsInit value)? init,
     TResult Function(ListDetailsAddProduct value)? addProduct,
-    TResult Function(ListDetailsDeletePrduct value)? deleteProduct,
+    TResult Function(ListDetailsDeleteProduct value)? deleteProduct,
     TResult Function(ListDetailsEditProduct value)? editProduct,
     TResult Function(ListDetailsMarkFavorite value)? markFavorite,
     TResult Function(ListDetailsOnDeleteListSuccess value)? onDeleteListSuccess,
@@ -147,8 +147,8 @@ class _$ListDetailsInit implements ListDetailsInit {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() addProduct,
-    required TResult Function() deleteProduct,
-    required TResult Function() editProduct,
+    required TResult Function(ProductEntry productEntry) deleteProduct,
+    required TResult Function(ProductEntry productEntry) editProduct,
     required TResult Function() markFavorite,
     required TResult Function() onDeleteListSuccess,
     required TResult Function() onEditListSuccess,
@@ -161,8 +161,8 @@ class _$ListDetailsInit implements ListDetailsInit {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? addProduct,
-    TResult? Function()? deleteProduct,
-    TResult? Function()? editProduct,
+    TResult? Function(ProductEntry productEntry)? deleteProduct,
+    TResult? Function(ProductEntry productEntry)? editProduct,
     TResult? Function()? markFavorite,
     TResult? Function()? onDeleteListSuccess,
     TResult? Function()? onEditListSuccess,
@@ -175,8 +175,8 @@ class _$ListDetailsInit implements ListDetailsInit {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? addProduct,
-    TResult Function()? deleteProduct,
-    TResult Function()? editProduct,
+    TResult Function(ProductEntry productEntry)? deleteProduct,
+    TResult Function(ProductEntry productEntry)? editProduct,
     TResult Function()? markFavorite,
     TResult Function()? onDeleteListSuccess,
     TResult Function()? onEditListSuccess,
@@ -193,7 +193,7 @@ class _$ListDetailsInit implements ListDetailsInit {
   TResult map<TResult extends Object?>({
     required TResult Function(ListDetailsInit value) init,
     required TResult Function(ListDetailsAddProduct value) addProduct,
-    required TResult Function(ListDetailsDeletePrduct value) deleteProduct,
+    required TResult Function(ListDetailsDeleteProduct value) deleteProduct,
     required TResult Function(ListDetailsEditProduct value) editProduct,
     required TResult Function(ListDetailsMarkFavorite value) markFavorite,
     required TResult Function(ListDetailsOnDeleteListSuccess value)
@@ -209,7 +209,7 @@ class _$ListDetailsInit implements ListDetailsInit {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ListDetailsInit value)? init,
     TResult? Function(ListDetailsAddProduct value)? addProduct,
-    TResult? Function(ListDetailsDeletePrduct value)? deleteProduct,
+    TResult? Function(ListDetailsDeleteProduct value)? deleteProduct,
     TResult? Function(ListDetailsEditProduct value)? editProduct,
     TResult? Function(ListDetailsMarkFavorite value)? markFavorite,
     TResult? Function(ListDetailsOnDeleteListSuccess value)?
@@ -224,7 +224,7 @@ class _$ListDetailsInit implements ListDetailsInit {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ListDetailsInit value)? init,
     TResult Function(ListDetailsAddProduct value)? addProduct,
-    TResult Function(ListDetailsDeletePrduct value)? deleteProduct,
+    TResult Function(ListDetailsDeleteProduct value)? deleteProduct,
     TResult Function(ListDetailsEditProduct value)? editProduct,
     TResult Function(ListDetailsMarkFavorite value)? markFavorite,
     TResult Function(ListDetailsOnDeleteListSuccess value)? onDeleteListSuccess,
@@ -282,8 +282,8 @@ class _$ListDetailsAddProduct implements ListDetailsAddProduct {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() addProduct,
-    required TResult Function() deleteProduct,
-    required TResult Function() editProduct,
+    required TResult Function(ProductEntry productEntry) deleteProduct,
+    required TResult Function(ProductEntry productEntry) editProduct,
     required TResult Function() markFavorite,
     required TResult Function() onDeleteListSuccess,
     required TResult Function() onEditListSuccess,
@@ -296,8 +296,8 @@ class _$ListDetailsAddProduct implements ListDetailsAddProduct {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? addProduct,
-    TResult? Function()? deleteProduct,
-    TResult? Function()? editProduct,
+    TResult? Function(ProductEntry productEntry)? deleteProduct,
+    TResult? Function(ProductEntry productEntry)? editProduct,
     TResult? Function()? markFavorite,
     TResult? Function()? onDeleteListSuccess,
     TResult? Function()? onEditListSuccess,
@@ -310,8 +310,8 @@ class _$ListDetailsAddProduct implements ListDetailsAddProduct {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? addProduct,
-    TResult Function()? deleteProduct,
-    TResult Function()? editProduct,
+    TResult Function(ProductEntry productEntry)? deleteProduct,
+    TResult Function(ProductEntry productEntry)? editProduct,
     TResult Function()? markFavorite,
     TResult Function()? onDeleteListSuccess,
     TResult Function()? onEditListSuccess,
@@ -328,7 +328,7 @@ class _$ListDetailsAddProduct implements ListDetailsAddProduct {
   TResult map<TResult extends Object?>({
     required TResult Function(ListDetailsInit value) init,
     required TResult Function(ListDetailsAddProduct value) addProduct,
-    required TResult Function(ListDetailsDeletePrduct value) deleteProduct,
+    required TResult Function(ListDetailsDeleteProduct value) deleteProduct,
     required TResult Function(ListDetailsEditProduct value) editProduct,
     required TResult Function(ListDetailsMarkFavorite value) markFavorite,
     required TResult Function(ListDetailsOnDeleteListSuccess value)
@@ -344,7 +344,7 @@ class _$ListDetailsAddProduct implements ListDetailsAddProduct {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ListDetailsInit value)? init,
     TResult? Function(ListDetailsAddProduct value)? addProduct,
-    TResult? Function(ListDetailsDeletePrduct value)? deleteProduct,
+    TResult? Function(ListDetailsDeleteProduct value)? deleteProduct,
     TResult? Function(ListDetailsEditProduct value)? editProduct,
     TResult? Function(ListDetailsMarkFavorite value)? markFavorite,
     TResult? Function(ListDetailsOnDeleteListSuccess value)?
@@ -359,7 +359,7 @@ class _$ListDetailsAddProduct implements ListDetailsAddProduct {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ListDetailsInit value)? init,
     TResult Function(ListDetailsAddProduct value)? addProduct,
-    TResult Function(ListDetailsDeletePrduct value)? deleteProduct,
+    TResult Function(ListDetailsDeleteProduct value)? deleteProduct,
     TResult Function(ListDetailsEditProduct value)? editProduct,
     TResult Function(ListDetailsMarkFavorite value)? markFavorite,
     TResult Function(ListDetailsOnDeleteListSuccess value)? onDeleteListSuccess,
@@ -378,53 +378,81 @@ abstract class ListDetailsAddProduct implements ListDetailsEvent {
 }
 
 /// @nodoc
-abstract class _$$ListDetailsDeletePrductCopyWith<$Res> {
-  factory _$$ListDetailsDeletePrductCopyWith(_$ListDetailsDeletePrduct value,
-          $Res Function(_$ListDetailsDeletePrduct) then) =
-      __$$ListDetailsDeletePrductCopyWithImpl<$Res>;
+abstract class _$$ListDetailsDeleteProductCopyWith<$Res> {
+  factory _$$ListDetailsDeleteProductCopyWith(_$ListDetailsDeleteProduct value,
+          $Res Function(_$ListDetailsDeleteProduct) then) =
+      __$$ListDetailsDeleteProductCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ProductEntry productEntry});
 }
 
 /// @nodoc
-class __$$ListDetailsDeletePrductCopyWithImpl<$Res>
-    extends _$ListDetailsEventCopyWithImpl<$Res, _$ListDetailsDeletePrduct>
-    implements _$$ListDetailsDeletePrductCopyWith<$Res> {
-  __$$ListDetailsDeletePrductCopyWithImpl(_$ListDetailsDeletePrduct _value,
-      $Res Function(_$ListDetailsDeletePrduct) _then)
+class __$$ListDetailsDeleteProductCopyWithImpl<$Res>
+    extends _$ListDetailsEventCopyWithImpl<$Res, _$ListDetailsDeleteProduct>
+    implements _$$ListDetailsDeleteProductCopyWith<$Res> {
+  __$$ListDetailsDeleteProductCopyWithImpl(_$ListDetailsDeleteProduct _value,
+      $Res Function(_$ListDetailsDeleteProduct) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? productEntry = null,
+  }) {
+    return _then(_$ListDetailsDeleteProduct(
+      productEntry: null == productEntry
+          ? _value.productEntry
+          : productEntry // ignore: cast_nullable_to_non_nullable
+              as ProductEntry,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$ListDetailsDeletePrduct implements ListDetailsDeletePrduct {
-  const _$ListDetailsDeletePrduct();
+class _$ListDetailsDeleteProduct implements ListDetailsDeleteProduct {
+  const _$ListDetailsDeleteProduct({required this.productEntry});
+
+  @override
+  final ProductEntry productEntry;
 
   @override
   String toString() {
-    return 'ListDetailsEvent.deleteProduct()';
+    return 'ListDetailsEvent.deleteProduct(productEntry: $productEntry)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ListDetailsDeletePrduct);
+            other is _$ListDetailsDeleteProduct &&
+            (identical(other.productEntry, productEntry) ||
+                other.productEntry == productEntry));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, productEntry);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ListDetailsDeleteProductCopyWith<_$ListDetailsDeleteProduct>
+      get copyWith =>
+          __$$ListDetailsDeleteProductCopyWithImpl<_$ListDetailsDeleteProduct>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() addProduct,
-    required TResult Function() deleteProduct,
-    required TResult Function() editProduct,
+    required TResult Function(ProductEntry productEntry) deleteProduct,
+    required TResult Function(ProductEntry productEntry) editProduct,
     required TResult Function() markFavorite,
     required TResult Function() onDeleteListSuccess,
     required TResult Function() onEditListSuccess,
   }) {
-    return deleteProduct();
+    return deleteProduct(productEntry);
   }
 
   @override
@@ -432,13 +460,13 @@ class _$ListDetailsDeletePrduct implements ListDetailsDeletePrduct {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? addProduct,
-    TResult? Function()? deleteProduct,
-    TResult? Function()? editProduct,
+    TResult? Function(ProductEntry productEntry)? deleteProduct,
+    TResult? Function(ProductEntry productEntry)? editProduct,
     TResult? Function()? markFavorite,
     TResult? Function()? onDeleteListSuccess,
     TResult? Function()? onEditListSuccess,
   }) {
-    return deleteProduct?.call();
+    return deleteProduct?.call(productEntry);
   }
 
   @override
@@ -446,15 +474,15 @@ class _$ListDetailsDeletePrduct implements ListDetailsDeletePrduct {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? addProduct,
-    TResult Function()? deleteProduct,
-    TResult Function()? editProduct,
+    TResult Function(ProductEntry productEntry)? deleteProduct,
+    TResult Function(ProductEntry productEntry)? editProduct,
     TResult Function()? markFavorite,
     TResult Function()? onDeleteListSuccess,
     TResult Function()? onEditListSuccess,
     required TResult orElse(),
   }) {
     if (deleteProduct != null) {
-      return deleteProduct();
+      return deleteProduct(productEntry);
     }
     return orElse();
   }
@@ -464,7 +492,7 @@ class _$ListDetailsDeletePrduct implements ListDetailsDeletePrduct {
   TResult map<TResult extends Object?>({
     required TResult Function(ListDetailsInit value) init,
     required TResult Function(ListDetailsAddProduct value) addProduct,
-    required TResult Function(ListDetailsDeletePrduct value) deleteProduct,
+    required TResult Function(ListDetailsDeleteProduct value) deleteProduct,
     required TResult Function(ListDetailsEditProduct value) editProduct,
     required TResult Function(ListDetailsMarkFavorite value) markFavorite,
     required TResult Function(ListDetailsOnDeleteListSuccess value)
@@ -480,7 +508,7 @@ class _$ListDetailsDeletePrduct implements ListDetailsDeletePrduct {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ListDetailsInit value)? init,
     TResult? Function(ListDetailsAddProduct value)? addProduct,
-    TResult? Function(ListDetailsDeletePrduct value)? deleteProduct,
+    TResult? Function(ListDetailsDeleteProduct value)? deleteProduct,
     TResult? Function(ListDetailsEditProduct value)? editProduct,
     TResult? Function(ListDetailsMarkFavorite value)? markFavorite,
     TResult? Function(ListDetailsOnDeleteListSuccess value)?
@@ -495,7 +523,7 @@ class _$ListDetailsDeletePrduct implements ListDetailsDeletePrduct {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ListDetailsInit value)? init,
     TResult Function(ListDetailsAddProduct value)? addProduct,
-    TResult Function(ListDetailsDeletePrduct value)? deleteProduct,
+    TResult Function(ListDetailsDeleteProduct value)? deleteProduct,
     TResult Function(ListDetailsEditProduct value)? editProduct,
     TResult Function(ListDetailsMarkFavorite value)? markFavorite,
     TResult Function(ListDetailsOnDeleteListSuccess value)? onDeleteListSuccess,
@@ -509,8 +537,14 @@ class _$ListDetailsDeletePrduct implements ListDetailsDeletePrduct {
   }
 }
 
-abstract class ListDetailsDeletePrduct implements ListDetailsEvent {
-  const factory ListDetailsDeletePrduct() = _$ListDetailsDeletePrduct;
+abstract class ListDetailsDeleteProduct implements ListDetailsEvent {
+  const factory ListDetailsDeleteProduct(
+      {required final ProductEntry productEntry}) = _$ListDetailsDeleteProduct;
+
+  ProductEntry get productEntry;
+  @JsonKey(ignore: true)
+  _$$ListDetailsDeleteProductCopyWith<_$ListDetailsDeleteProduct>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -518,6 +552,8 @@ abstract class _$$ListDetailsEditProductCopyWith<$Res> {
   factory _$$ListDetailsEditProductCopyWith(_$ListDetailsEditProduct value,
           $Res Function(_$ListDetailsEditProduct) then) =
       __$$ListDetailsEditProductCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ProductEntry productEntry});
 }
 
 /// @nodoc
@@ -527,39 +563,65 @@ class __$$ListDetailsEditProductCopyWithImpl<$Res>
   __$$ListDetailsEditProductCopyWithImpl(_$ListDetailsEditProduct _value,
       $Res Function(_$ListDetailsEditProduct) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? productEntry = null,
+  }) {
+    return _then(_$ListDetailsEditProduct(
+      productEntry: null == productEntry
+          ? _value.productEntry
+          : productEntry // ignore: cast_nullable_to_non_nullable
+              as ProductEntry,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$ListDetailsEditProduct implements ListDetailsEditProduct {
-  const _$ListDetailsEditProduct();
+  const _$ListDetailsEditProduct({required this.productEntry});
+
+  @override
+  final ProductEntry productEntry;
 
   @override
   String toString() {
-    return 'ListDetailsEvent.editProduct()';
+    return 'ListDetailsEvent.editProduct(productEntry: $productEntry)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ListDetailsEditProduct);
+        (other.runtimeType == runtimeType &&
+            other is _$ListDetailsEditProduct &&
+            (identical(other.productEntry, productEntry) ||
+                other.productEntry == productEntry));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, productEntry);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ListDetailsEditProductCopyWith<_$ListDetailsEditProduct> get copyWith =>
+      __$$ListDetailsEditProductCopyWithImpl<_$ListDetailsEditProduct>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() addProduct,
-    required TResult Function() deleteProduct,
-    required TResult Function() editProduct,
+    required TResult Function(ProductEntry productEntry) deleteProduct,
+    required TResult Function(ProductEntry productEntry) editProduct,
     required TResult Function() markFavorite,
     required TResult Function() onDeleteListSuccess,
     required TResult Function() onEditListSuccess,
   }) {
-    return editProduct();
+    return editProduct(productEntry);
   }
 
   @override
@@ -567,13 +629,13 @@ class _$ListDetailsEditProduct implements ListDetailsEditProduct {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? addProduct,
-    TResult? Function()? deleteProduct,
-    TResult? Function()? editProduct,
+    TResult? Function(ProductEntry productEntry)? deleteProduct,
+    TResult? Function(ProductEntry productEntry)? editProduct,
     TResult? Function()? markFavorite,
     TResult? Function()? onDeleteListSuccess,
     TResult? Function()? onEditListSuccess,
   }) {
-    return editProduct?.call();
+    return editProduct?.call(productEntry);
   }
 
   @override
@@ -581,15 +643,15 @@ class _$ListDetailsEditProduct implements ListDetailsEditProduct {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? addProduct,
-    TResult Function()? deleteProduct,
-    TResult Function()? editProduct,
+    TResult Function(ProductEntry productEntry)? deleteProduct,
+    TResult Function(ProductEntry productEntry)? editProduct,
     TResult Function()? markFavorite,
     TResult Function()? onDeleteListSuccess,
     TResult Function()? onEditListSuccess,
     required TResult orElse(),
   }) {
     if (editProduct != null) {
-      return editProduct();
+      return editProduct(productEntry);
     }
     return orElse();
   }
@@ -599,7 +661,7 @@ class _$ListDetailsEditProduct implements ListDetailsEditProduct {
   TResult map<TResult extends Object?>({
     required TResult Function(ListDetailsInit value) init,
     required TResult Function(ListDetailsAddProduct value) addProduct,
-    required TResult Function(ListDetailsDeletePrduct value) deleteProduct,
+    required TResult Function(ListDetailsDeleteProduct value) deleteProduct,
     required TResult Function(ListDetailsEditProduct value) editProduct,
     required TResult Function(ListDetailsMarkFavorite value) markFavorite,
     required TResult Function(ListDetailsOnDeleteListSuccess value)
@@ -615,7 +677,7 @@ class _$ListDetailsEditProduct implements ListDetailsEditProduct {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ListDetailsInit value)? init,
     TResult? Function(ListDetailsAddProduct value)? addProduct,
-    TResult? Function(ListDetailsDeletePrduct value)? deleteProduct,
+    TResult? Function(ListDetailsDeleteProduct value)? deleteProduct,
     TResult? Function(ListDetailsEditProduct value)? editProduct,
     TResult? Function(ListDetailsMarkFavorite value)? markFavorite,
     TResult? Function(ListDetailsOnDeleteListSuccess value)?
@@ -630,7 +692,7 @@ class _$ListDetailsEditProduct implements ListDetailsEditProduct {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ListDetailsInit value)? init,
     TResult Function(ListDetailsAddProduct value)? addProduct,
-    TResult Function(ListDetailsDeletePrduct value)? deleteProduct,
+    TResult Function(ListDetailsDeleteProduct value)? deleteProduct,
     TResult Function(ListDetailsEditProduct value)? editProduct,
     TResult Function(ListDetailsMarkFavorite value)? markFavorite,
     TResult Function(ListDetailsOnDeleteListSuccess value)? onDeleteListSuccess,
@@ -645,7 +707,13 @@ class _$ListDetailsEditProduct implements ListDetailsEditProduct {
 }
 
 abstract class ListDetailsEditProduct implements ListDetailsEvent {
-  const factory ListDetailsEditProduct() = _$ListDetailsEditProduct;
+  const factory ListDetailsEditProduct(
+      {required final ProductEntry productEntry}) = _$ListDetailsEditProduct;
+
+  ProductEntry get productEntry;
+  @JsonKey(ignore: true)
+  _$$ListDetailsEditProductCopyWith<_$ListDetailsEditProduct> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -689,8 +757,8 @@ class _$ListDetailsMarkFavorite implements ListDetailsMarkFavorite {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() addProduct,
-    required TResult Function() deleteProduct,
-    required TResult Function() editProduct,
+    required TResult Function(ProductEntry productEntry) deleteProduct,
+    required TResult Function(ProductEntry productEntry) editProduct,
     required TResult Function() markFavorite,
     required TResult Function() onDeleteListSuccess,
     required TResult Function() onEditListSuccess,
@@ -703,8 +771,8 @@ class _$ListDetailsMarkFavorite implements ListDetailsMarkFavorite {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? addProduct,
-    TResult? Function()? deleteProduct,
-    TResult? Function()? editProduct,
+    TResult? Function(ProductEntry productEntry)? deleteProduct,
+    TResult? Function(ProductEntry productEntry)? editProduct,
     TResult? Function()? markFavorite,
     TResult? Function()? onDeleteListSuccess,
     TResult? Function()? onEditListSuccess,
@@ -717,8 +785,8 @@ class _$ListDetailsMarkFavorite implements ListDetailsMarkFavorite {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? addProduct,
-    TResult Function()? deleteProduct,
-    TResult Function()? editProduct,
+    TResult Function(ProductEntry productEntry)? deleteProduct,
+    TResult Function(ProductEntry productEntry)? editProduct,
     TResult Function()? markFavorite,
     TResult Function()? onDeleteListSuccess,
     TResult Function()? onEditListSuccess,
@@ -735,7 +803,7 @@ class _$ListDetailsMarkFavorite implements ListDetailsMarkFavorite {
   TResult map<TResult extends Object?>({
     required TResult Function(ListDetailsInit value) init,
     required TResult Function(ListDetailsAddProduct value) addProduct,
-    required TResult Function(ListDetailsDeletePrduct value) deleteProduct,
+    required TResult Function(ListDetailsDeleteProduct value) deleteProduct,
     required TResult Function(ListDetailsEditProduct value) editProduct,
     required TResult Function(ListDetailsMarkFavorite value) markFavorite,
     required TResult Function(ListDetailsOnDeleteListSuccess value)
@@ -751,7 +819,7 @@ class _$ListDetailsMarkFavorite implements ListDetailsMarkFavorite {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ListDetailsInit value)? init,
     TResult? Function(ListDetailsAddProduct value)? addProduct,
-    TResult? Function(ListDetailsDeletePrduct value)? deleteProduct,
+    TResult? Function(ListDetailsDeleteProduct value)? deleteProduct,
     TResult? Function(ListDetailsEditProduct value)? editProduct,
     TResult? Function(ListDetailsMarkFavorite value)? markFavorite,
     TResult? Function(ListDetailsOnDeleteListSuccess value)?
@@ -766,7 +834,7 @@ class _$ListDetailsMarkFavorite implements ListDetailsMarkFavorite {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ListDetailsInit value)? init,
     TResult Function(ListDetailsAddProduct value)? addProduct,
-    TResult Function(ListDetailsDeletePrduct value)? deleteProduct,
+    TResult Function(ListDetailsDeleteProduct value)? deleteProduct,
     TResult Function(ListDetailsEditProduct value)? editProduct,
     TResult Function(ListDetailsMarkFavorite value)? markFavorite,
     TResult Function(ListDetailsOnDeleteListSuccess value)? onDeleteListSuccess,
@@ -829,8 +897,8 @@ class _$ListDetailsOnDeleteListSuccess
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() addProduct,
-    required TResult Function() deleteProduct,
-    required TResult Function() editProduct,
+    required TResult Function(ProductEntry productEntry) deleteProduct,
+    required TResult Function(ProductEntry productEntry) editProduct,
     required TResult Function() markFavorite,
     required TResult Function() onDeleteListSuccess,
     required TResult Function() onEditListSuccess,
@@ -843,8 +911,8 @@ class _$ListDetailsOnDeleteListSuccess
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? addProduct,
-    TResult? Function()? deleteProduct,
-    TResult? Function()? editProduct,
+    TResult? Function(ProductEntry productEntry)? deleteProduct,
+    TResult? Function(ProductEntry productEntry)? editProduct,
     TResult? Function()? markFavorite,
     TResult? Function()? onDeleteListSuccess,
     TResult? Function()? onEditListSuccess,
@@ -857,8 +925,8 @@ class _$ListDetailsOnDeleteListSuccess
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? addProduct,
-    TResult Function()? deleteProduct,
-    TResult Function()? editProduct,
+    TResult Function(ProductEntry productEntry)? deleteProduct,
+    TResult Function(ProductEntry productEntry)? editProduct,
     TResult Function()? markFavorite,
     TResult Function()? onDeleteListSuccess,
     TResult Function()? onEditListSuccess,
@@ -875,7 +943,7 @@ class _$ListDetailsOnDeleteListSuccess
   TResult map<TResult extends Object?>({
     required TResult Function(ListDetailsInit value) init,
     required TResult Function(ListDetailsAddProduct value) addProduct,
-    required TResult Function(ListDetailsDeletePrduct value) deleteProduct,
+    required TResult Function(ListDetailsDeleteProduct value) deleteProduct,
     required TResult Function(ListDetailsEditProduct value) editProduct,
     required TResult Function(ListDetailsMarkFavorite value) markFavorite,
     required TResult Function(ListDetailsOnDeleteListSuccess value)
@@ -891,7 +959,7 @@ class _$ListDetailsOnDeleteListSuccess
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ListDetailsInit value)? init,
     TResult? Function(ListDetailsAddProduct value)? addProduct,
-    TResult? Function(ListDetailsDeletePrduct value)? deleteProduct,
+    TResult? Function(ListDetailsDeleteProduct value)? deleteProduct,
     TResult? Function(ListDetailsEditProduct value)? editProduct,
     TResult? Function(ListDetailsMarkFavorite value)? markFavorite,
     TResult? Function(ListDetailsOnDeleteListSuccess value)?
@@ -906,7 +974,7 @@ class _$ListDetailsOnDeleteListSuccess
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ListDetailsInit value)? init,
     TResult Function(ListDetailsAddProduct value)? addProduct,
-    TResult Function(ListDetailsDeletePrduct value)? deleteProduct,
+    TResult Function(ListDetailsDeleteProduct value)? deleteProduct,
     TResult Function(ListDetailsEditProduct value)? editProduct,
     TResult Function(ListDetailsMarkFavorite value)? markFavorite,
     TResult Function(ListDetailsOnDeleteListSuccess value)? onDeleteListSuccess,
@@ -968,8 +1036,8 @@ class _$ListDetailsOnEditListSuccess implements ListDetailsOnEditListSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() addProduct,
-    required TResult Function() deleteProduct,
-    required TResult Function() editProduct,
+    required TResult Function(ProductEntry productEntry) deleteProduct,
+    required TResult Function(ProductEntry productEntry) editProduct,
     required TResult Function() markFavorite,
     required TResult Function() onDeleteListSuccess,
     required TResult Function() onEditListSuccess,
@@ -982,8 +1050,8 @@ class _$ListDetailsOnEditListSuccess implements ListDetailsOnEditListSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? addProduct,
-    TResult? Function()? deleteProduct,
-    TResult? Function()? editProduct,
+    TResult? Function(ProductEntry productEntry)? deleteProduct,
+    TResult? Function(ProductEntry productEntry)? editProduct,
     TResult? Function()? markFavorite,
     TResult? Function()? onDeleteListSuccess,
     TResult? Function()? onEditListSuccess,
@@ -996,8 +1064,8 @@ class _$ListDetailsOnEditListSuccess implements ListDetailsOnEditListSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? addProduct,
-    TResult Function()? deleteProduct,
-    TResult Function()? editProduct,
+    TResult Function(ProductEntry productEntry)? deleteProduct,
+    TResult Function(ProductEntry productEntry)? editProduct,
     TResult Function()? markFavorite,
     TResult Function()? onDeleteListSuccess,
     TResult Function()? onEditListSuccess,
@@ -1014,7 +1082,7 @@ class _$ListDetailsOnEditListSuccess implements ListDetailsOnEditListSuccess {
   TResult map<TResult extends Object?>({
     required TResult Function(ListDetailsInit value) init,
     required TResult Function(ListDetailsAddProduct value) addProduct,
-    required TResult Function(ListDetailsDeletePrduct value) deleteProduct,
+    required TResult Function(ListDetailsDeleteProduct value) deleteProduct,
     required TResult Function(ListDetailsEditProduct value) editProduct,
     required TResult Function(ListDetailsMarkFavorite value) markFavorite,
     required TResult Function(ListDetailsOnDeleteListSuccess value)
@@ -1030,7 +1098,7 @@ class _$ListDetailsOnEditListSuccess implements ListDetailsOnEditListSuccess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ListDetailsInit value)? init,
     TResult? Function(ListDetailsAddProduct value)? addProduct,
-    TResult? Function(ListDetailsDeletePrduct value)? deleteProduct,
+    TResult? Function(ListDetailsDeleteProduct value)? deleteProduct,
     TResult? Function(ListDetailsEditProduct value)? editProduct,
     TResult? Function(ListDetailsMarkFavorite value)? markFavorite,
     TResult? Function(ListDetailsOnDeleteListSuccess value)?
@@ -1045,7 +1113,7 @@ class _$ListDetailsOnEditListSuccess implements ListDetailsOnEditListSuccess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ListDetailsInit value)? init,
     TResult Function(ListDetailsAddProduct value)? addProduct,
-    TResult Function(ListDetailsDeletePrduct value)? deleteProduct,
+    TResult Function(ListDetailsDeleteProduct value)? deleteProduct,
     TResult Function(ListDetailsEditProduct value)? editProduct,
     TResult Function(ListDetailsMarkFavorite value)? markFavorite,
     TResult Function(ListDetailsOnDeleteListSuccess value)? onDeleteListSuccess,
