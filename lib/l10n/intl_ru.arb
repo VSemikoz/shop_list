@@ -2,5 +2,22 @@
   "listOfListsScreenAppBar": "Списки",
   "createListScreenHint": "Имя списка",
   "categoryListScreenAppBar": "Категории",
-  "editCategoryHint": "Имя категории"
+  "editCategoryHint": "Имя категории",
+  "editListTotalPrice": "Всего",
+  "editProductNameHint": "Имя",
+  "editProductDescHint": "Описание",
+  "editProductCategoryHint": "Выберете категорию",
+  "editProductListHint": "Выберете список",
+  "editProductCountHint": "Кол-во",
+  "editProductCountDescHint": "Ед. изм.",
+  "editProductPriceHint": "Цена",
+  "editProductTotalPriceHint": "Цена всего",
+  "editProductPriceDescHint": "Валюта",
+  "commonAddButton": "Добавить",
+  "commonCancelButton": "Отменить",
+  "commonEditButton": "Изменить",
+  "commonDeleteButton": "Удалить",
+  "commonProductReady": "Готово",
+  "commonProductNeed": "Нужно",
+  "commonProductSave": "Сохранено"
 }

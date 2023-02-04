@@ -37,11 +37,12 @@ class MaterialTapWrapper extends StatelessWidget {
           child: Material(
             color: Colors.transparent,
             child: InkWell(
-                onTap: () => onPressed(),
-                highlightColor:
-                    context.colorTheme.primary.dark.withOpacity(_opacity),
-                splashColor:
-                    context.colorTheme.primary.dark.withOpacity(_opacity)),
+              onTap: () => onPressed(),
+              highlightColor:
+                  context.colorTheme.primary.dark.withOpacity(_opacity),
+              splashColor:
+                  context.colorTheme.primary.dark.withOpacity(_opacity),
+            ),
           ),
         ),
       ],

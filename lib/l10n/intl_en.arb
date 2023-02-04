@@ -2,5 +2,22 @@
   "listOfListsScreenAppBar": "Lists",
   "createListScreenHint": "List",
   "categoryListScreenAppBar": "Categories",
-  "editCategoryHint": "Category"
+  "editCategoryHint": "Category",
+  "editListTotalPrice": "Total",
+  "editProductNameHint": "Name",
+  "editProductDescHint": "Description",
+  "editProductCategoryHint": "Select category",
+  "editProductListHint": "Select list",
+  "editProductCountHint": "Count",
+  "editProductCountDescHint": "Count unit",
+  "editProductPriceHint": "Price",
+  "editProductTotalPriceHint": "Total price",
+  "editProductPriceDescHint": "Price unit",
+  "commonAddButton": "Add",
+  "commonCancelButton": "Cancel",
+  "commonEditButton": "Edit",
+  "commonDeleteButton": "Delete",
+  "commonProductReady": "Ready",
+  "commonProductNeed": "Need",
+  "commonProductSave": "Saved"
 }

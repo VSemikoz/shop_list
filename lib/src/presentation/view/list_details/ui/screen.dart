@@ -3,8 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_list/src/common/providers/theme/theme.dart';
 import 'package:shop_list/src/presentation/view/router/router/bloc.dart';
 
+import '../../../../../generated/l10n.dart';
 import '../../../../domain/models/list.dart';
 import '../../../../domain/models/product.dart';
+import '../../../ui/components/builder/product_list_builder.dart';
 import '../../../ui/widgets/tappable/common.dart';
 import '../../router/router/event.dart';
 import '../../router/router/providers.dart';
@@ -71,7 +73,11 @@ class ListDetailsScreen extends StatelessWidget {
                   ),
                 ),
               if (state is ListDetailsSuccess)
-                _SuccessScreen(products: state.products),
+                _SuccessScreen(
+                  saved: state.saveProducts,
+                  need: state.needProducts,
+                  ready: state.readyProducts,
+                ),
             ],
           ),
         );
@@ -98,25 +104,68 @@ class _AppBar extends StatelessWidget {
 }
 
 class _SuccessScreen extends StatelessWidget {
-  final List<ProductEntry> products;
+  final List<ProductEntry> saved;
+  final List<ProductEntry> ready;
+  final List<ProductEntry> need;
 
   const _SuccessScreen({
     Key? key,
-    required this.products,
+    required this.saved,
+    required this.ready,
+    required this.need,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SliverList(
-      delegate: SliverChildBuilderDelegate(
-        (context, index) => _ProductItem(product: products[index]),
-        childCount: products.length,
+    return NeedReadySaveProductBuilder(
+      need: need,
+      saved: saved,
+      ready: ready,
+      productItem: (p) => _ProductItem(product: p),
+      headerItem: (value, status) =>
+          _ProductHeader(text: value, status: status),
+    );
+  }
+}
+
+class _ProductHeader extends StatelessWidget {
+  final String text;
+  final ProductStatus status;
+
+  const _ProductHeader({
+    Key? key,
+    required this.text,
+    required this.status,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    late Color color;
+    switch (status) {
+      case ProductStatus.need:
+        color = context.colorTheme.error.dark;
+        break;
+      case ProductStatus.ready:
+        color = context.colorTheme.success.light;
+        break;
+      case ProductStatus.saved:
+      case ProductStatus.none:
+        color = context.colorTheme.background.secondary;
+        break;
+    }
+
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Text(
+          text,
+          style: context.textStyle.bodyLarge.copyWith(color: color),
+        ),
       ),
     );
   }
 }
 
-//TODO into components
 class _ProductItem extends StatefulWidget {
   final ProductEntry product;
 
@@ -163,15 +212,18 @@ class _ProductItemState extends State<_ProductItem> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            MaterialTapWrapper(
-              radius: Radius.zero,
-              onPressed: () => _changeOpen(),
-              child: Column(
-                children: [
-                  const SizedBox(height: 20),
-                  _ProductItemTop(product: widget.product),
-                  const SizedBox(height: 20),
-                ],
+            GestureDetector(
+              behavior: HitTestBehavior.translucent,
+              onTap: () => _changeOpen(),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    const SizedBox(height: 20),
+                    _ProductItemTop(product: widget.product),
+                    const SizedBox(height: 20),
+                  ],
+                ),
               ),
             ),
             if (isOpen) _ProductItemBottom(product: widget.product),
@@ -197,24 +249,55 @@ class _ProductItemTop extends StatefulWidget {
 class _ProductItemTopState extends State<_ProductItemTop> {
   @override
   Widget build(BuildContext context) {
+    final s = S.of(context);
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          children: [
-            Text(widget.product.name),
-            if (widget.product.isFavorite) _IsFavoriteMarker()
-          ],
+        Expanded(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(widget.product.name),
+                    Text(widget.product.description),
+                  ],
+                ),
+              ),
+              if (widget.product.isFavorite)
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: _IsFavoriteMarker(),
+                )
+            ],
+          ),
         ),
         Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text("${widget.product.price}"),
+            const SizedBox(width: 2),
             Text(widget.product.priceDescription),
             const SizedBox(width: 10),
             Text("${widget.product.count}"),
+            const SizedBox(width: 2),
             Text(widget.product.countDescription),
             const SizedBox(width: 10),
-            _ProductStatusIcon(status: widget.product.status),
+            Text(
+              "${s.editListTotalPrice} ${widget.product.count * widget.product.price}",
+            ),
+            const SizedBox(width: 2),
+            Text(widget.product.priceDescription),
+            const SizedBox(width: 10),
+            _ProductStatusIcon(
+              status: widget.product.status,
+              product: widget.product,
+            ),
           ],
         ),
       ],
@@ -254,12 +337,14 @@ class _ProductItemBottom extends StatelessWidget {
               child: MaterialTapWrapper(
                 onPressed: () {
                   context.read<ListDetailsBloc>().add(
-                        ListDetailsEvent.markFavorite(),
+                        ListDetailsEvent.markFavorite(productEntry: product),
                       );
                 },
                 child: Icon(
                   Icons.star,
-                  color: context.colorTheme.secondary.light,
+                  color: product.isFavorite
+                      ? context.colorTheme.secondary.light
+                      : context.colorTheme.primary.light,
                 ),
               ),
             ),
@@ -292,30 +377,53 @@ class _IsFavoriteMarker extends StatelessWidget {
     return Icon(
       Icons.star,
       color: context.colorTheme.secondary.light,
-      size: 10,
+      size: 14,
     );
   }
 }
 
 class _ProductStatusIcon extends StatelessWidget {
   final ProductStatus status;
+  final ProductEntry product;
 
   const _ProductStatusIcon({
     Key? key,
     required this.status,
+    required this.product,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    switch (status) {
-      case ProductStatus.need:
-        return _StatusIcon(mainColor: context.colorTheme.error.dark);
-      case ProductStatus.ready:
-        return _StatusIcon(mainColor: context.colorTheme.success.light);
-      case ProductStatus.saved:
-      case ProductStatus.none:
-        return Container();
-    }
+    return GestureDetector(
+      child: Builder(
+        builder: (context) {
+          switch (status) {
+            case ProductStatus.need:
+              return _StatusIcon(mainColor: context.colorTheme.error.dark);
+            case ProductStatus.ready:
+              return _StatusIcon(mainColor: context.colorTheme.success.light);
+            case ProductStatus.saved:
+            case ProductStatus.none:
+              return _StatusIcon(
+                mainColor: context.colorTheme.background.primary,
+              );
+          }
+        },
+      ),
+      onTap: () {
+        context.read<ListDetailsBloc>().add(
+              ListDetailsEvent.changeProductStatus(productEntry: product),
+            );
+      },
+      onLongPress: () {
+        context.read<ListDetailsBloc>().add(
+              ListDetailsEvent.changeProductStatus(
+                productEntry: product,
+                forceSave: true,
+              ),
+            );
+      },
+    );
   }
 }
 

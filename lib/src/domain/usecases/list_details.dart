@@ -18,6 +18,8 @@ abstract class ListDetailsUseCaseBase {
   Future<void> deleteProduct(int id);
 
   Future<void> changeProductStatus(ProductEntry data, ProductStatus status);
+
+  Future<void> changeFavoriteStatus(ProductEntry data, bool isFavorite);
 }
 
 @Injectable(as: ListDetailsUseCaseBase)
@@ -40,8 +42,8 @@ class ListDetailsUseCase implements ListDetailsUseCaseBase {
     ProductEntry entry,
     ProductStatus status,
   ) async {
-    // TODO: implement changeProductStatus
-    throw UnimplementedError();
+    final productToSave = entry.copyWith(status: status);
+    return await productRepository.editProduct(productToSave.toData());
   }
 
   @override
@@ -63,5 +65,11 @@ class ListDetailsUseCase implements ListDetailsUseCaseBase {
   @override
   Future<List<ProductEntry>> getProductsByList(int listId) async {
     return await productRepository.getAllProductList(listId);
+  }
+
+  @override
+  Future<void> changeFavoriteStatus(ProductEntry data, bool isFavorite) async {
+    final productToSave = data.copyWith(isFavorite: isFavorite);
+    return await productRepository.editProduct(productToSave.toData());
   }
 }

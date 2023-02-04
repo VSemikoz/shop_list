@@ -13,10 +13,15 @@ abstract class ListDetailsEvent with _$ListDetailsEvent {
       {required ProductEntry productEntry}) = ListDetailsDeleteProduct;
 
   const factory ListDetailsEvent.editProduct(
-      {required ProductEntry productEntry}
-      ) = ListDetailsEditProduct;
+      {required ProductEntry productEntry}) = ListDetailsEditProduct;
 
-  const factory ListDetailsEvent.markFavorite() = ListDetailsMarkFavorite;
+  const factory ListDetailsEvent.changeProductStatus({
+    required ProductEntry productEntry,
+    @Default(false) bool forceSave,
+  }) = ListDetailsChangeProductStatus;
+
+  const factory ListDetailsEvent.markFavorite(
+      {required ProductEntry productEntry}) = ListDetailsMarkFavorite;
 
   const factory ListDetailsEvent.onDeleteListSuccess() =
       ListDetailsOnDeleteListSuccess;

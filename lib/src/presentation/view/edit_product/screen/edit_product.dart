@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_list/src/domain/models/list.dart';
 import 'package:shop_list/src/presentation/ui/widgets/tappable/common.dart';
 
+import '../../../../../generated/l10n.dart';
 import '../../../../domain/models/category.dart';
 import '../../router/router/providers.dart';
 import '../bloc/edit_product.dart';
@@ -64,6 +65,7 @@ class _NameDescBLockState extends State<_NameDescBLock> {
 
   @override
   Widget build(BuildContext context) {
+    final s = S.of(context);
     return BlocListener<EditProductBloc, EditProductState>(
       listener: (context, state) {
         if (state is EditProductInitial) {
@@ -75,12 +77,12 @@ class _NameDescBLockState extends State<_NameDescBLock> {
       child: Column(
         children: [
           TextField(
-            decoration: InputDecoration(labelText: "Name"),
+            decoration: InputDecoration(labelText: s.editProductNameHint),
             controller: nameController,
             onChanged: context.read<EditProductBloc>().updateName,
           ),
           TextField(
-            decoration: InputDecoration(labelText: "Desc"),
+            decoration: InputDecoration(labelText: s.editProductDescHint),
             controller: descController,
             onChanged: context.read<EditProductBloc>().updateDesc,
           ),
@@ -95,11 +97,13 @@ class _CategorySelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = S.of(context);
+
     final categories = context.read<EditProductBloc>().categories;
     return StreamBuilder<CategoryEntry?>(
       stream: context.read<EditProductBloc>().categoryController.stream,
       builder: (context, snapshot) => ExpansionTile(
-        title: Text(snapshot.data?.name ?? "Select category"),
+        title: Text(snapshot.data?.name ?? s.editProductCategoryHint),
         children: categories
             .map(
               (e) => _CategorySelectorItem(category: e),
@@ -136,11 +140,13 @@ class _ListSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = S.of(context);
+
     final lists = context.read<EditProductBloc>().lists;
     return StreamBuilder<ListEntry?>(
       stream: context.read<EditProductBloc>().listController.stream,
       builder: (context, snapshot) => ExpansionTile(
-        title: Text(snapshot.data?.name ?? "Select list"),
+        title: Text(snapshot.data?.name ?? s.editProductListHint),
         children: lists
             .map(
               (e) => _ListSelectorItem(list: e),
@@ -182,19 +188,25 @@ class _PriceBlock extends StatefulWidget {
 class _PriceBlockState extends State<_PriceBlock> {
   late TextEditingController priceController;
   late TextEditingController totalPriceController;
+  late TextEditingController priceDescController;
 
   @override
   void initState() {
     priceController = TextEditingController();
     totalPriceController = TextEditingController();
+    priceDescController = TextEditingController();
     context.read<EditProductBloc>().totalPriceController.listen((value) {
       totalPriceController.text = value?.toString() ?? "";
     });
+    priceDescController.text = "₽";
+    context.read<EditProductBloc>().updatePriceDesc("₽");
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    final s = S.of(context);
+
     return BlocListener<EditProductBloc, EditProductState>(
       listener: (context, state) {
         if (state is EditProductInitial) {
@@ -208,7 +220,7 @@ class _PriceBlockState extends State<_PriceBlock> {
         children: [
           Expanded(
             child: TextField(
-              decoration: InputDecoration(labelText: "Price"),
+              decoration: InputDecoration(labelText: s.editProductPriceHint),
               keyboardType: TextInputType.number,
               controller: priceController,
               onChanged: (value) => context
@@ -221,8 +233,20 @@ class _PriceBlockState extends State<_PriceBlock> {
           Expanded(
             child: TextField(
               enabled: false,
-              decoration: InputDecoration(labelText: "Total Price"),
+              decoration: InputDecoration(labelText: s.editProductTotalPriceHint),
               controller: totalPriceController,
+              onChanged: (value) => context
+                  .read<EditProductBloc>()
+                  .updateTotalPrice(int.tryParse(value) ?? 0),
+            ),
+            flex: 1,
+          ),
+          const SizedBox(width: 20),
+          Expanded(
+            child: TextField(
+              enabled: false,
+              decoration: InputDecoration(labelText: s.editProductPriceDescHint),
+              controller: priceDescController,
               onChanged: (value) => context
                   .read<EditProductBloc>()
                   .updateTotalPrice(int.tryParse(value) ?? 0),
@@ -250,12 +274,15 @@ class _CountBlocState extends State<_CountBloc> {
   void initState() {
     countController = TextEditingController();
     countDescController = TextEditingController();
-
+    countDescController.text = "шт";
+    context.read<EditProductBloc>().updateCountDesc("шт");
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    final s = S.of(context);
+
     return BlocListener<EditProductBloc, EditProductState>(
       listener: (context, state) {
         if (state is EditProductInitial) {
@@ -269,7 +296,7 @@ class _CountBlocState extends State<_CountBloc> {
         children: [
           Expanded(
             child: TextField(
-              decoration: InputDecoration(labelText: "Count"),
+              decoration: InputDecoration(labelText: s.editProductCountHint),
               keyboardType: TextInputType.number,
               controller: countController,
               onChanged: (value) => context
@@ -281,8 +308,7 @@ class _CountBlocState extends State<_CountBloc> {
           const SizedBox(width: 20),
           Expanded(
             child: TextField(
-              decoration: InputDecoration(labelText: "Count desc"),
-              keyboardType: TextInputType.number,
+              decoration: InputDecoration(labelText: s.editProductCountDescHint),
               controller: countDescController,
               onChanged: context.read<EditProductBloc>().updateCountDesc,
             ),
@@ -314,6 +340,8 @@ class _AddButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = S.of(context);
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
@@ -322,7 +350,7 @@ class _AddButtons extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text("Отменить"),
+            child: Text(s.commonCancelButton),
           ),
         ),
         const SizedBox(width: 20),
@@ -333,7 +361,7 @@ class _AddButtons extends StatelessWidget {
               ),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text("Добавить"),
+            child: Text(s.commonAddButton),
           ),
         ),
       ],
@@ -346,6 +374,8 @@ class _EditButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = S.of(context);
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
@@ -354,7 +384,7 @@ class _EditButtons extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text("Отменить"),
+            child: Text(s.commonCancelButton),
           ),
         ),
         const SizedBox(width: 20),
@@ -365,7 +395,7 @@ class _EditButtons extends StatelessWidget {
               ),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text("Изменить"),
+            child: Text(s.commonEditButton),
           ),
         ),
         const SizedBox(width: 20),
@@ -376,7 +406,7 @@ class _EditButtons extends StatelessWidget {
               ),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text("Удалить"),
+            child: Text(s.commonDeleteButton),
           ),
         ),
       ],

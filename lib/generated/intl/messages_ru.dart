@@ -24,10 +24,32 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "categoryListScreenAppBar":
             MessageLookupByLibrary.simpleMessage("Категории"),
+        "commonAddButton": MessageLookupByLibrary.simpleMessage("Добавить"),
+        "commonCancelButton": MessageLookupByLibrary.simpleMessage("Отменить"),
+        "commonDeleteButton": MessageLookupByLibrary.simpleMessage("Удалить"),
+        "commonEditButton": MessageLookupByLibrary.simpleMessage("Изменить"),
+        "commonProductNeed": MessageLookupByLibrary.simpleMessage("Нужно"),
+        "commonProductReady": MessageLookupByLibrary.simpleMessage("Готово"),
+        "commonProductSave": MessageLookupByLibrary.simpleMessage("Сохранено"),
         "createListScreenHint":
             MessageLookupByLibrary.simpleMessage("Имя списка"),
         "editCategoryHint":
             MessageLookupByLibrary.simpleMessage("Имя категории"),
+        "editListTotalPrice": MessageLookupByLibrary.simpleMessage("Всего"),
+        "editProductCategoryHint":
+            MessageLookupByLibrary.simpleMessage("Выберете категорию"),
+        "editProductCountDescHint":
+            MessageLookupByLibrary.simpleMessage("Ед. изм."),
+        "editProductCountHint": MessageLookupByLibrary.simpleMessage("Кол-во"),
+        "editProductDescHint": MessageLookupByLibrary.simpleMessage("Описание"),
+        "editProductListHint":
+            MessageLookupByLibrary.simpleMessage("Выберете список"),
+        "editProductNameHint": MessageLookupByLibrary.simpleMessage("Имя"),
+        "editProductPriceDescHint":
+            MessageLookupByLibrary.simpleMessage("Валюта"),
+        "editProductPriceHint": MessageLookupByLibrary.simpleMessage("Цена"),
+        "editProductTotalPriceHint":
+            MessageLookupByLibrary.simpleMessage("Цена всего"),
         "listOfListsScreenAppBar":
             MessageLookupByLibrary.simpleMessage("Списки")
       };

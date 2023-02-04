@@ -89,6 +89,176 @@ class S {
       args: [],
     );
   }
+
+  /// `Total`
+  String get editListTotalPrice {
+    return Intl.message(
+      'Total',
+      name: 'editListTotalPrice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get editProductNameHint {
+    return Intl.message(
+      'Name',
+      name: 'editProductNameHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Description`
+  String get editProductDescHint {
+    return Intl.message(
+      'Description',
+      name: 'editProductDescHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select category`
+  String get editProductCategoryHint {
+    return Intl.message(
+      'Select category',
+      name: 'editProductCategoryHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select list`
+  String get editProductListHint {
+    return Intl.message(
+      'Select list',
+      name: 'editProductListHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Count`
+  String get editProductCountHint {
+    return Intl.message(
+      'Count',
+      name: 'editProductCountHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Count unit`
+  String get editProductCountDescHint {
+    return Intl.message(
+      'Count unit',
+      name: 'editProductCountDescHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Price`
+  String get editProductPriceHint {
+    return Intl.message(
+      'Price',
+      name: 'editProductPriceHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total price`
+  String get editProductTotalPriceHint {
+    return Intl.message(
+      'Total price',
+      name: 'editProductTotalPriceHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Price unit`
+  String get editProductPriceDescHint {
+    return Intl.message(
+      'Price unit',
+      name: 'editProductPriceDescHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add`
+  String get commonAddButton {
+    return Intl.message(
+      'Add',
+      name: 'commonAddButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get commonCancelButton {
+    return Intl.message(
+      'Cancel',
+      name: 'commonCancelButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit`
+  String get commonEditButton {
+    return Intl.message(
+      'Edit',
+      name: 'commonEditButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete`
+  String get commonDeleteButton {
+    return Intl.message(
+      'Delete',
+      name: 'commonDeleteButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ready`
+  String get commonProductReady {
+    return Intl.message(
+      'Ready',
+      name: 'commonProductReady',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Need`
+  String get commonProductNeed {
+    return Intl.message(
+      'Need',
+      name: 'commonProductNeed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Saved`
+  String get commonProductSave {
+    return Intl.message(
+      'Saved',
+      name: 'commonProductSave',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

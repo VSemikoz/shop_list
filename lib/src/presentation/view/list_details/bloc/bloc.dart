@@ -25,6 +25,7 @@ class ListDetailsBloc extends Bloc<ListDetailsEvent, ListDetailsState> {
     on<ListDetailsMarkFavorite>(_markFavorite);
     on<ListDetailsOnEditListSuccess>(_onEditListSuccess);
     on<ListDetailsOnDeleteListSuccess>(_onDeleteListSuccess);
+    on<ListDetailsChangeProductStatus>(_onChangeProductStatus);
   }
 
   final ListDetailsUseCaseBase useCase;
@@ -39,17 +40,12 @@ class ListDetailsBloc extends Bloc<ListDetailsEvent, ListDetailsState> {
   }
 
   Future<void> _refreshProductList(Emitter emitter) async {
-    emitter(ListDetailsState.success(
-      list: list,
-      products: [],
-    ));
+    emitter(_makeSuccessState([]));
     final products = await useCase.getProductsByList(list.id);
     currentProducts.clear();
     currentProducts.addAll(products);
-    emitter(ListDetailsState.success(
-      list: list,
-      products: [...currentProducts],
-    ));
+    emitter(_makeSuccessState(currentProducts));
+
   }
 
   _addProduct(ListDetailsAddProduct event, Emitter emitter) {
@@ -65,10 +61,8 @@ class ListDetailsBloc extends Bloc<ListDetailsEvent, ListDetailsState> {
     final products = await useCase.getProductsByList(list.id);
     currentProducts.clear();
     currentProducts.addAll(products);
-    emitter(ListDetailsState.success(
-      list: list,
-      products: [...currentProducts],
-    ));
+    emitter(_makeSuccessState(currentProducts));
+
   }
 
   _navigateAddEditProduct(EditProductMode mode, [ProductEntry? product]) {
@@ -86,7 +80,48 @@ class ListDetailsBloc extends Bloc<ListDetailsEvent, ListDetailsState> {
     );
   }
 
-  _markFavorite(ListDetailsMarkFavorite event, Emitter emitter) {}
+  _markFavorite(ListDetailsMarkFavorite event, Emitter emitter) async {
+    final statusToChange = event.productEntry.isFavorite ? false : true;
+    useCase.changeFavoriteStatus(event.productEntry, statusToChange);
+
+    final products = await useCase.getProductsByList(list.id);
+    currentProducts.clear();
+    currentProducts.addAll(products);
+    emitter(_makeSuccessState(currentProducts));
+
+  }
+
+  _onChangeProductStatus(
+    ListDetailsChangeProductStatus event,
+    Emitter emitter,
+  ) async {
+    late ProductStatus statusToSet;
+    if (event.forceSave) {
+      statusToSet = ProductStatus.saved;
+    } else {
+      switch (event.productEntry.status) {
+        case ProductStatus.saved:
+          statusToSet = ProductStatus.need;
+          break;
+        case ProductStatus.need:
+          statusToSet = ProductStatus.ready;
+          break;
+        case ProductStatus.ready:
+          statusToSet = ProductStatus.need;
+          break;
+        case ProductStatus.none:
+          statusToSet = ProductStatus.need;
+          break;
+      }
+    }
+
+    useCase.changeProductStatus(event.productEntry, statusToSet);
+    final products = await useCase.getProductsByList(list.id);
+    currentProducts.clear();
+    currentProducts.addAll(products);
+    emitter(_makeSuccessState(currentProducts));
+
+  }
 
   _onEditListSuccess(
     ListDetailsOnEditListSuccess event,
@@ -96,13 +131,43 @@ class ListDetailsBloc extends Bloc<ListDetailsEvent, ListDetailsState> {
     currentProducts.clear();
     currentProducts.addAll(products);
     list = await useCase.getList(list.id);
-    emitter(ListDetailsState.success(
-      list: list,
-      products: [...currentProducts],
-    ));
+    emitter(_makeSuccessState(currentProducts));
   }
 
   _onDeleteListSuccess(ListDetailsOnDeleteListSuccess event, Emitter emitter) {
     router.add(RouterEvent.pop());
+  }
+
+  ListDetailsState _makeSuccessState(
+    List<ProductEntry> products, {
+    ListEntry? listToSave,
+  }) {
+    List<ProductEntry> save = [];
+    List<ProductEntry> ready = [];
+    List<ProductEntry> need = [];
+    for (var i = 0; i < products.length; i++) {
+      final cur = products[i];
+      switch (cur.status) {
+        case ProductStatus.saved:
+          save.add(cur);
+          break;
+        case ProductStatus.need:
+          need.add(cur);
+          break;
+        case ProductStatus.ready:
+          ready.add(cur);
+          break;
+        case ProductStatus.none:
+          save.add(cur);
+          break;
+      }
+    }
+
+    return ListDetailsState.success(
+      list: listToSave ?? list,
+      saveProducts: save,
+      needProducts: need,
+      readyProducts: ready,
+    );
   }
 }

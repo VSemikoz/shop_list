@@ -24,8 +24,31 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "categoryListScreenAppBar":
             MessageLookupByLibrary.simpleMessage("Categories"),
+        "commonAddButton": MessageLookupByLibrary.simpleMessage("Add"),
+        "commonCancelButton": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "commonDeleteButton": MessageLookupByLibrary.simpleMessage("Delete"),
+        "commonEditButton": MessageLookupByLibrary.simpleMessage("Edit"),
+        "commonProductNeed": MessageLookupByLibrary.simpleMessage("Need"),
+        "commonProductReady": MessageLookupByLibrary.simpleMessage("Ready"),
+        "commonProductSave": MessageLookupByLibrary.simpleMessage("Saved"),
         "createListScreenHint": MessageLookupByLibrary.simpleMessage("List"),
         "editCategoryHint": MessageLookupByLibrary.simpleMessage("Category"),
+        "editListTotalPrice": MessageLookupByLibrary.simpleMessage("Total"),
+        "editProductCategoryHint":
+            MessageLookupByLibrary.simpleMessage("Select category"),
+        "editProductCountDescHint":
+            MessageLookupByLibrary.simpleMessage("Count unit"),
+        "editProductCountHint": MessageLookupByLibrary.simpleMessage("Count"),
+        "editProductDescHint":
+            MessageLookupByLibrary.simpleMessage("Description"),
+        "editProductListHint":
+            MessageLookupByLibrary.simpleMessage("Select list"),
+        "editProductNameHint": MessageLookupByLibrary.simpleMessage("Name"),
+        "editProductPriceDescHint":
+            MessageLookupByLibrary.simpleMessage("Price unit"),
+        "editProductPriceHint": MessageLookupByLibrary.simpleMessage("Price"),
+        "editProductTotalPriceHint":
+            MessageLookupByLibrary.simpleMessage("Total price"),
         "listOfListsScreenAppBar": MessageLookupByLibrary.simpleMessage("Lists")
       };
 }

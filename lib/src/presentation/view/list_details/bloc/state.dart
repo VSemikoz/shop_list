@@ -10,6 +10,8 @@ abstract class ListDetailsState with _$ListDetailsState {
 
   const factory ListDetailsState.success({
     required ListEntry list,
-    required List<ProductEntry> products,
+    required List<ProductEntry> saveProducts,
+    required List<ProductEntry> needProducts,
+    required List<ProductEntry> readyProducts,
   }) = ListDetailsSuccess;
 }

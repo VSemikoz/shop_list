@@ -47,6 +47,7 @@ class EditProductBloc extends Bloc<EditProductEvent, EditProductState> {
   BehaviorSubject<String?> descController = BehaviorSubject.seeded(null);
   BehaviorSubject<int?> priceController = BehaviorSubject.seeded(null);
   BehaviorSubject<int?> totalPriceController = BehaviorSubject.seeded(null);
+  BehaviorSubject<String?> priceDescController = BehaviorSubject.seeded(null);
   BehaviorSubject<int?> countController = BehaviorSubject.seeded(null);
   BehaviorSubject<String?> countDescController = BehaviorSubject.seeded(null);
 
@@ -56,6 +57,7 @@ class EditProductBloc extends Bloc<EditProductEvent, EditProductState> {
   String? desc;
   int? price;
   int? totalPrice;
+  String? priceDesc;
   int? count;
   String? countDesc;
 
@@ -74,7 +76,12 @@ class EditProductBloc extends Bloc<EditProductEvent, EditProductState> {
     updateDesc(initialProduct!.description);
     updatePrice(initialProduct!.price);
     updateCount(initialProduct!.count);
-    updateCountDesc(initialProduct!.countDescription);
+    if (initialProduct!.priceDescription.isNotEmpty) {
+      updatePriceDesc(initialProduct!.priceDescription);
+    }
+    if (initialProduct!.countDescription.isNotEmpty) {
+      updateCountDesc(initialProduct!.countDescription);
+    }
     updateList(listEntry);
   }
 
@@ -106,6 +113,7 @@ class EditProductBloc extends Bloc<EditProductEvent, EditProductState> {
         MessageUtils.validateFailed();
         return;
       }
+      print(_getEditProduct());
       await useCase.edit(_getEditProduct());
       transaction.onEditSuccess?.call();
       router.add(RouterEvent.pop());
@@ -138,9 +146,8 @@ class EditProductBloc extends Bloc<EditProductEvent, EditProductState> {
       name: name ?? "",
       description: desc ?? "",
       price: price ?? 0,
-      priceDescription: "",
-      //TODO
-      isFavorite: false,
+      priceDescription: priceDesc ?? "",
+      isFavorite: initialProduct?.isFavorite ?? false,
       status: ProductStatus.saved,
       count: count ?? 0,
       countDescription: countDesc ?? "",
@@ -155,9 +162,8 @@ class EditProductBloc extends Bloc<EditProductEvent, EditProductState> {
       name: name ?? "",
       description: desc ?? "",
       price: price ?? 0,
-      priceDescription: "",
-      //TODO
-      isFavorite: false,
+      priceDescription: priceDesc ?? "",
+      isFavorite: initialProduct?.isFavorite ?? false,
       status: ProductStatus.saved,
       count: count ?? 0,
       countDescription: countDesc ?? "",
@@ -197,6 +203,12 @@ class EditProductBloc extends Bloc<EditProductEvent, EditProductState> {
     totalPriceController.add(totalPrice);
   }
 
+  void updatePriceDesc(String value) {
+    print("updatePriceDesc $value");
+    priceDesc = value;
+    priceDescController.add(priceDesc);
+  }
+
   void updateCount(int value) {
     count = value;
     countController.add(count);
@@ -215,5 +227,12 @@ class EditProductBloc extends Bloc<EditProductEvent, EditProductState> {
     super.close();
     categoryController.close();
     listController.close();
+    nameController.close();
+    descController.close();
+    priceController.close();
+    totalPriceController.close();
+    priceDescController.close();
+    countController.close();
+    countDescController.close();
   }
 }
