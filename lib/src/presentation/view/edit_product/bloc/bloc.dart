@@ -113,7 +113,6 @@ class EditProductBloc extends Bloc<EditProductEvent, EditProductState> {
         MessageUtils.validateFailed();
         return;
       }
-      print(_getEditProduct());
       await useCase.edit(_getEditProduct());
       transaction.onEditSuccess?.call();
       router.add(RouterEvent.pop());
@@ -204,7 +203,6 @@ class EditProductBloc extends Bloc<EditProductEvent, EditProductState> {
   }
 
   void updatePriceDesc(String value) {
-    print("updatePriceDesc $value");
     priceDesc = value;
     priceDescController.add(priceDesc);
   }

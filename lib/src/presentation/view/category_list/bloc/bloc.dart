@@ -1,12 +1,12 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:shop_list/src/presentation/view/categorie_list/bloc/categorie_list.dart';
 import 'package:shop_list/src/presentation/view/router/router/bloc.dart';
 import 'package:shop_list/src/presentation/view/router/router/event.dart';
 
 import '../../../../domain/models/category.dart';
 import '../../../../domain/usecases/category_list.dart';
 import '../../router/router/providers.dart';
+import 'category_list.dart';
 
 @Injectable()
 class CategoriesListBloc

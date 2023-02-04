@@ -160,4 +160,14 @@ class ShopListDataBase extends _$ShopListDataBase {
         .toCompanion(false)
         .toItem();
   }
+
+  Future<List<ProductData>> getFavorite() async {
+    return (await (select(productItems)
+              ..where(
+                (tbl) => tbl.isFavorite.equals(true),
+              ))
+            .get())
+        .map((e) => e.toCompanion(false).toItem())
+        .toList();
+  }
 }

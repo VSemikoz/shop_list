@@ -53,8 +53,6 @@ class EditListBloc extends Bloc<EditListEvent, EditListState> {
   }
 
   _edit(EditListEdit event, Emitter emitter) async {
-    print(mode);
-    print(initial);
     if (mode == ListEditMode.edit && initial != null) {
       final edit = initial!.copyWith(name: _currentText, color: _currentColor);
       await useCase.editList(edit);

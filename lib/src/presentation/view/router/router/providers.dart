@@ -6,12 +6,15 @@ import 'package:shop_list/src/common/injection/injection.dart';
 import 'package:shop_list/src/domain/models/category.dart';
 import 'package:shop_list/src/domain/models/list.dart';
 import 'package:shop_list/src/domain/models/product.dart';
-import 'package:shop_list/src/presentation/view/categorie_list/bloc/categorie_list.dart';
-import 'package:shop_list/src/presentation/view/categorie_list/ui/screen.dart';
+import 'package:shop_list/src/presentation/view/category_list/bloc/category_list.dart';
+import 'package:shop_list/src/presentation/view/category_list/ui/screen.dart';
 import 'package:shop_list/src/presentation/view/category_edit/bloc/category_edit.dart';
 import 'package:shop_list/src/presentation/view/edit_list/bloc/edit_list.dart';
 import 'package:shop_list/src/presentation/view/edit_list/ui/dialog.dart';
 import 'package:shop_list/src/presentation/view/edit_product/screen/edit_product.dart';
+import 'package:shop_list/src/presentation/view/favorite/bloc/bloc.dart';
+import 'package:shop_list/src/presentation/view/favorite/bloc/event.dart';
+import 'package:shop_list/src/presentation/view/favorite/screen/screen..dart';
 import 'package:shop_list/src/presentation/view/list_details/bloc/bloc.dart';
 import 'package:shop_list/src/presentation/view/list_details/ui/screen.dart';
 
@@ -22,7 +25,7 @@ import '../../list_of_lists/list_of_lists.dart';
 import '../delegate.dart';
 import 'bloc.dart';
 
-RouterEventSink getRouter(BuildContext context) =>
+RouterEventSink _getRouter(BuildContext context) =>
     BlocProvider.of<RouterBloc>(context);
 
 class ScreenProvider {
@@ -34,13 +37,23 @@ class ScreenProvider {
         ),
       );
 
+  static RouteInfo favorite() => RouteInfo(
+        id: FavoriteScreen.id,
+        builder: (context) => Provider(
+          create: (_) => getIt<FavoriteBloc>(
+            param1: _getRouter(context),
+          )..add(FavoriteEvent.init()),
+          child: FavoriteScreen(),
+        ),
+      );
+
   static RouteInfo editList(EditListTransaction transaction) => RouteInfo(
         id: EditListDialog.id,
         pageType: PageType.dialog,
         builder: (context) => Provider(
           create: (_) => getIt<EditListBloc>(
             param1: transaction,
-            param2: getRouter(context),
+            param2: _getRouter(context),
           )..add(EditListEvent.init()),
           child: EditListDialog(),
         ),
@@ -51,7 +64,7 @@ class ScreenProvider {
         pageType: PageType.dialog,
         builder: (context) => Provider(
           create: (_) => getIt<CategoriesListBloc>(
-            param1: getRouter(context),
+            param1: _getRouter(context),
           )..add(CategoriesListEvent.init()),
           child: CategoryListScreen(),
         ),
@@ -64,7 +77,7 @@ class ScreenProvider {
         builder: (context) => Provider(
           create: (_) => getIt<CategoryEditBloc>(
             param1: transaction,
-            param2: getRouter(context),
+            param2: _getRouter(context),
           )..add(CategoryEditEvent.init()),
           child: CategoryEditDialog(),
         ),
@@ -76,7 +89,7 @@ class ScreenProvider {
         builder: (context) => Provider(
           create: (_) => getIt<ListDetailsBloc>(
             param1: transaction,
-            param2: getRouter(context),
+            param2: _getRouter(context),
           )..add(ListDetailsEvent.init()),
           child: ListDetailsScreen(),
         ),
@@ -88,7 +101,7 @@ class ScreenProvider {
         builder: (context) => Provider(
           create: (_) => getIt<EditProductBloc>(
             param1: transaction,
-            param2: getRouter(context),
+            param2: _getRouter(context),
           )..add(EditProductEvent.init()),
           child: EditProductDialog(),
         ),

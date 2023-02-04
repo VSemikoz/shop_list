@@ -27,7 +27,9 @@ class MainFooter extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 _Button(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.read<RouterBloc>().add(RouterEvent.bucket());
+                  },
                   icon: Icons.shopping_cart_rounded,
                 ),
                 _Button(
@@ -37,7 +39,9 @@ class MainFooter extends StatelessWidget {
                   icon: Icons.apps_rounded,
                 ),
                 _Button(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.read<RouterBloc>().add(RouterEvent.favorite());
+                  },
                   icon: Icons.star_border,
                 ),
                 _Button(

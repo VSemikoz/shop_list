@@ -1,96 +1,98 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:shop_list/src/domain/models/list.dart';
-import 'package:shop_list/src/domain/usecases/list_details.dart';
 import 'package:shop_list/src/presentation/view/router/router/bloc.dart';
 import 'package:shop_list/src/presentation/view/router/router/providers.dart';
 
 import '../../../../domain/models/product.dart';
+import '../../../../domain/usecases/favorite.dart';
 import '../../router/router/event.dart';
-import 'list_details.dart';
+import 'favorite.dart';
 
 @Injectable()
-class ListDetailsBloc extends Bloc<ListDetailsEvent, ListDetailsState> {
-  ListDetailsBloc({
-    @factoryParam required this.transaction,
+class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
+  FavoriteBloc({
     @factoryParam required this.router,
     required this.useCase,
-  }) : super(ListDetailsState.loading()) {
-    list = transaction.entry;
-
-    on<ListDetailsInit>(_init);
-    on<ListDetailsEditProduct>(_editProduct);
-    on<ListDetailsDeleteProduct>(_deleteProduct);
-    on<ListDetailsAddProduct>(_addProduct);
-    on<ListDetailsMarkFavorite>(_markFavorite);
-    on<ListDetailsOnEditListSuccess>(_onEditListSuccess);
-    on<ListDetailsOnDeleteListSuccess>(_onDeleteListSuccess);
-    on<ListDetailsChangeProductStatus>(_onChangeProductStatus);
+  }) : super(FavoriteState.loading()) {
+    on<FavoriteRefresh>(_refresh);
+    on<FavoriteInit>(_init);
+    on<FavoriteEditProduct>(_editProduct);
+    on<FavoriteDeleteProduct>(_deleteProduct);
+    on<FavoriteMarkFavorite>(_markFavorite);
+    on<FavoriteChangeProductStatus>(_onChangeProductStatus);
   }
 
-  final ListDetailsUseCaseBase useCase;
+  final FavoriteUseCaseBase useCase;
 
   final RouterEventSink router;
-  final ListDetailsTransaction transaction;
-  late ListEntry list;
   final List<ProductEntry> currentProducts = [];
 
-  _init(ListDetailsInit event, Emitter emitter) async {
+  _init(FavoriteInit event, Emitter emitter) async {
+    useCase.favoriteUpdate().listen(
+      (event) {
+        if (event != null) add(FavoriteEvent.refresh());
+      },
+    );
     await _refreshProductList(emitter);
+  }
+
+  _refresh(FavoriteRefresh event, Emitter emitter)async{
+    await  _refreshProductList(emitter);
   }
 
   Future<void> _refreshProductList(Emitter emitter) async {
     emitter(_makeSuccessState([]));
-    final products = await useCase.getProductsByList(list.id);
+    final products = await useCase.getFavorite();
     currentProducts.clear();
     currentProducts.addAll(products);
     emitter(_makeSuccessState(currentProducts));
   }
 
-  _addProduct(ListDetailsAddProduct event, Emitter emitter) {
-    _navigateAddEditProduct(EditProductMode.add);
+  _editProduct(FavoriteEditProduct event, Emitter emitter) async {
+    await _navigateAddEditProduct(EditProductMode.edit, event.productEntry);
   }
 
-  _editProduct(ListDetailsEditProduct event, Emitter emitter) {
-    _navigateAddEditProduct(EditProductMode.edit, event.productEntry);
-  }
-
-  _deleteProduct(ListDetailsDeleteProduct event, Emitter emitter) async {
+  _deleteProduct(FavoriteDeleteProduct event, Emitter emitter) async {
     useCase.deleteProduct(event.productEntry.id);
-    final products = await useCase.getProductsByList(list.id);
+    final products = await useCase.getFavorite();
     currentProducts.clear();
     currentProducts.addAll(products);
     emitter(_makeSuccessState(currentProducts));
   }
 
-  _navigateAddEditProduct(EditProductMode mode, [ProductEntry? product]) {
+  Future<void> _navigateAddEditProduct(
+    EditProductMode mode,
+    ProductEntry product,
+  ) async {
+    final list = await useCase.getList(product.listId);
     router.add(
       RouterEvent.editProduct(
         transaction: EditProductTransaction(
           mode: mode,
           entry: product,
           listEntry: list,
-          onAddSuccess: () => add(ListDetailsEvent.init()),
-          onDeleteSuccess: () => add(ListDetailsEvent.init()),
-          onEditSuccess: () => add(ListDetailsEvent.init()),
+          onAddSuccess: () => add(FavoriteEvent.init()),
+          onDeleteSuccess: () => add(FavoriteEvent.init()),
+          onEditSuccess: () => add(FavoriteEvent.init()),
         ),
       ),
     );
   }
 
-  _markFavorite(ListDetailsMarkFavorite event, Emitter emitter) async {
+  _markFavorite(FavoriteMarkFavorite event, Emitter emitter) async {
     final statusToChange = event.productEntry.isFavorite ? false : true;
-    await useCase.changeFavoriteStatus(event.productEntry, statusToChange);
+    useCase.changeFavoriteStatus(event.productEntry, statusToChange);
 
-    final products = await useCase.getProductsByList(list.id);
+    final products = await useCase.getFavorite();
     currentProducts.clear();
     currentProducts.addAll(products);
-    useCase.notifyFavorite(event.productEntry.id);
     emitter(_makeSuccessState(currentProducts));
   }
 
-  _onChangeProductStatus(ListDetailsChangeProductStatus event,
-      Emitter emitter,) async {
+  _onChangeProductStatus(
+    FavoriteChangeProductStatus event,
+    Emitter emitter,
+  ) async {
     late ProductStatus statusToSet;
     if (event.forceSave) {
       statusToSet = ProductStatus.saved;
@@ -112,28 +114,13 @@ class ListDetailsBloc extends Bloc<ListDetailsEvent, ListDetailsState> {
     }
 
     useCase.changeProductStatus(event.productEntry, statusToSet);
-    final products = await useCase.getProductsByList(list.id);
+    final products = await useCase.getFavorite();
     currentProducts.clear();
     currentProducts.addAll(products);
     emitter(_makeSuccessState(currentProducts));
   }
 
-  _onEditListSuccess(ListDetailsOnEditListSuccess event,
-      Emitter emitter,) async {
-    final products = await useCase.getProductsByList(list.id);
-    currentProducts.clear();
-    currentProducts.addAll(products);
-    list = await useCase.getList(list.id);
-    emitter(_makeSuccessState(currentProducts));
-  }
-
-  _onDeleteListSuccess(ListDetailsOnDeleteListSuccess event, Emitter emitter) {
-    router.add(RouterEvent.pop());
-  }
-
-  ListDetailsState _makeSuccessState(List<ProductEntry> products, {
-    ListEntry? listToSave,
-  }) {
+  FavoriteState _makeSuccessState(List<ProductEntry> products) {
     List<ProductEntry> save = [];
     List<ProductEntry> ready = [];
     List<ProductEntry> need = [];
@@ -155,8 +142,7 @@ class ListDetailsBloc extends Bloc<ListDetailsEvent, ListDetailsState> {
       }
     }
 
-    return ListDetailsState.success(
-      list: listToSave ?? list,
+    return FavoriteState.success(
       saveProducts: save,
       needProducts: need,
       readyProducts: ready,

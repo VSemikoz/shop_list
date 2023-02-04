@@ -5,7 +5,7 @@ import 'package:shop_list/src/presentation/ui/widgets/tappable/common.dart';
 
 import '../../../../../generated/l10n.dart';
 import '../../../../domain/models/category.dart';
-import '../bloc/categorie_list.dart';
+import '../bloc/category_list.dart';
 
 class CategoryListScreen extends StatelessWidget {
   static String id = "category_list";

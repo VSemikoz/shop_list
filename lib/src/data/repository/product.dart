@@ -15,6 +15,8 @@ abstract class ProductRepositoryBase {
   Future<ProductData> getProductById(int id);
 
   Future<List<ProductEntry>> getAllProductList(int listId);
+
+  Future<List<ProductEntry>> getFavorite();
 }
 
 @Injectable(as: ProductRepositoryBase)
@@ -50,5 +52,10 @@ class ProductRepository implements ProductRepositoryBase {
   @override
   Future<ProductData> getProductById(int id) async {
     return dataBase.getProductById(id);
+  }
+
+  @override
+  Future<List<ProductEntry>> getFavorite() async {
+    return (await dataBase.getFavorite()).map((e) => e.toEntry()).toList();
   }
 }

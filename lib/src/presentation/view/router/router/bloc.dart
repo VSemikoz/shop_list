@@ -58,7 +58,9 @@ class RouterBloc extends Bloc<RouterEvent, List<RouteInfo>>
     emitter(_rebaseRoute(ScreenProvider.listDetails(event.transaction)));
   }
 
-  _favorite(RouteFavorite event, Emitter emitter) {}
+  _favorite(RouteFavorite event, Emitter emitter) {
+    emitter(_rebaseRoute(ScreenProvider.favorite()));
+  }
 
   _categoryList(RouteCategoryList event, Emitter emitter) {
     emitter(_rebaseRoute(ScreenProvider.categoryList()));

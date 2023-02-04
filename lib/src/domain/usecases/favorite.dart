@@ -1,52 +1,44 @@
 import 'package:injectable/injectable.dart';
-import 'package:shop_list/src/data/adapters/list.dart';
 import 'package:shop_list/src/data/adapters/product.dart';
-import 'package:shop_list/src/data/repository/list.dart';
-import 'package:shop_list/src/data/repository/product.dart';
-import 'package:shop_list/src/domain/models/list.dart';
-import 'package:shop_list/src/domain/models/product.dart';
 
 import '../../data/repository/data_change.dart';
+import '../../data/repository/list.dart';
+import '../../data/repository/product.dart';
+import '../models/list.dart';
+import '../models/product.dart';
 
-abstract class ListDetailsUseCaseBase {
+abstract class FavoriteUseCaseBase {
   Future<ListEntry> getList(int id);
 
-  Future<ListEntry> editList(ListEntry entry);
-
-  Future<void> addProduct(ProductEntry entry);
-
-  Future<List<ProductEntry>> getProductsByList(int listId);
+  Future<List<ProductEntry>> getFavorite();
 
   Future<void> deleteProduct(int id);
 
   Future<void> changeProductStatus(ProductEntry data, ProductStatus status);
 
   Future<void> changeFavoriteStatus(ProductEntry data, bool isFavorite);
-  void notifyFavorite(int value);
+
+  Stream<int?> favoriteUpdate();
 }
 
-@Injectable(as: ListDetailsUseCaseBase)
-class ListDetailsUseCase implements ListDetailsUseCaseBase {
+@Injectable(as: FavoriteUseCaseBase)
+class FavoriteUseCase implements FavoriteUseCaseBase {
   ListRepositoryBase listRepository;
   ProductRepositoryBase productRepository;
   DataChangeRepositoryBase dataChangeRepository;
 
-  ListDetailsUseCase({
+  FavoriteUseCase({
     required this.listRepository,
     required this.productRepository,
     required this.dataChangeRepository,
   });
 
-  @override
-  Future<void> addProduct(ProductEntry entry) async {
-    await productRepository.addProduct(entry.toData());
-  }
 
   @override
   Future<void> changeProductStatus(
-    ProductEntry entry,
-    ProductStatus status,
-  ) async {
+      ProductEntry entry,
+      ProductStatus status,
+      ) async {
     final productToSave = entry.copyWith(status: status);
     return await productRepository.editProduct(productToSave.toData());
   }
@@ -57,20 +49,10 @@ class ListDetailsUseCase implements ListDetailsUseCaseBase {
   }
 
   @override
-  Future<ListEntry> editList(ListEntry entry) async {
-    await listRepository.editList(entry.toData());
-    return listRepository.getById(entry.id);
-  }
-
-  @override
   Future<ListEntry> getList(int id) async {
     return listRepository.getById(id);
   }
 
-  @override
-  Future<List<ProductEntry>> getProductsByList(int listId) async {
-    return await productRepository.getAllProductList(listId);
-  }
 
   @override
   Future<void> changeFavoriteStatus(ProductEntry data, bool isFavorite) async {
@@ -79,7 +61,12 @@ class ListDetailsUseCase implements ListDetailsUseCaseBase {
   }
 
   @override
-  void notifyFavorite(int value) {
-    dataChangeRepository.notifyFavorite(value);
+  Future<List<ProductEntry>> getFavorite()async {
+    return await productRepository.getFavorite();
+  }
+
+  @override
+  Stream<int?> favoriteUpdate() {
+    return dataChangeRepository.favoriteUpdate;
   }
 }
