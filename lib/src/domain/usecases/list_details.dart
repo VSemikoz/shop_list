@@ -22,7 +22,6 @@ abstract class ListDetailsUseCaseBase {
   Future<void> changeProductStatus(ProductEntry data, ProductStatus status);
 
   Future<void> changeFavoriteStatus(ProductEntry data, bool isFavorite);
-  void notifyFavorite(int value);
 }
 
 @Injectable(as: ListDetailsUseCaseBase)
@@ -48,7 +47,8 @@ class ListDetailsUseCase implements ListDetailsUseCaseBase {
     ProductStatus status,
   ) async {
     final productToSave = entry.copyWith(status: status);
-    return await productRepository.editProduct(productToSave.toData());
+    await productRepository.editProduct(productToSave.toData());
+    dataChangeRepository.notifyBucket(productToSave.id);
   }
 
   @override
@@ -75,11 +75,7 @@ class ListDetailsUseCase implements ListDetailsUseCaseBase {
   @override
   Future<void> changeFavoriteStatus(ProductEntry data, bool isFavorite) async {
     final productToSave = data.copyWith(isFavorite: isFavorite);
-    return await productRepository.editProduct(productToSave.toData());
-  }
-
-  @override
-  void notifyFavorite(int value) {
-    dataChangeRepository.notifyFavorite(value);
+    await productRepository.editProduct(productToSave.toData());
+    dataChangeRepository.notifyFavorite(productToSave.id);
   }
 }

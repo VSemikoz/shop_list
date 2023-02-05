@@ -85,7 +85,6 @@ class ListDetailsBloc extends Bloc<ListDetailsEvent, ListDetailsState> {
     final products = await useCase.getProductsByList(list.id);
     currentProducts.clear();
     currentProducts.addAll(products);
-    useCase.notifyFavorite(event.productEntry.id);
     emitter(_makeSuccessState(currentProducts));
   }
 

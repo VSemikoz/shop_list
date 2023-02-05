@@ -28,16 +28,28 @@ class BucketBloc extends Bloc<BucketEvent, BucketState> {
   final List<ProductEntry> currentProducts = [];
 
   _init(BucketInit event, Emitter emitter) async {
-    useCase.bucketUpdate().listen(
-          (event) {
-        if (event != null) add(BucketEvent.refresh());
-      },
-    );
+    _handleUpdate();
     await _refreshProductList(emitter);
   }
 
-  _refresh(BucketRefresh event, Emitter emitter)async{
-    await  _refreshProductList(emitter);
+  _handleUpdate() {
+    useCase.bucketUpdate().listen(
+      (event) {
+        print("BUCKET BUC");
+
+        if (event != null) add(BucketEvent.refresh());
+      },
+    );
+    useCase.favoriteUpdate().listen(
+      (event) {
+      print("BUCKET FAV");
+        if (event != null) add(BucketEvent.refresh());
+      },
+    );
+  }
+
+  _refresh(BucketRefresh event, Emitter emitter) async {
+    await _refreshProductList(emitter);
   }
 
   Future<void> _refreshProductList(Emitter emitter) async {
@@ -61,9 +73,9 @@ class BucketBloc extends Bloc<BucketEvent, BucketState> {
   }
 
   Future<void> _navigateAddEditProduct(
-      EditProductMode mode,
-      ProductEntry product,
-      ) async {
+    EditProductMode mode,
+    ProductEntry product,
+  ) async {
     final list = await useCase.getList(product.listId);
     router.add(
       RouterEvent.editProduct(
@@ -90,9 +102,9 @@ class BucketBloc extends Bloc<BucketEvent, BucketState> {
   }
 
   _onChangeProductStatus(
-      BucketChangeProductStatus event,
-      Emitter emitter,
-      ) async {
+    BucketChangeProductStatus event,
+    Emitter emitter,
+  ) async {
     late ProductStatus statusToSet;
     if (event.forceSave) {
       statusToSet = ProductStatus.saved;

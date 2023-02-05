@@ -18,6 +18,8 @@ abstract class FavoriteUseCaseBase {
 
   Future<void> changeFavoriteStatus(ProductEntry data, bool isFavorite);
 
+  Stream<int?> bucketUpdate();
+
   Stream<int?> favoriteUpdate();
 }
 
@@ -33,14 +35,14 @@ class FavoriteUseCase implements FavoriteUseCaseBase {
     required this.dataChangeRepository,
   });
 
-
   @override
   Future<void> changeProductStatus(
-      ProductEntry entry,
-      ProductStatus status,
-      ) async {
+    ProductEntry entry,
+    ProductStatus status,
+  ) async {
     final productToSave = entry.copyWith(status: status);
-    return await productRepository.editProduct(productToSave.toData());
+    await productRepository.editProduct(productToSave.toData());
+    dataChangeRepository.notifyBucket(productToSave.id);
   }
 
   @override
@@ -53,20 +55,25 @@ class FavoriteUseCase implements FavoriteUseCaseBase {
     return listRepository.getById(id);
   }
 
-
   @override
   Future<void> changeFavoriteStatus(ProductEntry data, bool isFavorite) async {
     final productToSave = data.copyWith(isFavorite: isFavorite);
-    return await productRepository.editProduct(productToSave.toData());
+    await productRepository.editProduct(productToSave.toData());
+    dataChangeRepository.notifyFavorite(productToSave.id);
   }
 
   @override
-  Future<List<ProductEntry>> getFavorite()async {
+  Future<List<ProductEntry>> getFavorite() async {
     return await productRepository.getFavorite();
   }
 
   @override
   Stream<int?> favoriteUpdate() {
     return dataChangeRepository.favoriteUpdate;
+  }
+
+  @override
+  Stream<int?> bucketUpdate() {
+    return dataChangeRepository.bucketUpdate;
   }
 }

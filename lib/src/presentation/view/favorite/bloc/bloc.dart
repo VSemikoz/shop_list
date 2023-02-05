@@ -28,16 +28,29 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
   final List<ProductEntry> currentProducts = [];
 
   _init(FavoriteInit event, Emitter emitter) async {
-    useCase.favoriteUpdate().listen(
-      (event) {
-        if (event != null) add(FavoriteEvent.refresh());
-      },
-    );
+    _handleUpdate();
     await _refreshProductList(emitter);
   }
 
-  _refresh(FavoriteRefresh event, Emitter emitter)async{
-    await  _refreshProductList(emitter);
+  _handleUpdate() {
+    useCase.bucketUpdate().listen(
+      (event) {
+        print("FAVOR BUC");
+
+        if (event != null) add(FavoriteEvent.refresh());
+      },
+    );
+    useCase.favoriteUpdate().listen(
+      (event) {
+        print("FAVOR FAV");
+
+        if (event != null) add(FavoriteEvent.refresh());
+      },
+    );
+  }
+
+  _refresh(FavoriteRefresh event, Emitter emitter) async {
+    await _refreshProductList(emitter);
   }
 
   Future<void> _refreshProductList(Emitter emitter) async {

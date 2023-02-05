@@ -19,6 +19,8 @@ abstract class BucketUseCaseBase {
   Future<void> changeFavoriteStatus(ProductEntry data, bool isFavorite);
 
   Stream<int?> bucketUpdate();
+
+  Stream<int?> favoriteUpdate();
 }
 
 @Injectable(as: BucketUseCaseBase)
@@ -39,7 +41,8 @@ class BucketUseCase implements BucketUseCaseBase {
     ProductStatus status,
   ) async {
     final productToSave = entry.copyWith(status: status);
-    return await productRepository.editProduct(productToSave.toData());
+     await productRepository.editProduct(productToSave.toData());
+    dataChangeRepository.notifyBucket(productToSave.id);
   }
 
   @override
@@ -55,7 +58,8 @@ class BucketUseCase implements BucketUseCaseBase {
   @override
   Future<void> changeFavoriteStatus(ProductEntry data, bool isFavorite) async {
     final productToSave = data.copyWith(isFavorite: isFavorite);
-    return await productRepository.editProduct(productToSave.toData());
+    await productRepository.editProduct(productToSave.toData());
+    dataChangeRepository.notifyFavorite(productToSave.id);
   }
 
   @override
@@ -66,5 +70,10 @@ class BucketUseCase implements BucketUseCaseBase {
   @override
   Stream<int?> bucketUpdate() {
     return dataChangeRepository.bucketUpdate;
+  }
+
+  @override
+  Stream<int?> favoriteUpdate() {
+    return dataChangeRepository.favoriteUpdate;
   }
 }
