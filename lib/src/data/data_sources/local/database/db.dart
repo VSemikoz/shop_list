@@ -4,8 +4,10 @@ import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
+import 'package:shop_list/src/data/adapters/product.dart';
 import 'package:shop_list/src/data/models/category.dart';
 import 'package:shop_list/src/data/models/product.dart';
+import 'package:shop_list/src/domain/models/product.dart';
 
 import '../../../models/list.dart';
 import 'category_table.dart';
@@ -165,6 +167,20 @@ class ShopListDataBase extends _$ShopListDataBase {
     return (await (select(productItems)
               ..where(
                 (tbl) => tbl.isFavorite.equals(true),
+              ))
+            .get())
+        .map((e) => e.toCompanion(false).toItem())
+        .toList();
+  }
+
+  Future<List<ProductData>> getReadyOrNeed() async {
+    final searchStatuses = [
+      ProductStatus.need.getName(),
+      ProductStatus.ready.getName(),
+    ];
+    return (await (select(productItems)
+              ..where(
+                (tbl) => tbl.status.isIn(searchStatuses),
               ))
             .get())
         .map((e) => e.toCompanion(false).toItem())

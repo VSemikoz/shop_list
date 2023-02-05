@@ -2,25 +2,25 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
-import 'package:shop_list/src/common/injection/injection.dart';
-import 'package:shop_list/src/domain/models/category.dart';
-import 'package:shop_list/src/domain/models/list.dart';
-import 'package:shop_list/src/domain/models/product.dart';
-import 'package:shop_list/src/presentation/view/category_list/bloc/category_list.dart';
-import 'package:shop_list/src/presentation/view/category_list/ui/screen.dart';
-import 'package:shop_list/src/presentation/view/category_edit/bloc/category_edit.dart';
-import 'package:shop_list/src/presentation/view/edit_list/bloc/edit_list.dart';
-import 'package:shop_list/src/presentation/view/edit_list/ui/dialog.dart';
-import 'package:shop_list/src/presentation/view/edit_product/screen/edit_product.dart';
-import 'package:shop_list/src/presentation/view/favorite/bloc/bloc.dart';
-import 'package:shop_list/src/presentation/view/favorite/bloc/event.dart';
-import 'package:shop_list/src/presentation/view/favorite/screen/screen..dart';
-import 'package:shop_list/src/presentation/view/list_details/bloc/bloc.dart';
-import 'package:shop_list/src/presentation/view/list_details/ui/screen.dart';
 
+import '../../../../common/injection/injection.dart';
+import '../../../../domain/models/category.dart';
+import '../../../../domain/models/list.dart';
+import '../../../../domain/models/product.dart';
+import '../../bucket/bloc/bucket.dart';
+import '../../bucket/screen/screen..dart';
+import '../../category_edit/bloc/category_edit.dart';
 import '../../category_edit/screen/dialog.dart';
+import '../../category_list/bloc/category_list.dart';
+import '../../category_list/ui/screen.dart';
+import '../../edit_list/bloc/edit_list.dart';
+import '../../edit_list/ui/dialog.dart';
 import '../../edit_product/bloc/edit_product.dart';
-import '../../list_details/bloc/event.dart';
+import '../../edit_product/screen/edit_product.dart';
+import '../../favorite/bloc/favorite.dart';
+import '../../favorite/screen/screen.dart';
+import '../../list_details/bloc/list_details.dart';
+import '../../list_details/ui/screen.dart';
 import '../../list_of_lists/list_of_lists.dart';
 import '../delegate.dart';
 import 'bloc.dart';
@@ -44,6 +44,16 @@ class ScreenProvider {
             param1: _getRouter(context),
           )..add(FavoriteEvent.init()),
           child: FavoriteScreen(),
+        ),
+      );
+
+  static RouteInfo bucket() => RouteInfo(
+        id: BucketScreen.id,
+        builder: (context) => Provider(
+          create: (_) => getIt<BucketBloc>(
+            param1: _getRouter(context),
+          )..add(BucketEvent.init()),
+          child: BucketScreen(),
         ),
       );
 

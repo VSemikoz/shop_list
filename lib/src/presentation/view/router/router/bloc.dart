@@ -71,7 +71,7 @@ class RouterBloc extends Bloc<RouterEvent, List<RouteInfo>>
   }
 
   _bucket(RouteBucket event, Emitter emitter) {
-    //TODO
+    emitter(_rebaseRoute(ScreenProvider.bucket()));
   }
 
   _editProduct(RouteEditProduct event, Emitter emitter) {
