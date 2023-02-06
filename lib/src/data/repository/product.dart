@@ -19,6 +19,10 @@ abstract class ProductRepositoryBase {
   Future<List<ProductEntry>> getFavorite();
 
   Future<List<ProductEntry>> getBucket();
+
+  Future<void> importNewProducts(List<ProductData> data);
+
+  Future<List<ProductData>> getAll();
 }
 
 @Injectable(as: ProductRepositoryBase)
@@ -64,5 +68,17 @@ class ProductRepository implements ProductRepositoryBase {
   @override
   Future<List<ProductEntry>> getBucket() async {
     return (await dataBase.getReadyOrNeed()).map((e) => e.toEntry()).toList();
+  }
+
+  @override
+  Future<void> importNewProducts(List<ProductData> data) async {
+    await dataBase.deleteAllProducts();
+    await dataBase
+        .insertProducts(data.map((e) => e.toUpdateCompanion()).toList());
+  }
+
+  @override
+  Future<List<ProductData>> getAll() async {
+    return await dataBase.getAllProducts();
   }
 }

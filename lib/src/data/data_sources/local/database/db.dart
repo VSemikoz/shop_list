@@ -22,16 +22,6 @@ LazyDatabase _openConnection() => LazyDatabase(
       () async {
         final dbFolder = await getApplicationDocumentsDirectory();
         final file = File(p.join(dbFolder.path, _dataBaseName));
-
-        //TODO remove
-        // if (!await file.exists()) {
-        //   // Extract the pre-populated database file from assets
-        //   final blob = await rootBundle.load('assets/my_database.db');
-        //   final buffer = blob.buffer;
-        //   await file.writeAsBytes(
-        //       buffer.asUint8List(blob.offsetInBytes, blob.lengthInBytes));
-        // }
-
         return NativeDatabase.createInBackground(file);
       },
     );
@@ -48,6 +38,19 @@ class ShopListDataBase extends _$ShopListDataBase {
   ShopListDataBase() : super(_openConnection());
 
   ///Category
+
+  Future<void> insertCategories(List<CategoryItemsCompanion> companions) async {
+    await batch((batch) {
+      batch.insertAll(categoryItems, companions);
+    });
+  }
+
+  Future<void> deleteAllCategories() async {
+    await batch((batch) {
+      batch.deleteAll(categoryItems);
+    });
+  }
+
   Future<void> insertCategory(CategoryItemsCompanion companion) async {
     return transaction(() async {
       await into(categoryItems).insert(companion, mode: InsertMode.replace);
@@ -76,11 +79,6 @@ class ShopListDataBase extends _$ShopListDataBase {
     });
   }
 
-  // Future<void> editCategories(List<CategoryItemsCompanion> companions) async {
-  //   return transaction(() async {
-  //   });
-  // }
-
   Future<List<CategoryData>> getAllCategories() async {
     return (await select(categoryItems).get())
         .map((e) => e.toCompanion(false).toItem())
@@ -88,6 +86,19 @@ class ShopListDataBase extends _$ShopListDataBase {
   }
 
   ///Lists
+
+  Future<void> insertLists(List<ListItemsCompanion> companions) async {
+    await batch((batch) {
+      batch.insertAll(listItems, companions);
+    });
+  }
+
+  Future<void> deleteAllLists() async {
+    await batch((batch) {
+      batch.deleteAll(listItems);
+    });
+  }
+
   Future<void> insertList(ListItemsCompanion companion) async {
     return transaction(() async {
       await into(listItems).insert(companion, mode: InsertMode.replace);
@@ -128,6 +139,18 @@ class ShopListDataBase extends _$ShopListDataBase {
   Future<void> insertProduct(ProductItemsCompanion companion) async {
     return transaction(() async {
       await into(productItems).insert(companion, mode: InsertMode.replace);
+    });
+  }
+
+  Future<void> insertProducts(List<ProductItemsCompanion> companions) async {
+    await batch((batch) {
+      batch.insertAll(productItems, companions);
+    });
+  }
+
+  Future<void> deleteAllProducts() async {
+    await batch((batch) {
+      batch.deleteAll(productItems);
     });
   }
 
@@ -183,6 +206,12 @@ class ShopListDataBase extends _$ShopListDataBase {
                 (tbl) => tbl.status.isIn(searchStatuses),
               ))
             .get())
+        .map((e) => e.toCompanion(false).toItem())
+        .toList();
+  }
+
+  Future<List<ProductData>> getAllProducts() async {
+    return (await select(productItems).get())
         .map((e) => e.toCompanion(false).toItem())
         .toList();
   }

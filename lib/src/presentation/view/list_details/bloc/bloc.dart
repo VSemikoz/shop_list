@@ -15,7 +15,7 @@ class ListDetailsBloc extends Bloc<ListDetailsEvent, ListDetailsState> {
     @factoryParam required this.transaction,
     @factoryParam required this.router,
     required this.useCase,
-  }) : super(ListDetailsState.loading()) {
+  }) : super(ListDetailsState.loading(list: transaction.entry)) {
     list = transaction.entry;
 
     on<ListDetailsInit>(_init);

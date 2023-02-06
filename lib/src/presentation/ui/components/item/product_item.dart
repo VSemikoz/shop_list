@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_list/src/common/providers/theme/theme.dart';
 
-import '../../../../../generated/l10n.dart';
 import '../../../../domain/models/product.dart';
 import '../../widgets/tappable/common.dart';
 
@@ -112,23 +111,36 @@ class _ProductItemTop extends StatefulWidget {
 class _ProductItemTopState extends State<_ProductItemTop> {
   @override
   Widget build(BuildContext context) {
-    final s = S.of(context);
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Expanded(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(widget.product.name),
-                    Text(widget.product.description),
+                    Text(
+                      widget.product.name,
+                      style: context.textStyle.labelLarge.copyWith(
+                        decoration: widget.product.status == ProductStatus.ready
+                            ? TextDecoration.lineThrough
+                            : null,
+                      ),
+                    ),
+                    Text(
+                      widget.product.description,
+                      style: context.textStyle.bodySmall.copyWith(
+                        decoration: widget.product.status == ProductStatus.ready
+                            ? TextDecoration.lineThrough
+                            : null,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -141,19 +153,21 @@ class _ProductItemTopState extends State<_ProductItemTop> {
           ),
         ),
         Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text("${widget.product.price}"),
-            const SizedBox(width: 2),
-            Text(widget.product.priceDescription),
-            const SizedBox(width: 10),
-            Text("${widget.product.count}"),
-            const SizedBox(width: 2),
+            Container(
+              decoration: BoxDecoration(
+                  color: context.colorTheme.background.primary,
+                  borderRadius: BorderRadius.circular(20)),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+                child: Center(child: Text("${widget.product.count}")),
+              ),
+            ),
+            const SizedBox(width: 6),
             Text(widget.product.countDescription),
             const SizedBox(width: 10),
-            Text(
-              "${s.editListTotalPrice} ${widget.product.count * widget.product.price}",
-            ),
+            Text("${widget.product.count * widget.product.price}"),
             const SizedBox(width: 2),
             Text(widget.product.priceDescription),
             const SizedBox(width: 10),
@@ -260,20 +274,24 @@ class _ProductStatusIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      child: Builder(
-        builder: (context) {
-          switch (status) {
-            case ProductStatus.need:
-              return _StatusIcon(mainColor: context.colorTheme.error.dark);
-            case ProductStatus.ready:
-              return _StatusIcon(mainColor: context.colorTheme.success.light);
-            case ProductStatus.saved:
-            case ProductStatus.none:
-              return _StatusIcon(
-                mainColor: context.colorTheme.background.primary,
-              );
-          }
-        },
+      child: Container(
+        width: 30,
+        height: 30,
+        child: Builder(
+          builder: (context) {
+            switch (status) {
+              case ProductStatus.need:
+                return _StatusIcon(mainColor: context.colorTheme.error.dark);
+              case ProductStatus.ready:
+                return _StatusIcon(mainColor: context.colorTheme.success.light);
+              case ProductStatus.saved:
+              case ProductStatus.none:
+                return _StatusIcon(
+                  mainColor: context.colorTheme.background.primary,
+                );
+            }
+          },
+        ),
       ),
       onTap: () => changeStatus(product),
       onLongPress: () => changeStatusForceSave(product),

@@ -6,7 +6,9 @@ part 'state.freezed.dart';
 
 @freezed
 abstract class ListDetailsState with _$ListDetailsState {
-  const factory ListDetailsState.loading() = ListDetailsLoading;
+  const factory ListDetailsState.loading({
+    required ListEntry list,
+  }) = ListDetailsLoading;
 
   const factory ListDetailsState.success({
     required ListEntry list,

@@ -18,60 +18,57 @@ class ListOfListsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      top: true,
-      child: Scaffold(
-        backgroundColor: context.colorTheme.background.primary,
-        body: BlocBuilder<ListOfListsBloc, ListOfListsState>(
-          builder: (context, state) {
-            return Column(
-              children: [
-                _AppBar(
-                  variant: state is ListOfListsSuccess
-                      ? state.variant
-                      : ListViewVariant.row,
+    return Scaffold(
+      backgroundColor: context.colorTheme.background.primary,
+      body: BlocBuilder<ListOfListsBloc, ListOfListsState>(
+        builder: (context, state) {
+          return Column(
+            children: [
+              _AppBar(
+                variant: state is ListOfListsSuccess
+                    ? state.variant
+                    : ListViewVariant.row,
+              ),
+              if (state is ListOfListsSuccess)
+                _SuccessScreen(
+                  variant: state.variant,
+                  lists: state.lists,
                 ),
-                if (state is ListOfListsSuccess)
-                  _SuccessScreen(
-                    variant: state.variant,
-                    lists: state.lists,
-                  ),
-                if (state is ListOfListsLoading)
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Center(
-                          child: AppActivityIndicator(
-                            isDark: true,
-                          ),
+              if (state is ListOfListsLoading)
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Center(
+                        child: AppActivityIndicator(
+                          isDark: true,
                         ),
-                      ],
-                    ),
-                  )
-              ],
-            );
-          },
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            context.read<RouterBloc>().add(
-                  RouterEvent.editList(
-                    transaction: EditListTransaction(
-                      initColor: context.colorThemeRead.picker.list[0],
-                      onAddSuccess: () => context.read<ListOfListsBloc>().add(
-                            ListOfListsEvent.init(),
-                          ),
-                      mode: ListEditMode.create,
-                      onEditSuccess: () {},
-                      onDeleteSuccess: () {},
-                    ),
+                      ),
+                    ],
                   ),
-                );
-          },
-          backgroundColor: context.colorTheme.primary.light,
-          child: const Icon(Icons.add),
-        ),
+                )
+            ],
+          );
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          context.read<RouterBloc>().add(
+                RouterEvent.editList(
+                  transaction: EditListTransaction(
+                    initColor: context.colorThemeRead.picker.list[0],
+                    onAddSuccess: () => context.read<ListOfListsBloc>().add(
+                          ListOfListsEvent.init(),
+                        ),
+                    mode: ListEditMode.create,
+                    onEditSuccess: () {},
+                    onDeleteSuccess: () {},
+                  ),
+                ),
+              );
+        },
+        backgroundColor: context.colorTheme.primary.light,
+        child: const Icon(Icons.add),
       ),
     );
   }
@@ -113,6 +110,14 @@ class _AppBar extends StatelessWidget {
     }
   }
 
+  _export(BuildContext context) {
+    context.read<ListOfListsBloc>().add(ListOfListsEvent.import());
+  }
+
+  _import(BuildContext context) {
+    context.read<ListOfListsBloc>().add(ListOfListsEvent.export());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -125,6 +130,14 @@ class _AppBar extends StatelessWidget {
           Text(
             S.of(context).listOfListsScreenAppBar,
             style: context.textStyle.headlineLarge,
+          ),
+          MaterialTapWrapper(
+            onPressed: () => _export(context),
+            child: Icon(Icons.arrow_downward_sharp, size: 30),
+          ),
+          MaterialTapWrapper(
+            onPressed: () => _import(context),
+            child: Icon(Icons.arrow_upward_sharp, size: 30),
           ),
           MaterialTapWrapper(
             onPressed: () => _changeVariant(context),
@@ -202,9 +215,14 @@ class _ListItemRow extends StatelessWidget {
                 height: 30,
                 width: double.infinity,
                 color: context.colorTheme.background.secondary.withOpacity(0.4),
-                child: Text(
-                  entry.name,
-                  style: context.textStyle.bodyLarge,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Text(
+                    entry.name,
+                    style: context.textStyle.bodyLarge.copyWith(
+                      color: context.colorTheme.textLight.primary,
+                    ),
+                  ),
                 ),
               ),
             ],

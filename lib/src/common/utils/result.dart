@@ -31,10 +31,10 @@ class Result<V> {
   /// Returns [Failure] value. Mostly [Exception] or [Error] instance.
   dynamic get failureValue => _failure?.value;
 
-  /// Return [value] only if it exists or throws [NullThrownError] on `null` or [Failure] on failure.
+  /// Return [value] only if it exists or throws [TypeError] on `null` or [Failure] on failure.
   V? get valueOrThrow {
     if (isFailure) throw _failure!;
-    if (_value == null) throw NullThrownError();
+    if (_value == null) throw TypeError();
     return _value;
   }
 

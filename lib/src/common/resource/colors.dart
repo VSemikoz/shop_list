@@ -80,15 +80,16 @@ class AppLightColors {
     secondary: Color(0xAAFFFFFF), //60
     disable: Color(0x33FFFFFF), //38
   );
-  static PickerColors pickerVariant = const PickerColors(
+
+  static PickerColors pickerVariant =  PickerColors(
     list: [
       Colors.grey,
-      Colors.green,
-      Colors.blue,
-      Colors.orange,
-      Colors.purple,
-      Colors.pinkAccent,
-      Colors.teal,
+      Colors.green.shade300,
+      Colors.blue.shade300,
+      Colors.orange.shade200,
+      Colors.purple.shade100,
+      Colors.pinkAccent.shade100,
+      Colors.teal.shade200,
     ],
   );
   static const BackgroundColorPack background = const BackgroundColorPack(

@@ -22,7 +22,14 @@ class MainFooter extends StatelessWidget {
           alignment: Alignment.bottomCenter,
           child: Container(
             height: 60,
-            color: context.colorTheme.secondary.light,
+            decoration: BoxDecoration(
+              color: context.colorTheme.background.primary,
+              border: Border(
+                top: BorderSide(
+                  color: context.colorTheme.background.secondary,
+                ),
+              ),
+            ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -32,17 +39,32 @@ class MainFooter extends StatelessWidget {
                   },
                   icon: Icons.shopping_cart_rounded,
                 ),
+                VerticalDivider(
+                  color: context.colorTheme.background.secondary,
+                  thickness: 1,                  width: 1,
+
+                ),
                 _Button(
                   onPressed: () {
                     context.read<RouterBloc>().add(RouterEvent.listOfLists());
                   },
                   icon: Icons.apps_rounded,
                 ),
+                VerticalDivider(
+                  color: context.colorTheme.background.secondary,
+                  thickness: 1,                  width: 1,
+
+                ),
                 _Button(
                   onPressed: () {
                     context.read<RouterBloc>().add(RouterEvent.favorite());
                   },
                   icon: Icons.star_border,
+                ),
+                VerticalDivider(
+                  color: context.colorTheme.background.secondary,
+                  thickness: 1,
+                  width: 1,
                 ),
                 _Button(
                   onPressed: () {
@@ -73,6 +95,7 @@ class _Button extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: MaterialTapWrapper(
+        radius: Radius.zero,
         onPressed: onPressed,
         child: Icon(icon),
       ),

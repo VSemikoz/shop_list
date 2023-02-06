@@ -20,9 +20,13 @@ class KubApp extends StatelessWidget {
     return _AppMultiProvider(
       child: OverlaySupport.global(
         child: Builder(
-          builder: (context) {
-            _setSystemUIColors(context);
-            return StreamBuilder<Locale>(
+          builder: (context) => AnnotatedRegion(
+            sized: false,
+            value: SystemUiOverlayStyle(
+              systemNavigationBarColor: context.colorTheme.primary.light,
+              statusBarColor: context.colorTheme.primary.light,
+            ),
+            child: StreamBuilder<Locale>(
               stream:
                   context.read<LocalizationProvider>().localeController.stream,
               builder: (context, snapshot) => MaterialApp(
@@ -42,20 +46,12 @@ class KubApp extends StatelessWidget {
                   backButtonDispatcher: RootBackButtonDispatcher(),
                 ),
               ),
-            );
-          },
+            ),
+          ),
         ),
       ),
     );
   }
-
-  _setSystemUIColors(BuildContext context) =>
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          systemNavigationBarColor: context.colorTheme.secondary.light,
-          statusBarColor: context.colorTheme.primary.light,
-        ),
-      );
 }
 
 class _AppMultiProvider extends StatelessWidget {

@@ -21,6 +21,8 @@ mixin _$ListOfListsEvent {
     required TResult Function() init,
     required TResult Function(ListViewVariant variant) changeCurrVariant,
     required TResult Function(String name, Color color) addList,
+    required TResult Function() import,
+    required TResult Function() export,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +30,8 @@ mixin _$ListOfListsEvent {
     TResult? Function()? init,
     TResult? Function(ListViewVariant variant)? changeCurrVariant,
     TResult? Function(String name, Color color)? addList,
+    TResult? Function()? import,
+    TResult? Function()? export,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +39,8 @@ mixin _$ListOfListsEvent {
     TResult Function()? init,
     TResult Function(ListViewVariant variant)? changeCurrVariant,
     TResult Function(String name, Color color)? addList,
+    TResult Function()? import,
+    TResult Function()? export,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -44,6 +50,8 @@ mixin _$ListOfListsEvent {
     required TResult Function(ListOfListsChangeCurrVariant value)
         changeCurrVariant,
     required TResult Function(ListOfListsAddList value) addList,
+    required TResult Function(ListOfListsImport value) import,
+    required TResult Function(ListOfListsExport value) export,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,6 +59,8 @@ mixin _$ListOfListsEvent {
     TResult? Function(ListOfListsInit value)? init,
     TResult? Function(ListOfListsChangeCurrVariant value)? changeCurrVariant,
     TResult? Function(ListOfListsAddList value)? addList,
+    TResult? Function(ListOfListsImport value)? import,
+    TResult? Function(ListOfListsExport value)? export,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +68,8 @@ mixin _$ListOfListsEvent {
     TResult Function(ListOfListsInit value)? init,
     TResult Function(ListOfListsChangeCurrVariant value)? changeCurrVariant,
     TResult Function(ListOfListsAddList value)? addList,
+    TResult Function(ListOfListsImport value)? import,
+    TResult Function(ListOfListsExport value)? export,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -122,6 +134,8 @@ class _$ListOfListsInit implements ListOfListsInit {
     required TResult Function() init,
     required TResult Function(ListViewVariant variant) changeCurrVariant,
     required TResult Function(String name, Color color) addList,
+    required TResult Function() import,
+    required TResult Function() export,
   }) {
     return init();
   }
@@ -132,6 +146,8 @@ class _$ListOfListsInit implements ListOfListsInit {
     TResult? Function()? init,
     TResult? Function(ListViewVariant variant)? changeCurrVariant,
     TResult? Function(String name, Color color)? addList,
+    TResult? Function()? import,
+    TResult? Function()? export,
   }) {
     return init?.call();
   }
@@ -142,6 +158,8 @@ class _$ListOfListsInit implements ListOfListsInit {
     TResult Function()? init,
     TResult Function(ListViewVariant variant)? changeCurrVariant,
     TResult Function(String name, Color color)? addList,
+    TResult Function()? import,
+    TResult Function()? export,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -157,6 +175,8 @@ class _$ListOfListsInit implements ListOfListsInit {
     required TResult Function(ListOfListsChangeCurrVariant value)
         changeCurrVariant,
     required TResult Function(ListOfListsAddList value) addList,
+    required TResult Function(ListOfListsImport value) import,
+    required TResult Function(ListOfListsExport value) export,
   }) {
     return init(this);
   }
@@ -167,6 +187,8 @@ class _$ListOfListsInit implements ListOfListsInit {
     TResult? Function(ListOfListsInit value)? init,
     TResult? Function(ListOfListsChangeCurrVariant value)? changeCurrVariant,
     TResult? Function(ListOfListsAddList value)? addList,
+    TResult? Function(ListOfListsImport value)? import,
+    TResult? Function(ListOfListsExport value)? export,
   }) {
     return init?.call(this);
   }
@@ -177,6 +199,8 @@ class _$ListOfListsInit implements ListOfListsInit {
     TResult Function(ListOfListsInit value)? init,
     TResult Function(ListOfListsChangeCurrVariant value)? changeCurrVariant,
     TResult Function(ListOfListsAddList value)? addList,
+    TResult Function(ListOfListsImport value)? import,
+    TResult Function(ListOfListsExport value)? export,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -260,6 +284,8 @@ class _$ListOfListsChangeCurrVariant implements ListOfListsChangeCurrVariant {
     required TResult Function() init,
     required TResult Function(ListViewVariant variant) changeCurrVariant,
     required TResult Function(String name, Color color) addList,
+    required TResult Function() import,
+    required TResult Function() export,
   }) {
     return changeCurrVariant(variant);
   }
@@ -270,6 +296,8 @@ class _$ListOfListsChangeCurrVariant implements ListOfListsChangeCurrVariant {
     TResult? Function()? init,
     TResult? Function(ListViewVariant variant)? changeCurrVariant,
     TResult? Function(String name, Color color)? addList,
+    TResult? Function()? import,
+    TResult? Function()? export,
   }) {
     return changeCurrVariant?.call(variant);
   }
@@ -280,6 +308,8 @@ class _$ListOfListsChangeCurrVariant implements ListOfListsChangeCurrVariant {
     TResult Function()? init,
     TResult Function(ListViewVariant variant)? changeCurrVariant,
     TResult Function(String name, Color color)? addList,
+    TResult Function()? import,
+    TResult Function()? export,
     required TResult orElse(),
   }) {
     if (changeCurrVariant != null) {
@@ -295,6 +325,8 @@ class _$ListOfListsChangeCurrVariant implements ListOfListsChangeCurrVariant {
     required TResult Function(ListOfListsChangeCurrVariant value)
         changeCurrVariant,
     required TResult Function(ListOfListsAddList value) addList,
+    required TResult Function(ListOfListsImport value) import,
+    required TResult Function(ListOfListsExport value) export,
   }) {
     return changeCurrVariant(this);
   }
@@ -305,6 +337,8 @@ class _$ListOfListsChangeCurrVariant implements ListOfListsChangeCurrVariant {
     TResult? Function(ListOfListsInit value)? init,
     TResult? Function(ListOfListsChangeCurrVariant value)? changeCurrVariant,
     TResult? Function(ListOfListsAddList value)? addList,
+    TResult? Function(ListOfListsImport value)? import,
+    TResult? Function(ListOfListsExport value)? export,
   }) {
     return changeCurrVariant?.call(this);
   }
@@ -315,6 +349,8 @@ class _$ListOfListsChangeCurrVariant implements ListOfListsChangeCurrVariant {
     TResult Function(ListOfListsInit value)? init,
     TResult Function(ListOfListsChangeCurrVariant value)? changeCurrVariant,
     TResult Function(ListOfListsAddList value)? addList,
+    TResult Function(ListOfListsImport value)? import,
+    TResult Function(ListOfListsExport value)? export,
     required TResult orElse(),
   }) {
     if (changeCurrVariant != null) {
@@ -411,6 +447,8 @@ class _$ListOfListsAddList implements ListOfListsAddList {
     required TResult Function() init,
     required TResult Function(ListViewVariant variant) changeCurrVariant,
     required TResult Function(String name, Color color) addList,
+    required TResult Function() import,
+    required TResult Function() export,
   }) {
     return addList(name, color);
   }
@@ -421,6 +459,8 @@ class _$ListOfListsAddList implements ListOfListsAddList {
     TResult? Function()? init,
     TResult? Function(ListViewVariant variant)? changeCurrVariant,
     TResult? Function(String name, Color color)? addList,
+    TResult? Function()? import,
+    TResult? Function()? export,
   }) {
     return addList?.call(name, color);
   }
@@ -431,6 +471,8 @@ class _$ListOfListsAddList implements ListOfListsAddList {
     TResult Function()? init,
     TResult Function(ListViewVariant variant)? changeCurrVariant,
     TResult Function(String name, Color color)? addList,
+    TResult Function()? import,
+    TResult Function()? export,
     required TResult orElse(),
   }) {
     if (addList != null) {
@@ -446,6 +488,8 @@ class _$ListOfListsAddList implements ListOfListsAddList {
     required TResult Function(ListOfListsChangeCurrVariant value)
         changeCurrVariant,
     required TResult Function(ListOfListsAddList value) addList,
+    required TResult Function(ListOfListsImport value) import,
+    required TResult Function(ListOfListsExport value) export,
   }) {
     return addList(this);
   }
@@ -456,6 +500,8 @@ class _$ListOfListsAddList implements ListOfListsAddList {
     TResult? Function(ListOfListsInit value)? init,
     TResult? Function(ListOfListsChangeCurrVariant value)? changeCurrVariant,
     TResult? Function(ListOfListsAddList value)? addList,
+    TResult? Function(ListOfListsImport value)? import,
+    TResult? Function(ListOfListsExport value)? export,
   }) {
     return addList?.call(this);
   }
@@ -466,6 +512,8 @@ class _$ListOfListsAddList implements ListOfListsAddList {
     TResult Function(ListOfListsInit value)? init,
     TResult Function(ListOfListsChangeCurrVariant value)? changeCurrVariant,
     TResult Function(ListOfListsAddList value)? addList,
+    TResult Function(ListOfListsImport value)? import,
+    TResult Function(ListOfListsExport value)? export,
     required TResult orElse(),
   }) {
     if (addList != null) {
@@ -485,4 +533,246 @@ abstract class ListOfListsAddList implements ListOfListsEvent {
   @JsonKey(ignore: true)
   _$$ListOfListsAddListCopyWith<_$ListOfListsAddList> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ListOfListsImportCopyWith<$Res> {
+  factory _$$ListOfListsImportCopyWith(
+          _$ListOfListsImport value, $Res Function(_$ListOfListsImport) then) =
+      __$$ListOfListsImportCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ListOfListsImportCopyWithImpl<$Res>
+    extends _$ListOfListsEventCopyWithImpl<$Res, _$ListOfListsImport>
+    implements _$$ListOfListsImportCopyWith<$Res> {
+  __$$ListOfListsImportCopyWithImpl(
+      _$ListOfListsImport _value, $Res Function(_$ListOfListsImport) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ListOfListsImport implements ListOfListsImport {
+  const _$ListOfListsImport();
+
+  @override
+  String toString() {
+    return 'ListOfListsEvent.import()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ListOfListsImport);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(ListViewVariant variant) changeCurrVariant,
+    required TResult Function(String name, Color color) addList,
+    required TResult Function() import,
+    required TResult Function() export,
+  }) {
+    return import();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function(ListViewVariant variant)? changeCurrVariant,
+    TResult? Function(String name, Color color)? addList,
+    TResult? Function()? import,
+    TResult? Function()? export,
+  }) {
+    return import?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(ListViewVariant variant)? changeCurrVariant,
+    TResult Function(String name, Color color)? addList,
+    TResult Function()? import,
+    TResult Function()? export,
+    required TResult orElse(),
+  }) {
+    if (import != null) {
+      return import();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ListOfListsInit value) init,
+    required TResult Function(ListOfListsChangeCurrVariant value)
+        changeCurrVariant,
+    required TResult Function(ListOfListsAddList value) addList,
+    required TResult Function(ListOfListsImport value) import,
+    required TResult Function(ListOfListsExport value) export,
+  }) {
+    return import(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ListOfListsInit value)? init,
+    TResult? Function(ListOfListsChangeCurrVariant value)? changeCurrVariant,
+    TResult? Function(ListOfListsAddList value)? addList,
+    TResult? Function(ListOfListsImport value)? import,
+    TResult? Function(ListOfListsExport value)? export,
+  }) {
+    return import?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ListOfListsInit value)? init,
+    TResult Function(ListOfListsChangeCurrVariant value)? changeCurrVariant,
+    TResult Function(ListOfListsAddList value)? addList,
+    TResult Function(ListOfListsImport value)? import,
+    TResult Function(ListOfListsExport value)? export,
+    required TResult orElse(),
+  }) {
+    if (import != null) {
+      return import(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ListOfListsImport implements ListOfListsEvent {
+  const factory ListOfListsImport() = _$ListOfListsImport;
+}
+
+/// @nodoc
+abstract class _$$ListOfListsExportCopyWith<$Res> {
+  factory _$$ListOfListsExportCopyWith(
+          _$ListOfListsExport value, $Res Function(_$ListOfListsExport) then) =
+      __$$ListOfListsExportCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ListOfListsExportCopyWithImpl<$Res>
+    extends _$ListOfListsEventCopyWithImpl<$Res, _$ListOfListsExport>
+    implements _$$ListOfListsExportCopyWith<$Res> {
+  __$$ListOfListsExportCopyWithImpl(
+      _$ListOfListsExport _value, $Res Function(_$ListOfListsExport) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ListOfListsExport implements ListOfListsExport {
+  const _$ListOfListsExport();
+
+  @override
+  String toString() {
+    return 'ListOfListsEvent.export()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ListOfListsExport);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(ListViewVariant variant) changeCurrVariant,
+    required TResult Function(String name, Color color) addList,
+    required TResult Function() import,
+    required TResult Function() export,
+  }) {
+    return export();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function(ListViewVariant variant)? changeCurrVariant,
+    TResult? Function(String name, Color color)? addList,
+    TResult? Function()? import,
+    TResult? Function()? export,
+  }) {
+    return export?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(ListViewVariant variant)? changeCurrVariant,
+    TResult Function(String name, Color color)? addList,
+    TResult Function()? import,
+    TResult Function()? export,
+    required TResult orElse(),
+  }) {
+    if (export != null) {
+      return export();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ListOfListsInit value) init,
+    required TResult Function(ListOfListsChangeCurrVariant value)
+        changeCurrVariant,
+    required TResult Function(ListOfListsAddList value) addList,
+    required TResult Function(ListOfListsImport value) import,
+    required TResult Function(ListOfListsExport value) export,
+  }) {
+    return export(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ListOfListsInit value)? init,
+    TResult? Function(ListOfListsChangeCurrVariant value)? changeCurrVariant,
+    TResult? Function(ListOfListsAddList value)? addList,
+    TResult? Function(ListOfListsImport value)? import,
+    TResult? Function(ListOfListsExport value)? export,
+  }) {
+    return export?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ListOfListsInit value)? init,
+    TResult Function(ListOfListsChangeCurrVariant value)? changeCurrVariant,
+    TResult Function(ListOfListsAddList value)? addList,
+    TResult Function(ListOfListsImport value)? import,
+    TResult Function(ListOfListsExport value)? export,
+    required TResult orElse(),
+  }) {
+    if (export != null) {
+      return export(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ListOfListsExport implements ListOfListsEvent {
+  const factory ListOfListsExport() = _$ListOfListsExport;
 }

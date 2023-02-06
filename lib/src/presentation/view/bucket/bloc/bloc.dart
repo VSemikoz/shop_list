@@ -35,14 +35,11 @@ class BucketBloc extends Bloc<BucketEvent, BucketState> {
   _handleUpdate() {
     useCase.bucketUpdate().listen(
       (event) {
-        print("BUCKET BUC");
-
         if (event != null) add(BucketEvent.refresh());
       },
     );
     useCase.favoriteUpdate().listen(
       (event) {
-      print("BUCKET FAV");
         if (event != null) add(BucketEvent.refresh());
       },
     );

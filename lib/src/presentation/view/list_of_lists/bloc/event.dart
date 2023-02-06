@@ -16,4 +16,8 @@ abstract class ListOfListsEvent with _$ListOfListsEvent {
     required String name,
     required Color color,
   }) = ListOfListsAddList;
+
+  const factory ListOfListsEvent.import() = ListOfListsImport;
+
+  const factory ListOfListsEvent.export() = ListOfListsExport;
 }

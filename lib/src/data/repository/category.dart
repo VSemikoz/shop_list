@@ -13,6 +13,10 @@ abstract class CategoryRepositoryBase {
   Future<void> deleteCategory(int id);
 
   Future<void> editCategory(CategoryData categoryData);
+
+  Future<void> importNewCategories(List<CategoryData> data);
+
+  Future<List<CategoryData>> getAll();
 }
 
 @Injectable(as: CategoryRepositoryBase)
@@ -39,5 +43,17 @@ class CategoryRepositoryImpl implements CategoryRepositoryBase {
   @override
   Future<void> editCategory(CategoryData categoryData) async {
     return await database.editCategory(categoryData.toUpdateCompanion());
+  }
+
+  @override
+  Future<void> importNewCategories(List<CategoryData> data) async {
+    await database.deleteAllCategories();
+    await database
+        .insertCategories(data.map((e) => e.toUpdateCompanion()).toList());
+  }
+
+  @override
+  Future<List<CategoryData>> getAll() async {
+    return await database.getAllCategories();
   }
 }

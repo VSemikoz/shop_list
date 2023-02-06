@@ -16,9 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ListDetailsState {
+  ListEntry get list => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() loading,
+    required TResult Function(ListEntry list) loading,
     required TResult Function(ListEntry list, List<ProductEntry> saveProducts,
             List<ProductEntry> needProducts, List<ProductEntry> readyProducts)
         success,
@@ -26,7 +27,7 @@ mixin _$ListDetailsState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loading,
+    TResult? Function(ListEntry list)? loading,
     TResult? Function(ListEntry list, List<ProductEntry> saveProducts,
             List<ProductEntry> needProducts, List<ProductEntry> readyProducts)?
         success,
@@ -34,7 +35,7 @@ mixin _$ListDetailsState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loading,
+    TResult Function(ListEntry list)? loading,
     TResult Function(ListEntry list, List<ProductEntry> saveProducts,
             List<ProductEntry> needProducts, List<ProductEntry> readyProducts)?
         success,
@@ -60,6 +61,10 @@ mixin _$ListDetailsState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $ListDetailsStateCopyWith<ListDetailsState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -67,6 +72,8 @@ abstract class $ListDetailsStateCopyWith<$Res> {
   factory $ListDetailsStateCopyWith(
           ListDetailsState value, $Res Function(ListDetailsState) then) =
       _$ListDetailsStateCopyWithImpl<$Res, ListDetailsState>;
+  @useResult
+  $Res call({ListEntry list});
 }
 
 /// @nodoc
@@ -78,13 +85,30 @@ class _$ListDetailsStateCopyWithImpl<$Res, $Val extends ListDetailsState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? list = null,
+  }) {
+    return _then(_value.copyWith(
+      list: null == list
+          ? _value.list
+          : list // ignore: cast_nullable_to_non_nullable
+              as ListEntry,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$ListDetailsLoadingCopyWith<$Res> {
+abstract class _$$ListDetailsLoadingCopyWith<$Res>
+    implements $ListDetailsStateCopyWith<$Res> {
   factory _$$ListDetailsLoadingCopyWith(_$ListDetailsLoading value,
           $Res Function(_$ListDetailsLoading) then) =
       __$$ListDetailsLoadingCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({ListEntry list});
 }
 
 /// @nodoc
@@ -94,60 +118,85 @@ class __$$ListDetailsLoadingCopyWithImpl<$Res>
   __$$ListDetailsLoadingCopyWithImpl(
       _$ListDetailsLoading _value, $Res Function(_$ListDetailsLoading) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? list = null,
+  }) {
+    return _then(_$ListDetailsLoading(
+      list: null == list
+          ? _value.list
+          : list // ignore: cast_nullable_to_non_nullable
+              as ListEntry,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$ListDetailsLoading implements ListDetailsLoading {
-  const _$ListDetailsLoading();
+  const _$ListDetailsLoading({required this.list});
+
+  @override
+  final ListEntry list;
 
   @override
   String toString() {
-    return 'ListDetailsState.loading()';
+    return 'ListDetailsState.loading(list: $list)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ListDetailsLoading);
+        (other.runtimeType == runtimeType &&
+            other is _$ListDetailsLoading &&
+            (identical(other.list, list) || other.list == list));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, list);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ListDetailsLoadingCopyWith<_$ListDetailsLoading> get copyWith =>
+      __$$ListDetailsLoadingCopyWithImpl<_$ListDetailsLoading>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() loading,
+    required TResult Function(ListEntry list) loading,
     required TResult Function(ListEntry list, List<ProductEntry> saveProducts,
             List<ProductEntry> needProducts, List<ProductEntry> readyProducts)
         success,
   }) {
-    return loading();
+    return loading(list);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loading,
+    TResult? Function(ListEntry list)? loading,
     TResult? Function(ListEntry list, List<ProductEntry> saveProducts,
             List<ProductEntry> needProducts, List<ProductEntry> readyProducts)?
         success,
   }) {
-    return loading?.call();
+    return loading?.call(list);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loading,
+    TResult Function(ListEntry list)? loading,
     TResult Function(ListEntry list, List<ProductEntry> saveProducts,
             List<ProductEntry> needProducts, List<ProductEntry> readyProducts)?
         success,
     required TResult orElse(),
   }) {
     if (loading != null) {
-      return loading();
+      return loading(list);
     }
     return orElse();
   }
@@ -185,14 +234,24 @@ class _$ListDetailsLoading implements ListDetailsLoading {
 }
 
 abstract class ListDetailsLoading implements ListDetailsState {
-  const factory ListDetailsLoading() = _$ListDetailsLoading;
+  const factory ListDetailsLoading({required final ListEntry list}) =
+      _$ListDetailsLoading;
+
+  @override
+  ListEntry get list;
+  @override
+  @JsonKey(ignore: true)
+  _$$ListDetailsLoadingCopyWith<_$ListDetailsLoading> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ListDetailsSuccessCopyWith<$Res> {
+abstract class _$$ListDetailsSuccessCopyWith<$Res>
+    implements $ListDetailsStateCopyWith<$Res> {
   factory _$$ListDetailsSuccessCopyWith(_$ListDetailsSuccess value,
           $Res Function(_$ListDetailsSuccess) then) =
       __$$ListDetailsSuccessCopyWithImpl<$Res>;
+  @override
   @useResult
   $Res call(
       {ListEntry list,
@@ -313,7 +372,7 @@ class _$ListDetailsSuccess implements ListDetailsSuccess {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() loading,
+    required TResult Function(ListEntry list) loading,
     required TResult Function(ListEntry list, List<ProductEntry> saveProducts,
             List<ProductEntry> needProducts, List<ProductEntry> readyProducts)
         success,
@@ -324,7 +383,7 @@ class _$ListDetailsSuccess implements ListDetailsSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loading,
+    TResult? Function(ListEntry list)? loading,
     TResult? Function(ListEntry list, List<ProductEntry> saveProducts,
             List<ProductEntry> needProducts, List<ProductEntry> readyProducts)?
         success,
@@ -335,7 +394,7 @@ class _$ListDetailsSuccess implements ListDetailsSuccess {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loading,
+    TResult Function(ListEntry list)? loading,
     TResult Function(ListEntry list, List<ProductEntry> saveProducts,
             List<ProductEntry> needProducts, List<ProductEntry> readyProducts)?
         success,
@@ -386,10 +445,12 @@ abstract class ListDetailsSuccess implements ListDetailsState {
       required final List<ProductEntry> needProducts,
       required final List<ProductEntry> readyProducts}) = _$ListDetailsSuccess;
 
+  @override
   ListEntry get list;
   List<ProductEntry> get saveProducts;
   List<ProductEntry> get needProducts;
   List<ProductEntry> get readyProducts;
+  @override
   @JsonKey(ignore: true)
   _$$ListDetailsSuccessCopyWith<_$ListDetailsSuccess> get copyWith =>
       throw _privateConstructorUsedError;

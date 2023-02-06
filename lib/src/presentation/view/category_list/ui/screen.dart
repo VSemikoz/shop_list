@@ -14,30 +14,28 @@ class CategoryListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: BlocConsumer<CategoriesListBloc, CategoriesListState>(
-        listener: (context, state) {},
-        builder: (context, state) {
-          return Scaffold(
-            backgroundColor: context.colorTheme.background.primary,
-            body: Column(
-              children: [
-                _AppBar(),
-                if (state is CategoriesListSuccess)
-                  _SuccessScreen(categories: state.categories),
-              ],
-            ),
-            floatingActionButton: FloatingActionButton(
-              onPressed: () {
-                context.read<CategoriesListBloc>().add(
-                      CategoriesListEvent.add(),
-                    );
-              },
-              child: Icon(Icons.add),
-            ),
-          );
-        },
-      ),
+    return BlocConsumer<CategoriesListBloc, CategoriesListState>(
+      listener: (context, state) {},
+      builder: (context, state) {
+        return Scaffold(
+          backgroundColor: context.colorTheme.background.primary,
+          body: Column(
+            children: [
+              _AppBar(),
+              if (state is CategoriesListSuccess)
+                _SuccessScreen(categories: state.categories),
+            ],
+          ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              context.read<CategoriesListBloc>().add(
+                    CategoriesListEvent.add(),
+                  );
+            },
+            child: Icon(Icons.add),
+          ),
+        );
+      },
     );
   }
 }

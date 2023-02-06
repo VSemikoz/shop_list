@@ -5,6 +5,8 @@ import 'package:shop_list/src/domain/models/list.dart';
 import '../../../../domain/usecases/list_of_lists.dart';
 import 'list_of_lists.dart';
 
+const String _defaultImportFileName = "data.json";
+
 @Injectable()
 class ListOfListsBloc extends Bloc<ListOfListsEvent, ListOfListsState> {
   final ListOfListsUseCaseBase useCase;
@@ -15,6 +17,8 @@ class ListOfListsBloc extends Bloc<ListOfListsEvent, ListOfListsState> {
     on<ListOfListsInit>(_onInit);
     on<ListOfListsChangeCurrVariant>(_changeCurrVariant);
     on<ListOfListsAddList>(_addList);
+    on<ListOfListsImport>(_import);
+    on<ListOfListsExport>(_export);
   }
 
   ListViewVariant currVariant = ListViewVariant.row;
@@ -23,6 +27,14 @@ class ListOfListsBloc extends Bloc<ListOfListsEvent, ListOfListsState> {
   _onInit(ListOfListsInit event, Emitter emitter) async {
     await refreshLists();
     emitter(ListOfListsSuccess(variant: currVariant, lists: [...currentLists]));
+  }
+
+  _import(ListOfListsImport event, Emitter emitter) async {
+    await useCase.import(_defaultImportFileName);
+  }
+
+  _export(ListOfListsExport event, Emitter emitter) async {
+    await useCase.export(_defaultImportFileName);
   }
 
   Future<void> refreshLists() async {

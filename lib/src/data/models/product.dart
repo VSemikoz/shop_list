@@ -123,7 +123,7 @@ class ProductData {
     return ProductData(
       id: map['id'] as int,
       listId: map['listId'] as int,
-      categoryId: map['categoryId'] as int,
+      categoryId: map['categoryId'] as int?,
       name: map['name'] as String,
       description: map['description'] as String,
       price: map['price'] as int,

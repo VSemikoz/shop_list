@@ -35,15 +35,11 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
   _handleUpdate() {
     useCase.bucketUpdate().listen(
       (event) {
-        print("FAVOR BUC");
-
         if (event != null) add(FavoriteEvent.refresh());
       },
     );
     useCase.favoriteUpdate().listen(
       (event) {
-        print("FAVOR FAV");
-
         if (event != null) add(FavoriteEvent.refresh());
       },
     );
