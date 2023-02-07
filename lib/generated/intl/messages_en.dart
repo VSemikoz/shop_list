@@ -52,6 +52,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Total price"),
         "favoriteScreenAppBar":
             MessageLookupByLibrary.simpleMessage("Favorite"),
+        "importExportDialogExport":
+            MessageLookupByLibrary.simpleMessage("Export (from file)"),
+        "importExportDialogHeader":
+            MessageLookupByLibrary.simpleMessage("File path"),
+        "importExportDialogImport":
+            MessageLookupByLibrary.simpleMessage("Import (into file)"),
         "listOfListsScreenAppBar": MessageLookupByLibrary.simpleMessage("Lists")
       };
 }

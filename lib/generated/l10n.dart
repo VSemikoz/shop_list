@@ -60,6 +60,36 @@ class S {
     );
   }
 
+  /// `Import (into file)`
+  String get importExportDialogImport {
+    return Intl.message(
+      'Import (into file)',
+      name: 'importExportDialogImport',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Export (from file)`
+  String get importExportDialogExport {
+    return Intl.message(
+      'Export (from file)',
+      name: 'importExportDialogExport',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `File path`
+  String get importExportDialogHeader {
+    return Intl.message(
+      'File path',
+      name: 'importExportDialogHeader',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `List`
   String get createListScreenHint {
     return Intl.message(

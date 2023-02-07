@@ -119,6 +119,7 @@ class _AppBar extends StatelessWidget {
   }
 
   _showImportExportDialog(BuildContext context) {
+    final s = S.of(context);
     showDialog(
       context: context,
       builder: (_) => Dialog(
@@ -129,7 +130,7 @@ class _AppBar extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               const SizedBox(height: 20),
-              Text("File path"),
+              Text(s.importExportDialogHeader),
               Text(context.read<ListOfListsBloc>().fullPath ?? ""),
               const SizedBox(height: 20),
               MaterialTapWrapper(
@@ -140,7 +141,7 @@ class _AppBar extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Import"),
+                      Text(s.importExportDialogImport),
                       Icon(Icons.arrow_downward_sharp, size: 30),
                     ],
                   ),
@@ -155,7 +156,7 @@ class _AppBar extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Export"),
+                      Text(s.importExportDialogExport),
                       Icon(Icons.arrow_upward_sharp, size: 30),
                     ],
                   ),

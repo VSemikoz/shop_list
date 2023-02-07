@@ -1,5 +1,8 @@
 {
   "listOfListsScreenAppBar": "Списки",
+  "importExportDialogImport": "Импорт (в файл)",
+  "importExportDialogExport": "Експорт (из файла)",
+  "importExportDialogHeader": "Полный путь",
   "createListScreenHint": "Имя списка",
   "categoryListScreenAppBar": "Категории",
   "editCategoryHint": "Имя категории",
@@ -14,7 +17,6 @@
   "editProductTotalPriceHint": "Цена всего",
   "editProductPriceDescHint": "Валюта",
   "favoriteScreenAppBar": "Избранное",
-
   "bucketScreenAppBar": "Корзина",
   "commonAddButton": "Добавить",
   "commonCancelButton": "Отменить",

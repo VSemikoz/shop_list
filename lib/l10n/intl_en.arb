@@ -1,5 +1,8 @@
 {
   "listOfListsScreenAppBar": "Lists",
+  "importExportDialogImport": "Import (into file)",
+  "importExportDialogExport": "Export (from file)",
+  "importExportDialogHeader": "File path",
   "createListScreenHint": "List",
   "categoryListScreenAppBar": "Categories",
   "editCategoryHint": "Category",
