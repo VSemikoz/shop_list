@@ -118,10 +118,61 @@ class _AppBar extends StatelessWidget {
     context.read<ListOfListsBloc>().add(ListOfListsEvent.export());
   }
 
+  _showImportExportDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (_) => Dialog(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const SizedBox(height: 20),
+              Text("File path"),
+              Text(context.read<ListOfListsBloc>().fullPath ?? ""),
+              const SizedBox(height: 20),
+              MaterialTapWrapper(
+                onPressed: () => _export(context),
+                radius: Radius.zero,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 20.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("Import"),
+                      Icon(Icons.arrow_downward_sharp, size: 30),
+                    ],
+                  ),
+                ),
+              ),
+              Divider(),
+              MaterialTapWrapper(
+                onPressed: () => _import(context),
+                radius: Radius.zero,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 20.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("Export"),
+                      Icon(Icons.arrow_upward_sharp, size: 30),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+    context.read<ListOfListsBloc>().add(ListOfListsEvent.export());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 80,
+      height: 120,
       padding: EdgeInsets.all(16),
       color: context.colorTheme.primary.light,
       child: Row(
@@ -132,12 +183,8 @@ class _AppBar extends StatelessWidget {
             style: context.textStyle.headlineLarge,
           ),
           MaterialTapWrapper(
-            onPressed: () => _export(context),
-            child: Icon(Icons.arrow_downward_sharp, size: 30),
-          ),
-          MaterialTapWrapper(
-            onPressed: () => _import(context),
-            child: Icon(Icons.arrow_upward_sharp, size: 30),
+            onPressed: () => _showImportExportDialog(context),
+            child: Icon(Icons.published_with_changes, size: 30),
           ),
           MaterialTapWrapper(
             onPressed: () => _changeVariant(context),

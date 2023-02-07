@@ -24,7 +24,12 @@ class ListOfListsBloc extends Bloc<ListOfListsEvent, ListOfListsState> {
   ListViewVariant currVariant = ListViewVariant.row;
   final List<ListEntry> currentLists = [];
 
+  String? fullPath;
+
   _onInit(ListOfListsInit event, Emitter emitter) async {
+    useCase.getFullImportExportPath(_defaultImportFileName).then(
+          (value) => fullPath = value,
+        );
     await refreshLists();
     emitter(ListOfListsSuccess(variant: currVariant, lists: [...currentLists]));
   }

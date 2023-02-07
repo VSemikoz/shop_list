@@ -16,6 +16,8 @@ abstract class ListOfListsUseCaseBase {
   Future<void> export(String path);
 
   Future<void> import(String path);
+
+  Future<String> getFullImportExportPath(String path);
 }
 
 @Injectable(as: ListOfListsUseCaseBase)
@@ -64,5 +66,10 @@ class ListOfListsUseCase implements ListOfListsUseCaseBase {
     await productRepository.importNewProducts(data.products);
     await listRepository.importNewLists(data.lists);
     await categoryRepository.importNewCategories(data.categories);
+  }
+
+  @override
+  Future<String> getFullImportExportPath(String path) {
+    return importExportDataRepository.getFilePath(path);
   }
 }

@@ -11,22 +11,27 @@ abstract class ImportExportDataRepositoryBase {
   Future<ExportData?> importDataFromPath(String path);
 
   Future<void> exportDataFromPath(String path, ExportData data);
+
+  Future<String> getFilePath(String path);
 }
 
 @Injectable(as: ImportExportDataRepositoryBase)
 class ImportExportDataRepository implements ImportExportDataRepositoryBase {
   @override
+  Future<String> getFilePath(String path) async {
+    final localPath = await _localPath;
+    return "$localPath/$path";
+  }
+
+  @override
   Future<ExportData?> importDataFromPath(String path) async {
     try {
-      final localPath = await _localPath;
-      if (localPath == null) {
-        throw Exception("Cant find folder");
-      }
-      final file = await _getFile("$localPath/$path");
+      final fullPath = await getFilePath(path);
+      final file = await _getFile(fullPath);
       final isExist = await file.exists();
 
       if (!isExist) {
-        throw Exception("Cant find path $localPath/$path");
+        throw Exception("Cant find path $fullPath");
       }
 
       final contents = await file.readAsString();
@@ -42,15 +47,12 @@ class ImportExportDataRepository implements ImportExportDataRepositoryBase {
   @override
   Future<void> exportDataFromPath(String path, ExportData data) async {
     try {
-      final localPath = await _localPath;
-      if (localPath == null) {
-        throw Exception("Cant find folder");
-      }
-      final file = await _getFile("$localPath/$path");
+      final fullPath = await getFilePath(path);
+      final file = await _getFile(fullPath);
       final isExist = await file.exists();
 
       if (!isExist) {
-        throw Exception("Cant find path $localPath/$path");
+        await file.create(recursive: true);
       }
 
       final Map<String, dynamic> content = data.toMap();
@@ -61,12 +63,12 @@ class ImportExportDataRepository implements ImportExportDataRepositoryBase {
     }
   }
 
-  Future<String?> get _localPath async {
+  Future<String> get _localPath async {
     final directory = Platform.isAndroid
-        ? await getExternalStorageDirectory()
+        ? await getApplicationSupportDirectory()
         : await getApplicationDocumentsDirectory();
 
-    return directory?.path;
+    return directory.path;
   }
 
   Future<File> _getFile(String path) async {

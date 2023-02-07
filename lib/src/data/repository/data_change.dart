@@ -37,7 +37,10 @@ class DataChangeRepository implements DataChangeRepositoryBase {
 
   DataChangeRepository({
     required this.dataBase,
-  });
+  }){
+    notifyFavoriteCount();
+    notifyBucketPerListCount();
+  }
 
   void notifyBucketPerListCount() async {
     final bucket = await dataBase.getReadyOrNeed();
