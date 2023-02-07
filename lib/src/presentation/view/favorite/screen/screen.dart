@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_list/src/common/providers/theme/theme.dart';
 import 'package:shop_list/src/presentation/view/favorite/bloc/favorite.dart';
 
+import '../../../../../generated/l10n.dart';
 import '../../../../domain/models/product.dart';
 import '../../../ui/components/builder/product_list_builder.dart';
 import '../../../ui/components/item/product_item.dart';
@@ -55,7 +56,7 @@ class _AppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      "Favorite",
+      S.of(context).favoriteScreenAppBar,
       style: context.textStyle.headlineMedium,
     );
   }

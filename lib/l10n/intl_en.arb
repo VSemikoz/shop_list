@@ -13,6 +13,8 @@
   "editProductPriceHint": "Price",
   "editProductTotalPriceHint": "Total price",
   "editProductPriceDescHint": "Price unit",
+  "favoriteScreenAppBar": "Favorite",
+  "bucketScreenAppBar": "Bucket",
   "commonAddButton": "Add",
   "commonCancelButton": "Cancel",
   "commonEditButton": "Edit",

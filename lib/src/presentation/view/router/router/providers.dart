@@ -160,9 +160,11 @@ class EditCategoryTransaction {
 
 class ListDetailsTransaction {
   final ListEntry entry;
+  final Function() onListUpdate;
 
   const ListDetailsTransaction({
     required this.entry,
+    required this.onListUpdate,
   });
 }
 

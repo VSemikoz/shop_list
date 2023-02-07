@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "bucketScreenAppBar": MessageLookupByLibrary.simpleMessage("Корзина"),
         "categoryListScreenAppBar":
             MessageLookupByLibrary.simpleMessage("Категории"),
         "commonAddButton": MessageLookupByLibrary.simpleMessage("Добавить"),
@@ -50,6 +51,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "editProductPriceHint": MessageLookupByLibrary.simpleMessage("Цена"),
         "editProductTotalPriceHint":
             MessageLookupByLibrary.simpleMessage("Цена всего"),
+        "favoriteScreenAppBar":
+            MessageLookupByLibrary.simpleMessage("Избранное"),
         "listOfListsScreenAppBar":
             MessageLookupByLibrary.simpleMessage("Списки")
       };

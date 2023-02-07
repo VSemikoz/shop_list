@@ -200,7 +200,12 @@ class _ListItemRow extends StatelessWidget {
         onPressed: () {
           context.read<RouterBloc>().add(
                 RouterEvent.listDetails(
-                  transaction: ListDetailsTransaction(entry: entry),
+                  transaction: ListDetailsTransaction(
+                    entry: entry,
+                    onListUpdate: () => context.read<ListOfListsBloc>().add(
+                          ListOfListsEvent.init(),
+                        ),
+                  ),
                 ),
               );
         },
@@ -250,7 +255,12 @@ class _ListItemBlock extends StatelessWidget {
         onPressed: () {
           context.read<RouterBloc>().add(
                 RouterEvent.listDetails(
-                  transaction: ListDetailsTransaction(entry: entry),
+                  transaction: ListDetailsTransaction(
+                    entry: entry,
+                    onListUpdate: () => context.read<ListOfListsBloc>().add(
+                          ListOfListsEvent.init(),
+                        ),
+                  ),
                 ),
               );
         },

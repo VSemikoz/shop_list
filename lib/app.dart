@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:overlay_support/overlay_support.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_list/src/common/injection/injection.dart';
+import 'package:shop_list/src/common/providers/counter/provider.dart';
 import 'package:shop_list/src/common/providers/localization.dart';
 import 'package:shop_list/src/common/providers/theme/provider.dart';
 import 'package:shop_list/src/common/providers/theme/theme.dart';
@@ -73,6 +74,9 @@ class _AppMultiProvider extends StatelessWidget {
         ),
         ChangeNotifierProvider<LocalizationProvider>(
           create: (_) => getIt<LocalizationProvider>(),
+        ),
+        ChangeNotifierProvider<CounterProvider>(
+          create: (_) => getIt<CounterProvider>(),
         ),
       ],
       child: child,

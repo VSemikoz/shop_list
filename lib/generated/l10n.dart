@@ -190,6 +190,26 @@ class S {
     );
   }
 
+  /// `Favorite`
+  String get favoriteScreenAppBar {
+    return Intl.message(
+      'Favorite',
+      name: 'favoriteScreenAppBar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bucket`
+  String get bucketScreenAppBar {
+    return Intl.message(
+      'Bucket',
+      name: 'bucketScreenAppBar',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Add`
   String get commonAddButton {
     return Intl.message(

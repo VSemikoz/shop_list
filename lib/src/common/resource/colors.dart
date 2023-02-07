@@ -62,8 +62,8 @@ class AppLightColors {
   );
   static const MainColorPack error = const MainColorPack(
     light: Color(0xFFEF7979),
-    dark: Color(0xFFEB5757),
-    main: Color(0xFFBC4646),
+    dark: Color(0xFFF80606),
+    main: Color(0xFFEB5757),
   );
   static const MainColorPack warning = const MainColorPack(
     light: Color(0xFFF5AD6E),

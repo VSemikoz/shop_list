@@ -281,7 +281,7 @@ class _ProductStatusIcon extends StatelessWidget {
           builder: (context) {
             switch (status) {
               case ProductStatus.need:
-                return _StatusIcon(mainColor: context.colorTheme.error.dark);
+                return _StatusIcon(mainColor: context.colorTheme.error.main);
               case ProductStatus.ready:
                 return _StatusIcon(mainColor: context.colorTheme.success.light);
               case ProductStatus.saved:

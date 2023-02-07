@@ -124,9 +124,11 @@ class ListDetailsBloc extends Bloc<ListDetailsEvent, ListDetailsState> {
     currentProducts.addAll(products);
     list = await useCase.getList(list.id);
     emitter(_makeSuccessState(currentProducts));
+    transaction.onListUpdate();
   }
 
   _onDeleteListSuccess(ListDetailsOnDeleteListSuccess event, Emitter emitter) {
+    transaction.onListUpdate();
     router.add(RouterEvent.pop());
   }
 

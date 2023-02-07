@@ -22,7 +22,6 @@ class ImportExportDataRepository implements ImportExportDataRepositoryBase {
       if (localPath == null) {
         throw Exception("Cant find folder");
       }
-      print("$localPath/$path");
       final file = await _getFile("$localPath/$path");
       final isExist = await file.exists();
 

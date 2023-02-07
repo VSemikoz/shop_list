@@ -13,6 +13,9 @@
   "editProductPriceHint": "Цена",
   "editProductTotalPriceHint": "Цена всего",
   "editProductPriceDescHint": "Валюта",
+  "favoriteScreenAppBar": "Избранное",
+
+  "bucketScreenAppBar": "Корзина",
   "commonAddButton": "Добавить",
   "commonCancelButton": "Отменить",
   "commonEditButton": "Изменить",
