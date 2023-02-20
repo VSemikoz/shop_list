@@ -20,6 +20,9 @@ class ImportExportDataRepository implements ImportExportDataRepositoryBase {
   @override
   Future<String> getFilePath(String path) async {
     final localPath = await _localPath;
+    if (localPath == null || localPath.isEmpty) {
+      throw Exception("path not found path: $localPath\nplatform: ${Platform.environment},");
+    }
     return "$localPath/$path";
   }
 
@@ -63,12 +66,12 @@ class ImportExportDataRepository implements ImportExportDataRepositoryBase {
     }
   }
 
-  Future<String> get _localPath async {
+  Future<String?> get _localPath async {
     final directory = Platform.isAndroid
         ? await getExternalStorageDirectory()
         : await getApplicationDocumentsDirectory();
 
-    return directory!.path;//TODO
+    return directory?.path;
   }
 
   Future<File> _getFile(String path) async {
