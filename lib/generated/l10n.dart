@@ -60,20 +60,20 @@ class S {
     );
   }
 
-  /// `Import (into file)`
+  /// `Import (from file)`
   String get importExportDialogImport {
     return Intl.message(
-      'Import (into file)',
+      'Import (from file)',
       name: 'importExportDialogImport',
       desc: '',
       args: [],
     );
   }
 
-  /// `Export (from file)`
+  /// `Export (into file)`
   String get importExportDialogExport {
     return Intl.message(
-      'Export (from file)',
+      'Export (into file)',
       name: 'importExportDialogExport',
       desc: '',
       args: [],

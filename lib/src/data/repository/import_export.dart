@@ -36,8 +36,8 @@ class ImportExportDataRepository implements ImportExportDataRepositoryBase {
 
       final contents = await file.readAsString();
       final data = json.decode(contents);
-      final exported = ExportData.fromMap(data);
-      return exported;
+      final imported = ExportData.fromMap(data);
+      return imported;
     } catch (e, st) {
       Log().writer.log(e, st.toString());
       return null;
@@ -65,10 +65,10 @@ class ImportExportDataRepository implements ImportExportDataRepositoryBase {
 
   Future<String> get _localPath async {
     final directory = Platform.isAndroid
-        ? await getApplicationSupportDirectory()
+        ? await getExternalStorageDirectory()
         : await getApplicationDocumentsDirectory();
 
-    return directory.path;
+    return directory!.path;//TODO
   }
 
   Future<File> _getFile(String path) async {

@@ -111,11 +111,11 @@ class _AppBar extends StatelessWidget {
   }
 
   _export(BuildContext context) {
-    context.read<ListOfListsBloc>().add(ListOfListsEvent.import());
+    context.read<ListOfListsBloc>().add(ListOfListsEvent.export());
   }
 
   _import(BuildContext context) {
-    context.read<ListOfListsBloc>().add(ListOfListsEvent.export());
+    context.read<ListOfListsBloc>().add(ListOfListsEvent.import());
   }
 
   _showImportExportDialog(BuildContext context) {
@@ -134,7 +134,7 @@ class _AppBar extends StatelessWidget {
               Text(context.read<ListOfListsBloc>().fullPath ?? ""),
               const SizedBox(height: 20),
               MaterialTapWrapper(
-                onPressed: () => _export(context),
+                onPressed: () => _import(context),
                 radius: Radius.zero,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 20.0),
@@ -149,7 +149,7 @@ class _AppBar extends StatelessWidget {
               ),
               Divider(),
               MaterialTapWrapper(
-                onPressed: () => _import(context),
+                onPressed: () => _export(context),
                 radius: Radius.zero,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 20.0),
@@ -167,7 +167,6 @@ class _AppBar extends StatelessWidget {
         ),
       ),
     );
-    context.read<ListOfListsBloc>().add(ListOfListsEvent.export());
   }
 
   @override

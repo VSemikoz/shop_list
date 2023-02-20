@@ -54,11 +54,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "favoriteScreenAppBar":
             MessageLookupByLibrary.simpleMessage("Избранное"),
         "importExportDialogExport":
-            MessageLookupByLibrary.simpleMessage("Експорт (из файла)"),
+            MessageLookupByLibrary.simpleMessage("Експорт (в файл)"),
         "importExportDialogHeader":
             MessageLookupByLibrary.simpleMessage("Полный путь"),
         "importExportDialogImport":
-            MessageLookupByLibrary.simpleMessage("Импорт (в файл)"),
+            MessageLookupByLibrary.simpleMessage("Импорт (из файла)"),
         "listOfListsScreenAppBar":
             MessageLookupByLibrary.simpleMessage("Списки")
       };

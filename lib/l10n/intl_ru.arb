@@ -1,7 +1,7 @@
 {
   "listOfListsScreenAppBar": "Списки",
-  "importExportDialogImport": "Импорт (в файл)",
-  "importExportDialogExport": "Експорт (из файла)",
+  "importExportDialogImport": "Импорт (из файла)",
+  "importExportDialogExport": "Експорт (в файл)",
   "importExportDialogHeader": "Полный путь",
   "createListScreenHint": "Имя списка",
   "categoryListScreenAppBar": "Категории",
